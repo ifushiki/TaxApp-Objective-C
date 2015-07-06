@@ -28,6 +28,7 @@
 {
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     // Insert code here to initialize your application
     if (self.tableView) {
         self.tableView.delegate = self;
@@ -145,6 +146,7 @@
 - (void) loadData {
     // Form the query.
     NSString *query = @"select * from peopleInfo";
+//    NSString *query = @"select * from age_stats";
     
     // Get the results.
     if (self.arrPeopleInfo != nil) {
