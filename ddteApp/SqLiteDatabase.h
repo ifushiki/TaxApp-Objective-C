@@ -33,6 +33,10 @@ namespace SqLite {
          * @throw SQLite::Exception in case of error
          */
         Database(const std::string& apFilename);
+        
+        sqlite3* getDBHandle() {
+            return fSQLite;
+        }
 
         /**
          * @brief Close the SQLite database connection.
@@ -44,6 +48,12 @@ namespace SqLite {
          */
         virtual ~Database() noexcept; // nothrow
         
+        void setQuery(const std::string& query);
+        Query* getQuery() const
+        {
+            return fQuery;
+        }
+
         /**
          * @brief Shortcut to test if a table exists.
          *

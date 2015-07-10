@@ -34,6 +34,10 @@ public:
      * @brief Finalize and unregister the SQL query from the SQLite Database Connection.
      */
     virtual ~Query() noexcept; // nothrow
+    
+    sqlite3_stmt* getStatment() const {
+        return fStmt;
+    }
 
     /**
      * @brief Reset the statement to make it ready for a new execution.

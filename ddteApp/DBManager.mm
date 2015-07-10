@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Fushiki, Ikko. All rights reserved.
 //
 
+#import <iostream>
 #import <sqlite3.h>
 #import "DBManager.h"
 #import "SqLite.h"
@@ -17,10 +18,18 @@
 @property (nonatomic, strong) NSMutableArray *arrResults;
 
 - (void) copyDatabaseIntoDocumentsDirectory;
+- (void) clearArrays;
+
+// C version
 - (void) runQuery:(const char *) query isQueryExecutale:(BOOL) queryExecutable;
 - (void) retrieveData:(sqlite3_stmt *) compiledStatement;
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database;
-- (void) clearArrays;
+
+// C++ version
+- (void) runQueryCpp:(const char *)query isQueryExecutale:(BOOL)queryExecutable;
+- (void) retrieveDataCpp:(SqLite::Query*) query;
+- (void) updateDataCpp:(SqLite::Query *) query inDatabase:(SqLite::Database *) database;
+
 
 @end
 
@@ -98,6 +107,14 @@
     }
 }
 
+// This load the data from database.
+- (void) retrieveDataCpp:(SqLite::Query*) query {
+    // Declare an array to keep the data for each fetched row.
+    if (query) {
+        [self retrieveData:query->getStatment()];
+    }
+}
+
 // This inserts or updates the database.
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database
 {
@@ -113,6 +130,14 @@
     else {
         // If could not execute the query show the error message on the debugger.
         NSLog(@"DB Error: %s", sqlite3_errmsg(sqlite3Database));
+    }
+}
+
+// This inserts or updates the database.
+- (void) updateDataCpp:(SqLite::Query *) query inDatabase:(SqLite::Database *) database
+{
+    if (query && database) {
+        [self updateData:query->getStatment() inDatabase:database->getDBHandle()];
     }
 }
 
@@ -177,10 +202,35 @@
     sqlite3_close(sqlite3Database);
 }
 
+- (void) runQueryCpp:(const char *)query isQueryExecutale:(BOOL)queryExecutable {
+    // Set the database file path.
+    NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
+    
+    // Clear internal arrays
+    [self clearArrays];
+    
+    // Create a sqlite object.
+    // Open the database.
+    std::string dbFilename = [databasePath UTF8String];
+    SqLite::Database database(dbFilename);
+    std::string queryStr = query;
+    database.setQuery(queryStr);
+
+    if (!queryExecutable){
+        // In this case data must be loaded from the database.
+        [self retrieveDataCpp:database.getQuery()];
+        
+    }
+    else {
+        // This is the case of an executable query (insert, update, ...).
+        [self updateDataCpp:database.getQuery() inDatabase:&database];
+    }
+}
+
 - (NSArray *) loadDataFromDB:(NSString *)query {
     // Run the query and indicate that it is not executable.
     // The query string is converted to a char* obect.
-    [self runQuery:[query UTF8String] isQueryExecutale:NO];
+    [self runQueryCpp:[query UTF8String] isQueryExecutale:NO];
     
     // Return the loaded results.
     return (NSArray *) self.arrResults;
@@ -188,6 +238,7 @@
 
 - (void) executeQuery:(NSString *)query {
     // Run the query and indicate that it is executable.
-    [self runQuery:[query UTF8String] isQueryExecutale:YES];
+    [self runQueryCpp:[query UTF8String] isQueryExecutale:YES];
 }
+
 @end

@@ -16,7 +16,8 @@ namespace SqLite {
 
 Database::Database(const std::string& apFilename) :
     fSQLite(NULL),
-    fFilename(apFilename)
+    fFilename(apFilename),
+    fQuery(NULL)
 {
     const int ret = sqlite3_open(apFilename.c_str(), &fSQLite);
     if (ret != SQLITE_OK)
@@ -32,7 +33,10 @@ Database::Database(const std::string& apFilename) :
 // Close the SQLite database connection.
 Database::~Database() noexcept // nothrow
 {
-    const int ret = sqlite3_close(fSQLite);    
+    if (fQuery)
+        delete fQuery;
+
+    const int ret = sqlite3_close(fSQLite);
     assert(ret == SQLITE_OK);
 
     /*
@@ -41,6 +45,16 @@ Database::~Database() noexcept // nothrow
     SQLITECPP_ASSERT(SQLITE_OK == ret, "database is locked");  // See SQLITECPP_ENABLE_ASSERT_HANDLER
      */
 }
+
+void Database::setQuery(const std::string& query)
+{
+    if (fQuery) {
+        delete fQuery;
+        fQuery = NULL;
+    }
+    fQuery = new Query(fSQLite, query);
+}
+
 
 #if 0
     bool Database::tableExists(const std::string& aTableName)
