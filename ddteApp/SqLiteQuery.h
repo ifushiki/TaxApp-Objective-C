@@ -12,7 +12,8 @@
 #include <iostream>
 #include <map>
 #include <sqlite3.h>
-//#include "SqLiteDatabase.h"
+#include "SqLiteValue.h"
+#include "SqLiteException.h"
 
 namespace SqLite {
 
@@ -143,13 +144,116 @@ public:
      */
     bool nextRow();
 
+    /**
+     * @brief Return a copy of the column data specified by its index
+     *
+     *  Can be used to access the data of the current row of result when applicable,
+     * while the executeStep() method returns true.
+     *
+     *  Throw an exception if there is no row to return a Column from:
+     * - if provided index is out of bound
+     * - before any executeStep() call
+     * - after the last executeStep() returned false
+     * - after a reset() call
+     *
+     *  Throw an exception if the specified index is out of the [0, getColumnCount()) range.
+     *
+     * @param[in] aIndex    Index of the column, starting at 0
+     *
+     * @note    This method is not const, reflecting the fact that the returned Column object will
+     *          share the ownership of the underlying sqlite3_stmt.
+     *
+     * @warning The resulting Column object must not be memorized "as-is".
+     *          Is is only a wrapper around the current result row, so it is only valid
+     *          while the row from the Statement remains valid, that is only until next executeStep() call.
+     *          Thus, you should instead extract immediately its data (getInt(), getText()...)
+     *          and use or copy this data for any later usage.
+     */
+    Value  getColumnAtInex(const int aIndex);
+    
+    /**
+     * @brief Return a copy of the column data specified by its column name (less efficient than using an index)
+     *
+     *  Can be used to access the data of the current row of result when applicable,
+     * while the executeStep() method returns true.
+     *
+     *  Throw an exception if there is no row to return a Column from :
+     * - if provided name is not one of the aliased column names
+     * - before any executeStep() call
+     * - after the last executeStep() returned false
+     * - after a reset() call
+     *
+     *  Throw an exception if the specified name is not an on of the aliased name of the columns in the result.
+     *
+     * @param[in] apName   Aliased name of the column, that is, the named specified in the query (not the original name)
+     *
+     * @note    Uses a map of column names to indexes, build on first call.
+     *
+     * @note    This method is not const, reflecting the fact that the returned Column object will
+     *          share the ownership of the underlying sqlite3_stmt.
+     *
+     * @warning The resulting Column object must not be memorized "as-is".
+     *          Is is only a wrapper around the current result row, so it is only valid
+     *          while the row from the Statement remains valid, that is only until next executeStep() call.
+     *          Thus, you should instead extract immediately its data (getInt(), getText()...)
+     *          and use or copy this data for any later usage.
+     */
+    Value  getColumnAtKey(const char* apName);
+    
+    /**
+     * @brief Test if the column value is NULL
+     *
+     * @param[in] aIndex    Index of the column, starting at 0
+     *
+     * @return true if the column value is NULL
+     *
+     *  Throw an exception if the specified index is out of the [0, getColumnCount()) range.
+     */
+    bool isColumnNull(const int aIndex) const;
+    
+    /**
+     * @brief Return a pointer to the named assigned to the specified result column (potentially aliased)
+     *
+     * @see getColumnOriginName() to get original column name (not aliased)
+     *
+     *  Throw an exception if the specified index is out of the [0, getColumnCount()) range.
+     */
+    const char* getColumnName(const int aIndex) const;
+
 
 private:
+    /**
+     * @brief Check if a return code equals SQLITE_OK, else throw a SQLite::Exception with the SQLite error message
+     *
+     * @param[in] SQLite return code to test against the SQLITE_OK expected value
+     */
     inline void check(const int result) const
     {
         if (result != SQLITE_OK)
         {
-            //            throw Exception(sqlite3_errmsg(fStmt.get());
+            throw SqLite::Exception(sqlite3_errmsg(fDBHandle));
+        }
+    }
+    
+    /**
+     * @brief Check if there is a row of result returnes by executeStep(), else throw a SQLite::Exception.
+     */
+    inline void checkRow() const
+    {
+        if (!fOk)
+        {
+            throw Exception("No row to get a column from. executeStep() was not called, or returned false.");
+        }
+    }
+    
+    /**
+     * @brief Check if there is a Column index is in the range of columns in the result.
+     */
+    inline void checkIndex(const int aIndex) const
+    {
+        if ((aIndex < 0) || (aIndex >= fColumnCount))
+        {
+            throw Exception("Column index out of range.");
         }
     }
 

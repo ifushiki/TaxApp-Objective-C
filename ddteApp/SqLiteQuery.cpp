@@ -73,6 +73,56 @@ namespace SqLite {
         return fOk; // true only if one row is accessible by getColumn(N)
     }
 
+    // Return a copy of the column data specified by its index starting at 0
+    // (use the Column copy-constructor)
+    Value Query::getColumnAtInex(const int aIndex)
+    {
+        checkRow();
+        checkIndex(aIndex);
+        
+        // Share the Statement Object handle with the new Column created
+        return Value(fStmt, aIndex);
+    }
+    
+    // Return a copy of the column data specified by its column name starting at 0
+    // (use the Column copy-constructor)
+    Value Query::getColumnAtKey(const char* apName)
+    {
+        checkRow();
+        
+        if (fColumnNames.empty())
+        {
+            for (int i = 0; i < fColumnCount; ++i)
+            {
+                const char* pName = sqlite3_column_name(fStmt, i);
+                fColumnNames[pName] = i;
+            }
+        }
+        
+        const TColumnNames::const_iterator iIndex = fColumnNames.find(apName);
+        if (iIndex == fColumnNames.end())
+        {
+            throw Exception("Unknown column name.");
+        }
+        
+        // Share the Statement Object handle with the new Column created
+        return Value(fStmt, (*iIndex).second);
+    }
+    
+    // Test if the column is NULL
+    bool Query::isColumnNull(const int aIndex) const
+    {
+        checkRow();
+        checkIndex(aIndex);
+        return (sqlite3_column_type(fStmt, aIndex) == SqType_NULL);
+    }
+    
+    // Return the named assigned to the specified result column (potentially aliased)
+    const char* Query::getColumnName(const int aIndex) const
+    {
+        checkIndex(aIndex);
+        return sqlite3_column_name(fStmt, aIndex);
+    }
     
     // Reset the statement to make it ready for a new execution
     void Query::reset()
