@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <sqlite3.h>
+#include "SqLiteQuery.h"
 
 namespace SqLite {
     class Database {
@@ -61,6 +62,7 @@ namespace SqLite {
 private:
         sqlite3*    fSQLite;   //!< Pointer to SQLite Database Connection Handle
         std::string fFilename;  //!< UTF-8 filename used to open the database
+        Query*      fQuery;     //! The current query.
     };
 }
 

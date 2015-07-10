@@ -10,18 +10,20 @@
 #include <assert.h>
 #include <sqlite3.h>
 #include "SqLiteQuery.h"
+#include "SqLiteException.h"
 
 namespace SqLite {
     
     // Compile and register the SQL query for the provided SQLite Database Connection
-    Query::Query(Database &database, const std::string& aQuery) :
+    Query::Query(sqlite3* dbHandle, const std::string& aQuery) :
+    fDBHandle(dbHandle),
     fQueryStr(aQuery),
     fColumnCount(0),
     fOk(false),
     fDone(false)
     {
         sqlite3_stmt *statement;
-        int result = sqlite3_prepare_v2(database.fSQLite, aQuery.c_str(), -1, &statement, NULL);
+        int result = sqlite3_prepare_v2(dbHandle, aQuery.c_str(), -1, &statement, NULL);
         
         if (result == SQLITE_OK) {
             fStmt = statement;
@@ -33,6 +35,12 @@ namespace SqLite {
     Query::~Query() noexcept // nothrow
     {
         // the finalization will be done by the destructor of the last shared pointer
+        if (fStmt != NULL) {
+            sqlite3_finalize(fStmt);
+            fStmt = NULL;
+        }
+        
+        // fDBHandle is a weak pointer.  Query object will not release it.
     }
 
     // Execute a step of the query to fetch one row of results
@@ -54,12 +62,12 @@ namespace SqLite {
             {
                 fOk = false;
                 fDone = false;
-//                throw SqLite::Exception(sqlite3_errmsg(fStmt.get()));
+                throw Exception(sqlite3_errmsg(fDBHandle));
             }
         }
         else
         {
-//            throw SqLite::Exception("Statement needs to be reseted.");
+            throw SqLite::Exception("Statement needs to be reseted.");
         }
         
         return fOk; // true only if one row is accessible by getColumn(N)

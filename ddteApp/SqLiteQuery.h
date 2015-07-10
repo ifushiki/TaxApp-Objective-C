@@ -12,7 +12,7 @@
 #include <iostream>
 #include <map>
 #include <sqlite3.h>
-#include "SqLiteDatabase.h"
+//#include "SqLiteDatabase.h"
 
 namespace SqLite {
 
@@ -27,7 +27,7 @@ public:
      *
      * Exception is thrown in case of error, then the Statement object is NOT constructed.
      */
-    Query(Database &database, const std::string& aQuery);
+    Query(sqlite3* dbHandle, const std::string& aQuery);
     
     /**
      * @brief Finalize and unregister the SQL query from the SQLite Database Connection.
@@ -156,8 +156,9 @@ private:
     typedef std::map<std::string, int> TColumnNames;
         
     private:
-        std::string     fQueryStr;         //!< UTF-8 SQL Query
-        sqlite3_stmt    *fStmt;       //!< Shared Pointer to the prepared SQLite Statement Object
+        sqlite3         *fDBHandle;     //! Database object.  This is a weak pointer and Query will not delete it.
+        std::string     fQueryStr;      //!< UTF-8 SQL Query
+        sqlite3_stmt    *fStmt;         //! the prepared SQLite Statement Object
         int             fColumnCount;   //!< Number of columns in the result of the prepared statement
         TColumnNames    fColumnNames;   //!< Map of columns index by name
         bool            fOk;           //!< true when a row has been fetched with executeStep()
