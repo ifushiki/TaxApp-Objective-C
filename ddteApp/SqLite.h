@@ -11,6 +11,10 @@
 
 #include <iostream>
 #include <sqlite3.h>
+#include "SqLiteException.h"
+#include "SqLiteDatabase.h"
+#include "SqLiteQuery.h"
+#include "SqLiteValue.h"
 
 namespace SqLite
 {

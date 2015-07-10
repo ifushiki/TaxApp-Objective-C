@@ -8,6 +8,7 @@
 
 #import <sqlite3.h>
 #import "DBManager.h"
+#import "SqLite.h"
 
 @interface DBManager()
 

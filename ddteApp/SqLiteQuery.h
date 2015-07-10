@@ -227,7 +227,7 @@ private:
      *
      * @param[in] SQLite return code to test against the SQLITE_OK expected value
      */
-    inline void check(const int result) const
+    inline void checkResult(const int result) const
     {
         if (result != SQLITE_OK)
         {
@@ -264,7 +264,7 @@ private:
         std::string     fQueryStr;      //!< UTF-8 SQL Query
         sqlite3_stmt    *fStmt;         //! the prepared SQLite Statement Object
         int             fColumnCount;   //!< Number of columns in the result of the prepared statement
-        TColumnNames    fColumnNames;   //!< Map of columns index by name
+        std::map<std::string, int>   fColumnNames;   //!< Map of columns index by name
         bool            fOk;           //!< true when a row has been fetched with executeStep()
         bool            fDone;         //!< true when the last executeStep() had no more row to fetch
 };

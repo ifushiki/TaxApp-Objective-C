@@ -130,7 +130,7 @@ namespace SqLite {
         fOk = false;
         fDone = false;
         int result = sqlite3_reset(fStmt);
-        assert( result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Clears away all the bindings of a prepared statement.
@@ -139,28 +139,28 @@ namespace SqLite {
         fOk = false;
         fDone = false;
         const int result = sqlite3_clear_bindings(fStmt);
-        assert( result == SQLITE_OK);
+        checkResult(result);
     }
 
     // Bind an int value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
     void Query::bindAtIndex(const int aIndex, const int& aValue)
     {
         const int result = sqlite3_bind_int(fStmt, aIndex, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a 64bits int value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
     void Query::bindAtIndex(const int aIndex, const sqlite3_int64& aValue)
     {
         const int result = sqlite3_bind_int64(fStmt, aIndex, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a double (64bits float) value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
     void Query::bindAtIndex(const int aIndex, const double& aValue)
     {
         const int result = sqlite3_bind_double(fStmt, aIndex, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a string value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -168,21 +168,21 @@ namespace SqLite {
     {
         const int result = sqlite3_bind_text(fStmt, aIndex, aValue.c_str(),
                                           static_cast<int>(aValue.size()), SQLITE_TRANSIENT);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a binary blob value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
     void Query::bindAtIndex(const int aIndex, const void* apValue, const int aSize)
     {
         const int result = sqlite3_bind_blob(fStmt, aIndex, apValue, aSize, SQLITE_TRANSIENT);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a NULL value to a parameter "?", "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
     void Query::unbindAtIndex(const int aIndex)
     {
         const int result = sqlite3_bind_null(fStmt, aIndex);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     
@@ -191,7 +191,7 @@ namespace SqLite {
     {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_int(fStmt, index, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a 64bits int value to a parameter "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -199,7 +199,7 @@ namespace SqLite {
     {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_int64(fStmt, index, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a double (64bits float) value to a parameter "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -207,7 +207,7 @@ namespace SqLite {
     {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_double(fStmt, index, aValue);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a string value to a parameter "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -216,7 +216,7 @@ namespace SqLite {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_text(fStmt, index, aValue.c_str(),
                                           static_cast<int>(aValue.size()), SQLITE_TRANSIENT);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a binary blob value to a parameter "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -224,7 +224,7 @@ namespace SqLite {
     {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_blob(fStmt, index, apValue, aSize, SQLITE_TRANSIENT);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
     
     // Bind a NULL value to a parameter "?NNN", ":VVV", "@VVV" or "$VVV" in the SQL prepared statement
@@ -232,6 +232,6 @@ namespace SqLite {
     {
         const int index = sqlite3_bind_parameter_index(fStmt, aName.c_str());
         const int result = sqlite3_bind_null(fStmt, index);
-        assert(result == SQLITE_OK);
+        checkResult(result);
     }
 }
