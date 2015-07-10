@@ -26,7 +26,7 @@
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database;
 
 // C++ version
-- (void) runQueryCpp:(const char *)query isQueryExecutale:(BOOL)queryExecutable;
+- (void) runQueryCpp:(const std::string&) query isQueryExecutale:(BOOL)queryExecutable;
 - (void) retrieveDataCpp:(SqLite::Query*) query;
 - (void) updateDataCpp:(SqLite::Query *) query inDatabase:(SqLite::Database *) database;
 
@@ -202,7 +202,7 @@
     sqlite3_close(sqlite3Database);
 }
 
-- (void) runQueryCpp:(const char *)query isQueryExecutale:(BOOL)queryExecutable {
+- (void) runQueryCpp:(const std::string&) query isQueryExecutale:(BOOL)queryExecutable {
     // Set the database file path.
     NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     
@@ -213,8 +213,7 @@
     // Open the database.
     std::string dbFilename = [databasePath UTF8String];
     SqLite::Database database(dbFilename);
-    std::string queryStr = query;
-    database.setQuery(queryStr);
+    database.setQuery(query);
 
     if (!queryExecutable){
         // In this case data must be loaded from the database.
