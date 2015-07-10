@@ -8,7 +8,7 @@
 
 
 #include <assert.h>
-#include "SqLite.h"
+#include "SqLiteException.h"
 #include "SqLiteDatabase.h"
 #include "SqLiteQuery.h"
 
