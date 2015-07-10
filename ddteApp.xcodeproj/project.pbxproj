@@ -25,16 +25,6 @@
 		53F7A4AD1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4B51B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4B31B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4B71B44B9900072BB8D /* ddteAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4B61B44B9900072BB8D /* ddteAppTests.m */; };
-		53F7A4CB1B44BA5A0072BB8D /* adwords_dma.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C11B44BA5A0072BB8D /* adwords_dma.txt */; };
-		53F7A4CC1B44BA5A0072BB8D /* age_stats.csv in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C21B44BA5A0072BB8D /* age_stats.csv */; };
-		53F7A4CD1B44BA5A0072BB8D /* age_stats.sql in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C31B44BA5A0072BB8D /* age_stats.sql */; };
-		53F7A4CE1B44BA5A0072BB8D /* ddte-client.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C41B44BA5A0072BB8D /* ddte-client.sqlite3 */; };
-		53F7A4CF1B44BA5A0072BB8D /* ddte-sqlite.sh in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C51B44BA5A0072BB8D /* ddte-sqlite.sh */; };
-		53F7A4D01B44BA5A0072BB8D /* state_abbrev.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C61B44BA5A0072BB8D /* state_abbrev.txt */; };
-		53F7A4D11B44BA5A0072BB8D /* zip2DMA.py in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C71B44BA5A0072BB8D /* zip2DMA.py */; };
-		53F7A4D21B44BA5A0072BB8D /* zip_code_database.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C81B44BA5A0072BB8D /* zip_code_database.txt */; };
-		53F7A4D31B44BA5A0072BB8D /* zip_dma.scala in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4C91B44BA5A0072BB8D /* zip_dma.scala */; };
-		53F7A4D41B44BA5A0072BB8D /* zip_dma.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4CA1B44BA5A0072BB8D /* zip_dma.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,16 +68,6 @@
 		53F7A4B21B44B9900072BB8D /* ddteAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ddteAppTests-Info.plist"; sourceTree = "<group>"; };
 		53F7A4B41B44B9900072BB8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		53F7A4B61B44B9900072BB8D /* ddteAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ddteAppTests.m; sourceTree = "<group>"; };
-		53F7A4C11B44BA5A0072BB8D /* adwords_dma.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adwords_dma.txt; sourceTree = "<group>"; };
-		53F7A4C21B44BA5A0072BB8D /* age_stats.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = age_stats.csv; sourceTree = "<group>"; };
-		53F7A4C31B44BA5A0072BB8D /* age_stats.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = age_stats.sql; sourceTree = "<group>"; };
-		53F7A4C41B44BA5A0072BB8D /* ddte-client.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ddte-client.sqlite3"; sourceTree = "<group>"; };
-		53F7A4C51B44BA5A0072BB8D /* ddte-sqlite.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "ddte-sqlite.sh"; sourceTree = "<group>"; };
-		53F7A4C61B44BA5A0072BB8D /* state_abbrev.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = state_abbrev.txt; sourceTree = "<group>"; };
-		53F7A4C71B44BA5A0072BB8D /* zip2DMA.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = zip2DMA.py; sourceTree = "<group>"; };
-		53F7A4C81B44BA5A0072BB8D /* zip_code_database.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_code_database.txt; sourceTree = "<group>"; };
-		53F7A4C91B44BA5A0072BB8D /* zip_dma.scala */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_dma.scala; sourceTree = "<group>"; };
-		53F7A4CA1B44BA5A0072BB8D /* zip_dma.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_dma.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +104,6 @@
 		53F7A4801B44B98F0072BB8D = {
 			isa = PBXGroup;
 			children = (
-				53F7A4C01B44BA5A0072BB8D /* outlier */,
 				53F7A4921B44B9900072BB8D /* ddteApp */,
 				53F7A4B01B44B9900072BB8D /* ddteAppTests */,
 				53F7A48B1B44B9900072BB8D /* Frameworks */,
@@ -214,24 +193,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		53F7A4C01B44BA5A0072BB8D /* outlier */ = {
-			isa = PBXGroup;
-			children = (
-				53F7A4C11B44BA5A0072BB8D /* adwords_dma.txt */,
-				53F7A4C21B44BA5A0072BB8D /* age_stats.csv */,
-				53F7A4C31B44BA5A0072BB8D /* age_stats.sql */,
-				53F7A4C41B44BA5A0072BB8D /* ddte-client.sqlite3 */,
-				53F7A4C51B44BA5A0072BB8D /* ddte-sqlite.sh */,
-				53F7A4C61B44BA5A0072BB8D /* state_abbrev.txt */,
-				53F7A4C71B44BA5A0072BB8D /* zip2DMA.py */,
-				53F7A4C81B44BA5A0072BB8D /* zip_code_database.txt */,
-				53F7A4C91B44BA5A0072BB8D /* zip_dma.scala */,
-				53F7A4CA1B44BA5A0072BB8D /* zip_dma.txt */,
-			);
-			name = outlier;
-			path = ../outlier;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,17 +273,7 @@
 				53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */,
 				53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */,
 				53F7A49D1B44B9900072BB8D /* Credits.rtf in Resources */,
-				53F7A4CF1B44BA5A0072BB8D /* ddte-sqlite.sh in Resources */,
-				53F7A4D11B44BA5A0072BB8D /* zip2DMA.py in Resources */,
-				53F7A4D01B44BA5A0072BB8D /* state_abbrev.txt in Resources */,
-				53F7A4CE1B44BA5A0072BB8D /* ddte-client.sqlite3 in Resources */,
-				53F7A4CD1B44BA5A0072BB8D /* age_stats.sql in Resources */,
-				53F7A4D21B44BA5A0072BB8D /* zip_code_database.txt in Resources */,
-				53F7A4CB1B44BA5A0072BB8D /* adwords_dma.txt in Resources */,
-				53F7A4CC1B44BA5A0072BB8D /* age_stats.csv in Resources */,
-				53F7A4D41B44BA5A0072BB8D /* zip_dma.txt in Resources */,
 				53F7A4A31B44B9900072BB8D /* MainMenu.xib in Resources */,
-				53F7A4D31B44BA5A0072BB8D /* zip_dma.scala in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
