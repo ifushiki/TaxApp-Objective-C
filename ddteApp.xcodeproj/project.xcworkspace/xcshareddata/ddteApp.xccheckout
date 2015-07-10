@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2211D1C3-FA86-4DFD-BBEA-0B8E15965E79</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ddteApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B2EC3641A5C31270853B1C3C1E66D17DDB83E683</key>
+		<string>https://github.intuit.com/iat/ddte.git</string>
+		<key>F6053F6D94261C427BC78AED1E1B495723D33F58</key>
+		<string>https://github.intuit.com/iat/ddte-client.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ddteApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B2EC3641A5C31270853B1C3C1E66D17DDB83E683</key>
+		<string>../../..</string>
+		<key>F6053F6D94261C427BC78AED1E1B495723D33F58</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.intuit.com/iat/ddte-client.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F6053F6D94261C427BC78AED1E1B495723D33F58</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B2EC3641A5C31270853B1C3C1E66D17DDB83E683</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F6053F6D94261C427BC78AED1E1B495723D33F58</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ddteApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

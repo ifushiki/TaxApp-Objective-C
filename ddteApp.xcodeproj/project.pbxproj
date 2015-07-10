@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */; };
+		534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */; };
+		534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523261B502EB2005A3BA4 /* SqLite.cpp */; };
 		5346EE141B45A1CA0054E726 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */; };
 		5346EE151B45A1CA0054E726 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE131B45A1CA0054E726 /* libsqlite3.dylib */; };
-		5346EE181B45A21C0054E726 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5346EE171B45A21C0054E726 /* DBManager.m */; };
+		5346EE181B45A21C0054E726 /* DBManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5346EE171B45A21C0054E726 /* DBManager.mm */; };
 		538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5346EE421B45E1D20054E726 /* sampledb.sql */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
@@ -45,10 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteDatabase.cpp; sourceTree = "<group>"; };
+		534522FF1B4E0633005A3BA4 /* SqLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteDatabase.h; sourceTree = "<group>"; };
+		534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteQuery.cpp; sourceTree = "<group>"; };
+		534523231B4EEDF7005A3BA4 /* SqLiteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteQuery.h; sourceTree = "<group>"; };
+		534523251B502E86005A3BA4 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		534523261B502EB2005A3BA4 /* SqLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLite.cpp; sourceTree = "<group>"; };
+		534523271B502EB2005A3BA4 /* SqLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLite.h; sourceTree = "<group>"; };
 		5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5346EE131B45A1CA0054E726 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		5346EE161B45A21C0054E726 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		5346EE171B45A21C0054E726 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		5346EE171B45A21C0054E726 /* DBManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DBManager.mm; sourceTree = "<group>"; };
 		5346EE421B45E1D20054E726 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -157,11 +166,17 @@
 		53F7A4921B44B9900072BB8D /* ddteApp */ = {
 			isa = PBXGroup;
 			children = (
-				5346EE161B45A21C0054E726 /* DBManager.h */,
-				5346EE171B45A21C0054E726 /* DBManager.m */,
+				534523251B502E86005A3BA4 /* DBManager.h */,
+				5346EE171B45A21C0054E726 /* DBManager.mm */,
 				53F7A49E1B44B9900072BB8D /* AppDelegate.h */,
 				53F7A49F1B44B9900072BB8D /* AppDelegate.m */,
 				53F7A4A11B44B9900072BB8D /* MainMenu.xib */,
+				534523261B502EB2005A3BA4 /* SqLite.cpp */,
+				534523271B502EB2005A3BA4 /* SqLite.h */,
+				534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */,
+				534522FF1B4E0633005A3BA4 /* SqLiteDatabase.h */,
+				534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */,
+				534523231B4EEDF7005A3BA4 /* SqLiteQuery.h */,
 				53F7A4A41B44B9900072BB8D /* Images.xcassets */,
 				5346EE411B45DFE00054E726 /* Resources */,
 				53F7A4931B44B9900072BB8D /* Supporting Files */,
@@ -326,8 +341,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5346EE181B45A21C0054E726 /* DBManager.m in Sources */,
+				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
+				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.m in Sources */,
+				534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */,
+				534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */,
 				53F7A4991B44B9900072BB8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
