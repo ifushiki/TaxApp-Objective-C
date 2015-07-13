@@ -7,6 +7,7 @@
 //
 
 #import <iostream>
+#import <vector>
 #import <sqlite3.h>
 #import "DBManager.h"
 #import "SqLite.h"

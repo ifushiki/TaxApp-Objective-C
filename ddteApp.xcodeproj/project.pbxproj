@@ -15,12 +15,15 @@
 		5346EE141B45A1CA0054E726 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */; };
 		5346EE151B45A1CA0054E726 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE131B45A1CA0054E726 /* libsqlite3.dylib */; };
 		5346EE181B45A21C0054E726 /* DBManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5346EE171B45A21C0054E726 /* DBManager.mm */; };
+		5354F8F71B5428A400D9AE50 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354F8F51B5428A400D9AE50 /* libcurl.4.dylib */; };
+		5354F8F81B5428A400D9AE50 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5354F8F61B5428A400D9AE50 /* libcurl.dylib */; };
+		5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5354F8F91B54299200D9AE50 /* CurlTest.cpp */; };
 		538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5346EE421B45E1D20054E726 /* sampledb.sql */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
 		53F7A49D1B44B9900072BB8D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A49B1B44B9900072BB8D /* Credits.rtf */; };
-		53F7A4A01B44B9900072BB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A49F1B44B9900072BB8D /* AppDelegate.m */; };
+		53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A49F1B44B9900072BB8D /* AppDelegate.mm */; };
 		53F7A4A31B44B9900072BB8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4A11B44B9900072BB8D /* MainMenu.xib */; };
 		53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4A41B44B9900072BB8D /* Images.xcassets */; };
 		53F7A4AC1B44B9900072BB8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A4AB1B44B9900072BB8D /* XCTest.framework */; };
@@ -55,6 +58,10 @@
 		5346EE131B45A1CA0054E726 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5346EE171B45A21C0054E726 /* DBManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DBManager.mm; sourceTree = "<group>"; };
 		5346EE421B45E1D20054E726 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
+		5354F8F51B5428A400D9AE50 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = usr/lib/libcurl.4.dylib; sourceTree = SDKROOT; };
+		5354F8F61B5428A400D9AE50 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		5354F8F91B54299200D9AE50 /* CurlTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CurlTest.cpp; sourceTree = "<group>"; };
+		5354F8FA1B54299200D9AE50 /* CurlTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurlTest.h; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -66,7 +73,7 @@
 		53F7A49A1B44B9900072BB8D /* ddteApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ddteApp-Prefix.pch"; sourceTree = "<group>"; };
 		53F7A49C1B44B9900072BB8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		53F7A49E1B44B9900072BB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		53F7A49F1B44B9900072BB8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		53F7A49F1B44B9900072BB8D /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		53F7A4A21B44B9900072BB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		53F7A4A41B44B9900072BB8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		53F7A4AA1B44B9900072BB8D /* ddteAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ddteAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5354F8F71B5428A400D9AE50 /* libcurl.4.dylib in Frameworks */,
+				5354F8F81B5428A400D9AE50 /* libcurl.dylib in Frameworks */,
 				5346EE141B45A1CA0054E726 /* libsqlite3.0.dylib in Frameworks */,
 				5346EE151B45A1CA0054E726 /* libsqlite3.dylib in Frameworks */,
 				53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */,
@@ -129,6 +138,8 @@
 		53F7A48B1B44B9900072BB8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5354F8F51B5428A400D9AE50 /* libcurl.4.dylib */,
+				5354F8F61B5428A400D9AE50 /* libcurl.dylib */,
 				5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */,
 				5346EE131B45A1CA0054E726 /* libsqlite3.dylib */,
 				53F7A48C1B44B9900072BB8D /* Cocoa.framework */,
@@ -152,9 +163,11 @@
 			isa = PBXGroup;
 			children = (
 				534523251B502E86005A3BA4 /* DBManager.h */,
+				5354F8F91B54299200D9AE50 /* CurlTest.cpp */,
+				5354F8FA1B54299200D9AE50 /* CurlTest.h */,
 				5346EE171B45A21C0054E726 /* DBManager.mm */,
 				53F7A49E1B44B9900072BB8D /* AppDelegate.h */,
-				53F7A49F1B44B9900072BB8D /* AppDelegate.m */,
+				53F7A49F1B44B9900072BB8D /* AppDelegate.mm */,
 				53F7A4A11B44B9900072BB8D /* MainMenu.xib */,
 				534523261B502EB2005A3BA4 /* SqLite.cpp */,
 				534523271B502EB2005A3BA4 /* SqLite.h */,
@@ -305,10 +318,11 @@
 				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
 				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
 				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
-				53F7A4A01B44B9900072BB8D /* AppDelegate.m in Sources */,
+				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,
 				534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */,
 				534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */,
 				53F7A4991B44B9900072BB8D /* main.m in Sources */,
+				5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */,
 				534523721B5062A7005A3BA4 /* SqLiteValue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

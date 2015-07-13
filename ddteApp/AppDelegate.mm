@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Fushiki, Ikko. All rights reserved.
 //
 
+#import <iostream>
 #import "AppDelegate.h"
 #import "DBManager.h"
+#import <curl/curl.h>
+#import "CurlTest.h"
 
 @interface AppDelegate()
 
@@ -19,6 +22,8 @@
 - (void) loadInfoToEdit;
 - (void) updateDetailFields;
 - (void) clearDetailFields;
+- (void) doCurlTest;
+
 
 @end
 
@@ -35,6 +40,9 @@
         self.tableView.dataSource = self;
         
         [self loadData];
+        
+        // Testing curl methods.
+        [self doCurlTest];
     }
     self.recordIDToEdit = -1;
     [self updateDetailFields];
@@ -47,6 +55,27 @@
 - (CGFloat) tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
     return 30.0;
+    
+}
+
+- (void) doCurlTest
+{
+    CurlTest curl;
+    NSLog(@"======= Testing Curl =========");
+    
+//    if (curly.Fetch("http://www.dahu.co.uk") == CURLE_OK){
+    if (curl.Fetch("http://www.cnn.com") == CURLE_OK){
+        
+        std::cout << "status: " << curl.HttpStatus() << std::endl;
+        std::cout << "type: " << curl.Type() << std::endl;
+        std::vector<std::string> headers = curl.Headers();
+        
+        for(std::vector<std::string>::iterator it = headers.begin();
+            it != headers.end(); it++)
+            std::cout << "Header: " << (*it) << std::endl;
+        
+        std::cout << "Content:\n" << curl.Content() << std::endl;
+    }
     
 }
 
