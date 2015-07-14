@@ -24,5 +24,6 @@
 - (IBAction) saveRecord:(id)sender;
 - (IBAction) prepareNewRecord:(id)sender;
 - (IBAction) deleteRecord:(id)sender;
+- (IBAction) goToNextView:(id)sender;
 
 @end

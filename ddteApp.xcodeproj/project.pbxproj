@@ -12,6 +12,21 @@
 		534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523261B502EB2005A3BA4 /* SqLite.cpp */; };
 		5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5345236A1B504B49005A3BA4 /* SqLiteException.cpp */; };
 		534523721B5062A7005A3BA4 /* SqLiteValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523701B5062A7005A3BA4 /* SqLiteValue.cpp */; };
+		53463AB91B55A3BC006B6552 /* MyView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA11B55A3BC006B6552 /* MyView1.m */; };
+		53463ABA1B55A3BC006B6552 /* MyView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA31B55A3BC006B6552 /* MyView2.m */; };
+		53463ABB1B55A3BC006B6552 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA51B55A3BC006B6552 /* ViewController1.m */; };
+		53463ABC1B55A3BC006B6552 /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AA61B55A3BC006B6552 /* ViewController1.xib */; };
+		53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA81B55A3BC006B6552 /* ViewController2.m */; };
+		53463ABE1B55A3BC006B6552 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AA91B55A3BC006B6552 /* ViewController2.xib */; };
+		53463ABF1B55A3BC006B6552 /* W2View1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AAB1B55A3BC006B6552 /* W2View1.m */; };
+		53463AC01B55A3BC006B6552 /* W2View2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AAD1B55A3BC006B6552 /* W2View2.m */; };
+		53463AC11B55A3BC006B6552 /* W2View3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AAF1B55A3BC006B6552 /* W2View3.m */; };
+		53463AC21B55A3BC006B6552 /* W2ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AB11B55A3BC006B6552 /* W2ViewController1.m */; };
+		53463AC31B55A3BC006B6552 /* W2ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AB21B55A3BC006B6552 /* W2ViewController1.xib */; };
+		53463AC41B55A3BC006B6552 /* W2ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AB41B55A3BC006B6552 /* W2ViewController2.m */; };
+		53463AC51B55A3BC006B6552 /* W2ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AB51B55A3BC006B6552 /* W2ViewController2.xib */; };
+		53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AB71B55A3BC006B6552 /* W2ViewController3.m */; };
+		53463AC71B55A3BC006B6552 /* W2ViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AB81B55A3BC006B6552 /* W2ViewController3.xib */; };
 		5346EE141B45A1CA0054E726 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */; };
 		5346EE151B45A1CA0054E726 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE131B45A1CA0054E726 /* libsqlite3.dylib */; };
 		5346EE181B45A21C0054E726 /* DBManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5346EE171B45A21C0054E726 /* DBManager.mm */; };
@@ -54,6 +69,31 @@
 		5345236B1B504B49005A3BA4 /* SqLiteException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteException.h; sourceTree = "<group>"; };
 		534523701B5062A7005A3BA4 /* SqLiteValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteValue.cpp; sourceTree = "<group>"; };
 		534523711B5062A7005A3BA4 /* SqLiteValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteValue.h; sourceTree = "<group>"; };
+		53463AA01B55A3BC006B6552 /* MyView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyView1.h; path = Views/MyView1.h; sourceTree = "<group>"; };
+		53463AA11B55A3BC006B6552 /* MyView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyView1.m; path = Views/MyView1.m; sourceTree = "<group>"; };
+		53463AA21B55A3BC006B6552 /* MyView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyView2.h; path = Views/MyView2.h; sourceTree = "<group>"; };
+		53463AA31B55A3BC006B6552 /* MyView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyView2.m; path = Views/MyView2.m; sourceTree = "<group>"; };
+		53463AA41B55A3BC006B6552 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController1.h; path = Views/ViewController1.h; sourceTree = "<group>"; };
+		53463AA51B55A3BC006B6552 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController1.m; path = Views/ViewController1.m; sourceTree = "<group>"; };
+		53463AA61B55A3BC006B6552 /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController1.xib; path = Views/ViewController1.xib; sourceTree = "<group>"; };
+		53463AA71B55A3BC006B6552 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController2.h; path = Views/ViewController2.h; sourceTree = "<group>"; };
+		53463AA81B55A3BC006B6552 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController2.m; path = Views/ViewController2.m; sourceTree = "<group>"; };
+		53463AA91B55A3BC006B6552 /* ViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController2.xib; path = Views/ViewController2.xib; sourceTree = "<group>"; };
+		53463AAA1B55A3BC006B6552 /* W2View1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2View1.h; path = Views/W2View1.h; sourceTree = "<group>"; };
+		53463AAB1B55A3BC006B6552 /* W2View1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2View1.m; path = Views/W2View1.m; sourceTree = "<group>"; };
+		53463AAC1B55A3BC006B6552 /* W2View2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2View2.h; path = Views/W2View2.h; sourceTree = "<group>"; };
+		53463AAD1B55A3BC006B6552 /* W2View2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2View2.m; path = Views/W2View2.m; sourceTree = "<group>"; };
+		53463AAE1B55A3BC006B6552 /* W2View3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2View3.h; path = Views/W2View3.h; sourceTree = "<group>"; };
+		53463AAF1B55A3BC006B6552 /* W2View3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2View3.m; path = Views/W2View3.m; sourceTree = "<group>"; };
+		53463AB01B55A3BC006B6552 /* W2ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2ViewController1.h; path = Views/W2ViewController1.h; sourceTree = "<group>"; };
+		53463AB11B55A3BC006B6552 /* W2ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2ViewController1.m; path = Views/W2ViewController1.m; sourceTree = "<group>"; };
+		53463AB21B55A3BC006B6552 /* W2ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = W2ViewController1.xib; path = Views/W2ViewController1.xib; sourceTree = "<group>"; };
+		53463AB31B55A3BC006B6552 /* W2ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2ViewController2.h; path = Views/W2ViewController2.h; sourceTree = "<group>"; };
+		53463AB41B55A3BC006B6552 /* W2ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2ViewController2.m; path = Views/W2ViewController2.m; sourceTree = "<group>"; };
+		53463AB51B55A3BC006B6552 /* W2ViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = W2ViewController2.xib; path = Views/W2ViewController2.xib; sourceTree = "<group>"; };
+		53463AB61B55A3BC006B6552 /* W2ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2ViewController3.h; path = Views/W2ViewController3.h; sourceTree = "<group>"; };
+		53463AB71B55A3BC006B6552 /* W2ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2ViewController3.m; path = Views/W2ViewController3.m; sourceTree = "<group>"; };
+		53463AB81B55A3BC006B6552 /* W2ViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = W2ViewController3.xib; path = Views/W2ViewController3.xib; sourceTree = "<group>"; };
 		5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5346EE131B45A1CA0054E726 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5346EE171B45A21C0054E726 /* DBManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DBManager.mm; sourceTree = "<group>"; };
@@ -108,6 +148,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53463AC81B55A3D0006B6552 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53463AA01B55A3BC006B6552 /* MyView1.h */,
+				53463AA11B55A3BC006B6552 /* MyView1.m */,
+				53463AA21B55A3BC006B6552 /* MyView2.h */,
+				53463AA31B55A3BC006B6552 /* MyView2.m */,
+				53463AA41B55A3BC006B6552 /* ViewController1.h */,
+				53463AA51B55A3BC006B6552 /* ViewController1.m */,
+				53463AA61B55A3BC006B6552 /* ViewController1.xib */,
+				53463AA71B55A3BC006B6552 /* ViewController2.h */,
+				53463AA81B55A3BC006B6552 /* ViewController2.m */,
+				53463AA91B55A3BC006B6552 /* ViewController2.xib */,
+				53463AAA1B55A3BC006B6552 /* W2View1.h */,
+				53463AAB1B55A3BC006B6552 /* W2View1.m */,
+				53463AAC1B55A3BC006B6552 /* W2View2.h */,
+				53463AAD1B55A3BC006B6552 /* W2View2.m */,
+				53463AAE1B55A3BC006B6552 /* W2View3.h */,
+				53463AAF1B55A3BC006B6552 /* W2View3.m */,
+				53463AB01B55A3BC006B6552 /* W2ViewController1.h */,
+				53463AB11B55A3BC006B6552 /* W2ViewController1.m */,
+				53463AB21B55A3BC006B6552 /* W2ViewController1.xib */,
+				53463AB31B55A3BC006B6552 /* W2ViewController2.h */,
+				53463AB41B55A3BC006B6552 /* W2ViewController2.m */,
+				53463AB51B55A3BC006B6552 /* W2ViewController2.xib */,
+				53463AB61B55A3BC006B6552 /* W2ViewController3.h */,
+				53463AB71B55A3BC006B6552 /* W2ViewController3.m */,
+				53463AB81B55A3BC006B6552 /* W2ViewController3.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		5346EE411B45DFE00054E726 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +234,7 @@
 		53F7A4921B44B9900072BB8D /* ddteApp */ = {
 			isa = PBXGroup;
 			children = (
+				53463AC81B55A3D0006B6552 /* Views */,
 				534523251B502E86005A3BA4 /* DBManager.h */,
 				5354F8F91B54299200D9AE50 /* CurlTest.cpp */,
 				5354F8FA1B54299200D9AE50 /* CurlTest.h */,
@@ -292,11 +365,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53463ABC1B55A3BC006B6552 /* ViewController1.xib in Resources */,
 				538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */,
 				53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */,
 				53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */,
 				53F7A49D1B44B9900072BB8D /* Credits.rtf in Resources */,
 				53F7A4A31B44B9900072BB8D /* MainMenu.xib in Resources */,
+				53463AC51B55A3BC006B6552 /* W2ViewController2.xib in Resources */,
+				53463ABE1B55A3BC006B6552 /* ViewController2.xib in Resources */,
+				53463AC31B55A3BC006B6552 /* W2ViewController1.xib in Resources */,
+				53463AC71B55A3BC006B6552 /* W2ViewController3.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,14 +394,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
+				53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */,
 				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
 				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,
+				53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */,
 				534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */,
 				534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */,
+				53463ABA1B55A3BC006B6552 /* MyView2.m in Sources */,
+				53463AC41B55A3BC006B6552 /* W2ViewController2.m in Sources */,
 				53F7A4991B44B9900072BB8D /* main.m in Sources */,
+				53463ABB1B55A3BC006B6552 /* ViewController1.m in Sources */,
+				53463AC01B55A3BC006B6552 /* W2View2.m in Sources */,
+				53463AC11B55A3BC006B6552 /* W2View3.m in Sources */,
+				53463AC21B55A3BC006B6552 /* W2ViewController1.m in Sources */,
 				5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */,
+				53463AB91B55A3BC006B6552 /* MyView1.m in Sources */,
 				534523721B5062A7005A3BA4 /* SqLiteValue.cpp in Sources */,
+				53463ABF1B55A3BC006B6552 /* W2View1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,17 @@
 #import "DBManager.h"
 #import <curl/curl.h>
 #import "CurlTest.h"
+#import "W2ViewController1.h"
+#import "W2ViewController2.h"
+#import "W2ViewController3.h"
 
 @interface AppDelegate()
 
 @property (nonatomic, strong)   DBManager   *dbManager;
 @property (nonatomic, strong)   NSArray*    arrPeopleInfo;
 @property (nonatomic)           int         peopleInfoID;
+@property (nonatomic, strong) NSViewController *currentController;
+@property (nonatomic)           int         viewIndex;
 
 - (void) loadData;
 - (void) loadInfoToEdit;
@@ -46,6 +51,13 @@
     }
     self.recordIDToEdit = -1;
     [self updateDetailFields];
+    
+    
+    self.viewIndex = 0;
+    self.currentController = nil;
+
+    // Set to the first view.
+    [self goToNextView:nil];
 }
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
@@ -169,6 +181,52 @@
     // Reload the table view.
     [self loadData];
     [self updateDetailFields];
+}
+
+- (void) setNextViewController:(BOOL) goToNext
+{
+    // Remvoe the existing view controller.
+    if ([self.currentController view] != nil)
+    {
+        [[self.currentController view] removeFromSuperview];	// remove the current view
+        self.currentController = nil;   // Release the current view controller.
+    }
+    
+    // Go to the next index.
+    if(goToNext) {
+        _viewIndex++;
+        _viewIndex = _viewIndex % 3;
+    }
+    
+    switch (self.viewIndex) {
+        case 0:
+            _currentController = [[W2ViewController1 alloc] initWithNibName:@"W2ViewController1" bundle:nil];
+            break;
+            
+        case 1:
+            _currentController = [[W2ViewController2 alloc] initWithNibName:@"W2ViewController2" bundle:nil];
+            break;
+            
+        case 2:
+            _currentController = [[W2ViewController3 alloc] initWithNibName:@"W2ViewController3" bundle:nil];
+            break;
+            
+        default:
+            _currentController = nil;
+            NSLog(@"Ivalid view controller is called");
+            break;
+    }
+}
+
+- (IBAction) goToNextView:(id)sender {
+    BOOL goToNext = YES;
+    if (sender == nil) {
+        goToNext = NO;
+    }
+    [self setNextViewController:goToNext];
+    NSRect rect = CGRectMake(600, 50, 400, 300);
+    [self.currentController.view setFrame:rect];
+    [self.window.contentView addSubview:self.currentController.view];
 }
 
 // Load the table data.
