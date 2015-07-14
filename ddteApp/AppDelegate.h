@@ -18,6 +18,8 @@
 @property (weak) IBOutlet NSButton *saveButton;
 @property (weak) IBOutlet NSButton *addNewButton;
 @property (weak) IBOutlet NSButton *deleteButton;
+@property (weak) IBOutlet NSImageView *headerImageView;
+
 @property (assign) int recordIDToEdit;
 @property (assign) int selectedIndex;
 

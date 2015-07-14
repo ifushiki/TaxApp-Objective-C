@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface W2TableView : NSTableView
+@interface W2TableContainer : NSView
 
 @end

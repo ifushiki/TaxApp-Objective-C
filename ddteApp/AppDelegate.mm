@@ -11,6 +11,7 @@
 #import "DBManager.h"
 #import <curl/curl.h>
 #import "CurlTest.h"
+#import "ResourceUtil.h"
 #import "W2ViewController1.h"
 #import "W2ViewController2.h"
 #import "W2ViewController3.h"
@@ -41,6 +42,11 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSImage *headerImage = [ResourceUtil getImage:@"TurboTax W-2 Header" withType:@"png"];
+    
+    [self.headerImageView setImage:headerImage];
+    [self.headerImageView setNeedsDisplay:YES];
+    
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
 //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
