@@ -7,8 +7,9 @@
 //
 
 #include "CurlTest.h"
+#include <string>
 
-CURLcode CurlTest::Fetch(std::string url){
+CURLcode CurlTest::Post(std::string& url, std::string* data) {
     
     // clear things ready for our 'fetch'
     mHttpStatus = 0;
@@ -20,6 +21,12 @@ CURLcode CurlTest::Fetch(std::string url){
     curl_easy_setopt(pCurlHandle, CURLOPT_HEADERFUNCTION, HttpHeader);
     curl_easy_setopt(pCurlHandle, CURLOPT_WRITEDATA, this);
     curl_easy_setopt(pCurlHandle, CURLOPT_WRITEHEADER, this);
+    
+//    std::string data = "data: {title: 'foo2',body: 'bar', userId: 1}";
+//    curl_easy_setopt(pCurlHandle, CURLOPT_POSTFIELDS, "name=daniel&project=curl");
+    if (data) {
+        curl_easy_setopt(pCurlHandle, CURLOPT_POSTFIELDS, data->c_str());
+    }
     
     // set the URL we want
     curl_easy_setopt(pCurlHandle, CURLOPT_URL, url.c_str());
@@ -41,6 +48,48 @@ CURLcode CurlTest::Fetch(std::string url){
         
     }
     return curlErr;
+}
+
+CURLcode CurlTest::Get(std::string& url) {
+    return this->Post(url, NULL);
+/*
+    
+    // clear things ready for our 'fetch'
+    mHttpStatus = 0;
+    mContent.clear();
+    mHeaders.clear();
+    
+    // set our callbacks
+    curl_easy_setopt(pCurlHandle , CURLOPT_WRITEFUNCTION, HttpContent);
+    curl_easy_setopt(pCurlHandle, CURLOPT_HEADERFUNCTION, HttpHeader);
+    curl_easy_setopt(pCurlHandle, CURLOPT_WRITEDATA, this);
+    curl_easy_setopt(pCurlHandle, CURLOPT_WRITEHEADER, this);
+    
+    std::string data = "data: {title: 'foo2',body: 'bar', userId: 1}";
+    //    curl_easy_setopt(pCurlHandle, CURLOPT_POSTFIELDS, "name=daniel&project=curl");
+    curl_easy_setopt(pCurlHandle, CURLOPT_POSTFIELDS, data.c_str());
+    
+    // set the URL we want
+    curl_easy_setopt(pCurlHandle, CURLOPT_URL, url.c_str());
+    
+    //  go get 'em, tiger
+    CURLcode curlErr = curl_easy_perform(pCurlHandle);
+    if (curlErr == CURLE_OK){
+        
+        // assuming everything is ok, get the content type and status code
+        char* content_type = NULL;
+        if ((curl_easy_getinfo(pCurlHandle, CURLINFO_CONTENT_TYPE,
+                               &content_type)) == CURLE_OK)
+            mType = std::string(content_type);
+        
+        unsigned int http_code = 0;
+        if((curl_easy_getinfo (pCurlHandle, CURLINFO_RESPONSE_CODE,
+                               &http_code)) == CURLE_OK)
+            mHttpStatus = http_code;
+        
+    }
+    return curlErr;
+ */
 }
 
 size_t CurlTest::HttpContent(void* ptr, size_t size,

@@ -76,8 +76,17 @@
     CurlTest curl;
     NSLog(@"======= Testing Curl =========");
     
-//    if (curly.Fetch("http://www.dahu.co.uk") == CURLE_OK){
-    if (curl.Fetch("http://www.cnn.com") == CURLE_OK){
+    std::string url = "http://jsonplaceholder.typicode.com/posts";
+    std::string data = "\"data\": {\"title\": \"foo2\", \"body\": \"bar\", \"userId\": 1}";
+    data = "{ \"suspects\": [ { \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/EmployersUseGrp[EmployersUseCd='B']/EmployersUseAmt\":\"100\" }], \"requiredInputs\": [{ \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/EmployersUseGrp[EmployersUseCd='A']/EmployersUseAmt\": \"500\", \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/WagesAmt\": \"45000\" }]}";
+    
+//    url = "http://cnn.com";
+//    url = "http://api.ddte.corp.intuit.net/v1/listtestfields";
+    url = "http://api.ddte.corp.intuit.net/v1/errorcheck";
+
+    //    if (curly.Fetch("http://www.dahu.co.uk") == CURLE_OK){
+//    if (curl.Fetch("http://www.cnn.com") == CURLE_OK){
+    if (curl.Post(url, &data) == CURLE_OK){
         
         std::cout << "status: " << curl.HttpStatus() << std::endl;
         std::cout << "type: " << curl.Type() << std::endl;

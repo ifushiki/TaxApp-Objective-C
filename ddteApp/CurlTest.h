@@ -29,7 +29,10 @@ private:
 public:
     CurlTest(): pCurlHandle(curl_easy_init()){};  // constructor
     ~CurlTest(){};
-    CURLcode    Fetch (std::string);
+
+    // NULL data will call Get(url).
+    CURLcode Post (std::string& url, std::string* data);
+    CURLcode Get (std::string& url);
     
     inline std::string   Content()    const { return mContent; }
     inline std::string   Type()       const { return mType; }
