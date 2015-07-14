@@ -27,6 +27,9 @@
 		53463AC51B55A3BC006B6552 /* W2ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AB51B55A3BC006B6552 /* W2ViewController2.xib */; };
 		53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AB71B55A3BC006B6552 /* W2ViewController3.m */; };
 		53463AC71B55A3BC006B6552 /* W2ViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463AB81B55A3BC006B6552 /* W2ViewController3.xib */; };
+		53463ACC1B55A62F006B6552 /* W2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463ACA1B55A62F006B6552 /* W2TableViewController.m */; };
+		53463ACD1B55A62F006B6552 /* W2TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463ACB1B55A62F006B6552 /* W2TableViewController.xib */; };
+		53463AD31B55A7E9006B6552 /* W2TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AD21B55A7E9006B6552 /* W2TableView.m */; };
 		5346EE141B45A1CA0054E726 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */; };
 		5346EE151B45A1CA0054E726 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5346EE131B45A1CA0054E726 /* libsqlite3.dylib */; };
 		5346EE181B45A21C0054E726 /* DBManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5346EE171B45A21C0054E726 /* DBManager.mm */; };
@@ -94,6 +97,11 @@
 		53463AB61B55A3BC006B6552 /* W2ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2ViewController3.h; path = Views/W2ViewController3.h; sourceTree = "<group>"; };
 		53463AB71B55A3BC006B6552 /* W2ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2ViewController3.m; path = Views/W2ViewController3.m; sourceTree = "<group>"; };
 		53463AB81B55A3BC006B6552 /* W2ViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = W2ViewController3.xib; path = Views/W2ViewController3.xib; sourceTree = "<group>"; };
+		53463AC91B55A62F006B6552 /* W2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2TableViewController.h; path = Views/W2TableViewController.h; sourceTree = "<group>"; };
+		53463ACA1B55A62F006B6552 /* W2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2TableViewController.m; path = Views/W2TableViewController.m; sourceTree = "<group>"; };
+		53463ACB1B55A62F006B6552 /* W2TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = W2TableViewController.xib; path = Views/W2TableViewController.xib; sourceTree = "<group>"; };
+		53463AD11B55A7E9006B6552 /* W2TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2TableView.h; path = Views/W2TableView.h; sourceTree = "<group>"; };
+		53463AD21B55A7E9006B6552 /* W2TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2TableView.m; path = Views/W2TableView.m; sourceTree = "<group>"; };
 		5346EE121B45A1CA0054E726 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5346EE131B45A1CA0054E726 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5346EE171B45A21C0054E726 /* DBManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DBManager.mm; sourceTree = "<group>"; };
@@ -176,6 +184,11 @@
 				53463AB61B55A3BC006B6552 /* W2ViewController3.h */,
 				53463AB71B55A3BC006B6552 /* W2ViewController3.m */,
 				53463AB81B55A3BC006B6552 /* W2ViewController3.xib */,
+				53463AC91B55A62F006B6552 /* W2TableViewController.h */,
+				53463ACA1B55A62F006B6552 /* W2TableViewController.m */,
+				53463ACB1B55A62F006B6552 /* W2TableViewController.xib */,
+				53463AD11B55A7E9006B6552 /* W2TableView.h */,
+				53463AD21B55A7E9006B6552 /* W2TableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -368,6 +381,7 @@
 				53463ABC1B55A3BC006B6552 /* ViewController1.xib in Resources */,
 				538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */,
 				53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */,
+				53463ACD1B55A62F006B6552 /* W2TableViewController.xib in Resources */,
 				53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */,
 				53F7A49D1B44B9900072BB8D /* Credits.rtf in Resources */,
 				53F7A4A31B44B9900072BB8D /* MainMenu.xib in Resources */,
@@ -399,6 +413,7 @@
 				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,
 				53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */,
+				53463ACC1B55A62F006B6552 /* W2TableViewController.m in Sources */,
 				534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */,
 				534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */,
 				53463ABA1B55A3BC006B6552 /* MyView2.m in Sources */,
@@ -407,6 +422,7 @@
 				53463ABB1B55A3BC006B6552 /* ViewController1.m in Sources */,
 				53463AC01B55A3BC006B6552 /* W2View2.m in Sources */,
 				53463AC11B55A3BC006B6552 /* W2View3.m in Sources */,
+				53463AD31B55A7E9006B6552 /* W2TableView.m in Sources */,
 				53463AC21B55A3BC006B6552 /* W2ViewController1.m in Sources */,
 				5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */,
 				53463AB91B55A3BC006B6552 /* MyView1.m in Sources */,

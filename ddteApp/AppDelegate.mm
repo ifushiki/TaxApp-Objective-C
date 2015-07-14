@@ -14,6 +14,7 @@
 #import "W2ViewController1.h"
 #import "W2ViewController2.h"
 #import "W2ViewController3.h"
+#import "W2TableViewController.h"
 
 @interface AppDelegate()
 
@@ -195,7 +196,7 @@
     // Go to the next index.
     if(goToNext) {
         _viewIndex++;
-        _viewIndex = _viewIndex % 3;
+        _viewIndex = _viewIndex % 4;
     }
     
     switch (self.viewIndex) {
@@ -211,6 +212,10 @@
             _currentController = [[W2ViewController3 alloc] initWithNibName:@"W2ViewController3" bundle:nil];
             break;
             
+        case 3:
+            _currentController = [[W2TableViewController alloc] initWithNibName:@"W2TableViewController" bundle:nil];
+            break;
+
         default:
             _currentController = nil;
             NSLog(@"Ivalid view controller is called");
