@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+void initializeGaussian();
+
 @interface SqlResponseView : NSView
+
+- (void) initializeGaussian;
 
 @end

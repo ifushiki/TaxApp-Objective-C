@@ -49,7 +49,7 @@
 		53DB578E1B56635300631BF5 /* DdteResponseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB578D1B56635300631BF5 /* DdteResponseView.m */; };
 		53DB57921B568C6F00631BF5 /* SqlWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57901B568C6F00631BF5 /* SqlWindowController.m */; };
 		53DB57931B568C6F00631BF5 /* SqlWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57911B568C6F00631BF5 /* SqlWindowController.xib */; };
-		53DB57961B568CA700631BF5 /* SqlResponseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57951B568CA700631BF5 /* SqlResponseView.m */; };
+		53DB57961B568CA700631BF5 /* SqlResponseView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57951B568CA700631BF5 /* SqlResponseView.mm */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -140,7 +140,7 @@
 		53DB57901B568C6F00631BF5 /* SqlWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SqlWindowController.m; path = Views/SqlWindowController.m; sourceTree = "<group>"; };
 		53DB57911B568C6F00631BF5 /* SqlWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SqlWindowController.xib; path = Views/SqlWindowController.xib; sourceTree = "<group>"; };
 		53DB57941B568CA700631BF5 /* SqlResponseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqlResponseView.h; path = Views/SqlResponseView.h; sourceTree = "<group>"; };
-		53DB57951B568CA700631BF5 /* SqlResponseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SqlResponseView.m; path = Views/SqlResponseView.m; sourceTree = "<group>"; };
+		53DB57951B568CA700631BF5 /* SqlResponseView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SqlResponseView.mm; path = Views/SqlResponseView.mm; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -229,7 +229,7 @@
 				53DB57901B568C6F00631BF5 /* SqlWindowController.m */,
 				53DB57911B568C6F00631BF5 /* SqlWindowController.xib */,
 				53DB57941B568CA700631BF5 /* SqlResponseView.h */,
-				53DB57951B568CA700631BF5 /* SqlResponseView.m */,
+				53DB57951B568CA700631BF5 /* SqlResponseView.mm */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -464,7 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53DB57961B568CA700631BF5 /* SqlResponseView.m in Sources */,
+				53DB57961B568CA700631BF5 /* SqlResponseView.mm in Sources */,
 				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
 				53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */,
 				53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */,
