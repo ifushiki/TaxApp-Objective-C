@@ -48,7 +48,7 @@ std::string kDdtePostTestData3 = "{\"suspects\": [{\"/Return/ReturnData/IRSW2[uu
 
 std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields";
 
-//#define INTEL_NETWORK
+#define INTEL_NETWORK
 
 @implementation AppDelegate
 
@@ -70,8 +70,8 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     [self setPopupMenu];
     
     // Initialize the dbManager object.
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
-//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     // Insert code here to initialize your application
     if (self.tableView) {
         self.tableView.delegate = self;
@@ -79,17 +79,18 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
         
         [self loadData];
         
-        // Testing curl methods.
-#ifdef INTEL_NETWORK
-        [self doCurlTest];
-#else
-        NSLog(@"We are not in Intel Network.  Skipping Curl Test.");
-#endif
     }
     self.recordIDToEdit = -1;
     [self updateDetailFields];
     
     
+    // Testing curl methods.
+#ifdef INTEL_NETWORK
+    [self doCurlTest];
+#else
+    NSLog(@"We are not in Intel Network.  Skipping Curl Test.");
+#endif
+
     self.viewIndex = 0;
     self.currentController = nil;
 
