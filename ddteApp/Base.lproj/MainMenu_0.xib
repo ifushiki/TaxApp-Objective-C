@@ -13,12 +13,14 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="addNewButton" destination="5xr-GL-JHm" id="rFh-Nm-Py8"/>
+                <outlet property="addNewButton" destination="5xr-GL-JHm" id="m76-4I-U4y"/>
                 <outlet property="age" destination="Dor-9d-VxQ" id="nfr-Uz-Kyu"/>
                 <outlet property="deleteButton" destination="fZX-OH-CG6" id="bzc-Nn-9V5"/>
                 <outlet property="firstName" destination="hoD-oU-17C" id="1vO-3h-nSx"/>
-                <outlet property="headerImageView" destination="Vc1-l0-NBw" id="m2d-Wg-hxD"/>
+                <outlet property="headerImage" destination="Vc1-l0-NBw" id="om6-FX-hXg"/>
+                <outlet property="headerImageView" destination="Vc1-l0-NBw" id="r59-ly-SXg"/>
                 <outlet property="lastName" destination="NGK-KK-XVj" id="FHh-qc-cce"/>
+                <outlet property="newButton" destination="5xr-GL-JHm" id="7y6-MG-IMh"/>
                 <outlet property="saveButton" destination="ri1-F5-ulC" id="hRf-7t-cAP"/>
                 <outlet property="tableView" destination="3mJ-tN-ZZy" id="CDA-ca-oHK"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -678,7 +680,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="1160" height="668"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1160" height="668"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -851,7 +853,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="prepareNewRecord:" target="Voe-Tx-rLC" id="OqB-am-5gB"/>
+                            <action selector="prepareNewRecord:" target="Voe-Tx-rLC" id="uuT-cy-k90"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZX-OH-CG6">

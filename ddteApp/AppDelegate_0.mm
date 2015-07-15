@@ -48,17 +48,16 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
 @implementation AppDelegate
 
-//@synthesize headerImageView;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSImage *headerImage = [ResourceUtil getImage:@"TurboTax W-2 Header" withType:@"png"];
     
     [self.headerImageView setImage:headerImage];
+    [self.headerImageView setNeedsDisplay:YES];
     
     // Initialize the dbManager object.
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
-//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     // Insert code here to initialize your application
     if (self.tableView) {
         self.tableView.delegate = self;
@@ -82,9 +81,6 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
     // Set to the first view.
     [self goToNextView:nil];
-    
-    [self.headerImageView setNeedsDisplay:YES];
-
 }
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
