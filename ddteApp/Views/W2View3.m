@@ -14,8 +14,8 @@
     [super drawRect:dirtyRect];
     
     // Drawing code here.
-    [[NSColor orangeColor] set];
-    NSRectFill([self bounds]);
+//    [[NSColor orangeColor] set];
+//    NSRectFill([self bounds]);
 }
 
 @end

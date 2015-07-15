@@ -670,18 +670,18 @@
         <window title="ddteApp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="1160" height="668"/>
+            <rect key="contentRect" x="335" y="390" width="1166" height="721"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1160" height="668"/>
+                <rect key="frame" x="0.0" y="0.0" width="1166" height="721"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="1160" placeholderIntrinsicHeight="48" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-l0-NBw">
-                        <rect key="frame" x="0.0" y="620" width="1160" height="48"/>
+                        <rect key="frame" x="0.0" y="673" width="1160" height="48"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" imageScaling="proportionallyDown" id="rfV-Xi-shG"/>
                     </imageView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAd-vh-hjP">
-                        <rect key="frame" x="504" y="578" width="152" height="32"/>
+                        <rect key="frame" x="504" y="631" width="152" height="32"/>
                         <buttonCell key="cell" type="push" title="Next View" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z7Y-Df-1WD">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -692,7 +692,7 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="623" y="372"/>
+            <point key="canvasLocation" x="633" y="335.5"/>
         </window>
     </objects>
 </document>

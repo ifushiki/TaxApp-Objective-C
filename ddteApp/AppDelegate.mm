@@ -314,7 +314,7 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
         goToNext = NO;
     }
     [self setNextViewController:goToNext];
-    NSRect rect = CGRectMake(0, 0, 1200, 740);
+    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
     [self.window.contentView addSubview:self.currentController.view];
 }
