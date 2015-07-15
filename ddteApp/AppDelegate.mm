@@ -410,13 +410,41 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     NSLog(@"Selected row = %ld", (long) selectedRow);
 }
 
+// This function will return the sigma calculated from DDTE.
+- (float) getSigma:(int) selectedIndex
+{
+    float sigma;
+    
+    switch (selectedIndex) {
+        case 0:
+            sigma = 1.5;
+            break;
+            
+        case 1:
+            sigma = 3.5;
+            break;
+        
+        case 2:
+            sigma = 5.6;
+            break;
+            
+        default:
+            sigma = 0.0;
+            break;
+    }
+    
+    return sigma;
+}
+
 - (IBAction)ddtePopupPressed:(id)sender {
     int selectedIndex = (int) self.ddtePopup.indexOfSelectedItem;
     
-    NSLog(@"DDTE popup: selected index = %d", selectedIndex);
+    float sigma = [self getSigma:selectedIndex];
+    
+    NSLog(@"DDTE popup: Analyzed sigma = %.3f", sigma);
     
     self.ddteWindowController = [[DdteWindowController alloc] initWithWindowNibName:@"DdteWindowController"];
-    
+    self.ddteWindowController.sigma = sigma;
     
     [self.window beginSheet:self.ddteWindowController.window  completionHandler:^(NSModalResponse returnCode) {
         NSLog(@"Sheet closed");

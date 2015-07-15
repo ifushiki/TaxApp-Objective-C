@@ -12,6 +12,7 @@
 @interface DdteWindowController : NSWindowController
 
 @property (weak) IBOutlet DdteResponseView *responseView;
+@property (nonatomic) float sigma;
 
 - (IBAction)onDoneButton:(id)sender;
 

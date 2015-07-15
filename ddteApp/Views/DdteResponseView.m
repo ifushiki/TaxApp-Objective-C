@@ -8,12 +8,25 @@
 
 #import "DdteResponseView.h"
 
+#define kMaximumSigma   8
+
 @implementation DdteResponseView
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+}
+
+- (float) getXCoordinateFromSigma:(float) sigma
+{
+    NSRect rect = self.bounds;
+    float xRange = 2.0*kMaximumSigma;
+    float dTick = rect.size.width/xRange;
+    
+    float arrowPosition = dTick*(sigma + kMaximumSigma);  // 4.0 is a mid range.
+    
+    return arrowPosition;
 }
 
 void setArraw(float w, float h, CGPoint* arrow)
@@ -36,10 +49,54 @@ void setArraw(float w, float h, CGPoint* arrow)
     arrow[7].y = arrow[0].y;
 }
 
-- (void)drawLayer:(CALayer *)theLayer inContext:(CGContextRef)theContext {
+// This calculate the bounding border from sigma1 to sigma2.
+- (void) getBorderRect:(NSRect *) border from:(float) sigma1 to:(float) sigma2
+{
+    float x1 = [self getXCoordinateFromSigma:sigma1];
+    float x2 = [self getXCoordinateFromSigma:sigma2];
+    NSRect rect = self.bounds;
     
-    int maximumSigma = 8;
+    border->origin.x = x1;
+    border->origin.y = 0;
+    border->size.width = x2 - x1;
+    border->size.height = rect.size.height;
+}
+
+- (void) fillDangerZones:(CGContextRef)theContext
+{
+    NSRect border;
+    float sigma1, sigma2;
+
+    // Red Zones
+    CGContextSetRGBFillColor(theContext, 1.0,0.0,0.0,0.2);
+    sigma1 = - 1.0*kMaximumSigma;
+    sigma2 = - 5.0;
+    [self getBorderRect:&border from:sigma1 to:sigma2];
+    
+    CGContextFillRect(theContext, border);
+    sigma1 = 5.0;
+    sigma2 = 1.0*kMaximumSigma;
+    [self getBorderRect:&border from:sigma1 to:sigma2];
+    CGContextFillRect(theContext, border);
+    
+    // Red Zones
+    CGContextSetRGBFillColor(theContext, 1.0,1.0,0.0,0.2);
+    sigma1 = - 5.0;
+    sigma2 = - 3.0;
+    [self getBorderRect:&border from:sigma1 to:sigma2];
+    CGContextFillRect(theContext, border);
+    
+    sigma1 = 3.0;
+    sigma2 = 5.0;
+    [self getBorderRect:&border from:sigma1 to:sigma2];
+    CGContextFillRect(theContext, border);
+}
+
+- (void)drawLayer:(CALayer *)theLayer inContext:(CGContextRef)theContext {
     [theLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1.0)];
+    
+    [self fillDangerZones:theContext];
+    
     NSRect rect = self.bounds;
     CGMutablePathRef borderPath = CGPathCreateMutable();
     
@@ -53,7 +110,7 @@ void setArraw(float w, float h, CGPoint* arrow)
     int n = 100;
     float yFac = rect.size.height*0.8;
     float yBottom = rect.size.height*0.1;
-    float xRange = 2*maximumSigma;
+    float xRange = 2.0*kMaximumSigma;
     float dx = rect.size.width/(n - 1);
     float middle = 0.5*n;
     
@@ -72,7 +129,7 @@ void setArraw(float w, float h, CGPoint* arrow)
     float dTick = rect.size.width/xRange;
     float x = 0;
     
-    for (int i = 0; i <= 2*maximumSigma; i++) {
+    for (int i = 0; i <= 2*kMaximumSigma; i++) {
         line[0].x = i*dTick;
         line[1].x = i*dTick;
         CGContextStrokeLineSegments(theContext, line, 2);
@@ -101,8 +158,7 @@ void setArraw(float w, float h, CGPoint* arrow)
     // Release the path
     CFRelease(thePath);
     
-    float sigma = 3.0;
-    float arrowPosition = dTick*(sigma + maximumSigma);  // 4.0 is a mid range.
+    float arrowPosition = [self getXCoordinateFromSigma:self.sigma];
 
     CGMutablePathRef arrowPath = CGPathCreateMutable();
     CGContextBeginPath(theContext);
@@ -126,7 +182,6 @@ void setArraw(float w, float h, CGPoint* arrow)
     CGContextFillPath(theContext);
     CGContextStrokePath(theContext);
     CFRelease(arrowPath);
-    
 }
 
 @end

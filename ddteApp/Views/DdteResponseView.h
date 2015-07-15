@@ -10,4 +10,6 @@
 
 @interface DdteResponseView : NSView
 
+@property (nonatomic) float sigma;
+
 @end
