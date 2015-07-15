@@ -330,7 +330,14 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
         goToNext = 0;
     }
     [self setNextViewController:goToNext];
-    NSRect rect = CGRectMake(40, -30, 1200, 720);
+
+    // Adjust the origin.
+    NSRect parentFrame = self.window.frame;
+    NSRect currentRect = self.currentController.view.bounds;
+    float dy = parentFrame.size.height- currentRect.size.height - 128;
+    currentRect.origin.y = dy;
+    NSRect rect = currentRect;
+//    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
     [self.window.contentView addSubview:self.currentController.view];
 }
@@ -339,7 +346,14 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     BOOL goToNext = -1;
 
     [self setNextViewController:goToNext];
-    NSRect rect = CGRectMake(40, -30, 1200, 720);
+
+    // Adjust the origin.
+    NSRect parentFrame = self.window.frame;
+    NSRect currentRect = self.currentController.view.bounds;
+    float dy = parentFrame.size.height- currentRect.size.height - 128;
+    currentRect.origin.y = dy;
+    NSRect rect = currentRect;
+//    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
     [self.window.contentView addSubview:self.currentController.view];
 }
