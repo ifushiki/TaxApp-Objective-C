@@ -44,6 +44,8 @@
 		5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5354F8F91B54299200D9AE50 /* CurlTest.cpp */; };
 		538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5346EE421B45E1D20054E726 /* sampledb.sql */; };
 		53DB57861B564D5C00631BF5 /* TurboTax W-2 Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57851B564D5C00631BF5 /* TurboTax W-2 Logo.png */; };
+		53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57881B565DCF00631BF5 /* DdteWindowController.m */; };
+		53DB578B1B565DCF00631BF5 /* DdteWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57891B565DCF00631BF5 /* DdteWindowController.xib */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -125,6 +127,9 @@
 		5354F8F91B54299200D9AE50 /* CurlTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CurlTest.cpp; sourceTree = "<group>"; };
 		5354F8FA1B54299200D9AE50 /* CurlTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurlTest.h; sourceTree = "<group>"; };
 		53DB57851B564D5C00631BF5 /* TurboTax W-2 Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Logo.png"; sourceTree = "<group>"; };
+		53DB57871B565DCF00631BF5 /* DdteWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DdteWindowController.h; path = Views/DdteWindowController.h; sourceTree = "<group>"; };
+		53DB57881B565DCF00631BF5 /* DdteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DdteWindowController.m; path = Views/DdteWindowController.m; sourceTree = "<group>"; };
+		53DB57891B565DCF00631BF5 /* DdteWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DdteWindowController.xib; path = Views/DdteWindowController.xib; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -204,6 +209,9 @@
 				53463ACB1B55A62F006B6552 /* W2TableViewController.xib */,
 				53463AD11B55A7E9006B6552 /* W2TableContainer.h */,
 				53463AD21B55A7E9006B6552 /* W2TableContainer.m */,
+				53DB57871B565DCF00631BF5 /* DdteWindowController.h */,
+				53DB57881B565DCF00631BF5 /* DdteWindowController.m */,
+				53DB57891B565DCF00631BF5 /* DdteWindowController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -407,6 +415,7 @@
 				53463AE01B55EB15006B6552 /* ddte-client.sqlite3 in Resources */,
 				53463ADB1B55CCA6006B6552 /* TurboTax W-2 Page-1.png in Resources */,
 				53463AD81B55CCA6006B6552 /* TurboTax W-2 Header.png in Resources */,
+				53DB578B1B565DCF00631BF5 /* DdteWindowController.xib in Resources */,
 				53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */,
 				53463ACD1B55A62F006B6552 /* W2TableViewController.xib in Resources */,
 				53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */,
@@ -438,6 +447,7 @@
 			files = (
 				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
 				53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */,
+				53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */,
 				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
 				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,

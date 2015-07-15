@@ -16,13 +16,15 @@
 #import "W2ViewController2.h"
 #import "W2ViewController3.h"
 #import "W2TableViewController.h"
+#import "DdteWindowController.h"
 
 @interface AppDelegate()
 
 @property (nonatomic, strong)   DBManager   *dbManager;
 @property (nonatomic, strong)   NSArray*    arrPeopleInfo;
 @property (nonatomic)           int         peopleInfoID;
-@property (nonatomic, strong) NSViewController *currentController;
+@property (nonatomic, strong)   NSViewController *currentController;
+@property (nonatomic, strong)   DdteWindowController *ddteWindowController;
 @property (nonatomic)           int         viewIndex;
 
 - (void) loadData;
@@ -412,5 +414,27 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     int selectedIndex = (int) self.ddtePopup.indexOfSelectedItem;
     
     NSLog(@"DDTE popup: selected index = %d", selectedIndex);
+    
+    self.ddteWindowController = [[DdteWindowController alloc] initWithWindowNibName:@"DdteWindowController"];
+    
+    
+    [self.window beginSheet:self.ddteWindowController.window  completionHandler:^(NSModalResponse returnCode) {
+        NSLog(@"Sheet closed");
+        
+        switch (returnCode) {
+            case NSModalResponseOK:
+                NSLog(@"Done button tapped in Custom Sheet");
+                break;
+            case NSModalResponseCancel:
+                NSLog(@"Cancel button tapped in Custom Sheet");
+                break;
+                
+            default:
+                break;
+        }
+        
+        self.ddteWindowController = nil;
+    }];
+
 }
 @end
