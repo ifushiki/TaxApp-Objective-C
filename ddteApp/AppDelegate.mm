@@ -36,6 +36,12 @@
 std::string kDdtePostTestURL = "http://api.ddte.corp.intuit.net/v1/errorcheck";
 std::string kDdtePostTestData = "{ \"suspects\": [ { \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/EmployersUseGrp[EmployersUseCd='B']/EmployersUseAmt\":\"100\" }], \"requiredInputs\": [{ \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/EmployersUseGrp[EmployersUseCd='A']/EmployersUseAmt\": \"500\", \"/Return/ReturnData/IRSW2[@uuid='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee']/WagesAmt\": \"45000\" }]}";
 
+std::string kDdtePostTestData1 = "{\"suspects\": [{\"/Return/ReturnData/IRSW2[uuid_1]/WagesAmt\": \" 30000\"}] \"requiredInputs\": [{\"/Return/ReturnData/IRSW2[uuid_1]/WithholdingAmt\": \" 6000\"}, {\"/Return/ReturnData/IRSW2[uuid_1]/SocialSecurityWagesAmt\": \" 200000\"}, {\"/Return/ReturnData/IRSW2[uuid_1]/MedicareWagesAndTipsAmt\": \" 50000:\"}]}";
+
+std::string kDdtePostTestData2 = "{ \"suspects\": [{\"/Return/ReturnData/IRSW2[uuid_1]/WagesAmt\": \"3000\"}. {\"/Return/ReturnData/IRSW2[uuid_1]/SocialSecurityWagesAmt\": \"30000\"}] \"requiredInputs\":[ {\"/Return/ReturnData/IRSW2[uuid_1]/SocialSecurityTaxAmt\": \"15000\"}] }";
+
+std::string kDdtePostTestData3 = "{\"suspects\": [{\"/Return/ReturnData/IRSW2[uuid_1]/WagesAmt\": \" 30000\"}, {\"/Return/ReturnData/IRSW2[uuid_1]/SocialSecurityWagesAmt\": \" 30000\"}] \"requiredInputs\": [{\"/Return/ReturnData/IRSW2[uuid_1]/MedicareTaxWithheldAmt\": \" 600\"}]}";
+
 std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields";
 
 @implementation AppDelegate
@@ -100,7 +106,7 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
         case kDdtePostTest:
             url = kDdtePostTestURL;
             if (data) {
-                *data = kDdtePostTestData;
+                *data = kDdtePostTestData1;
             }
             isGet = false;
             break;
