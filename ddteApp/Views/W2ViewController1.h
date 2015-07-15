@@ -10,6 +10,8 @@
 
 @interface W2ViewController1 : NSViewController <NSTextFieldDelegate>
 
+- (IBAction) itemDidChange: (id) sender;
+
 @property (weak) IBOutlet NSImageView *imageView;
 
 //-----------------------------------------------------------------------------------------------------------

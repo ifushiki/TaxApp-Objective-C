@@ -80,7 +80,10 @@
     x1 = 606.0; y1 = 217.0;
     x2 = 839.9; y2 = 249.0;
     self.addressType = createPopupButton(viewRect, x1, y1, x2, y2);
-//    self.addressType.delegate = self;
+    self.addressType.target = self;
+    self.addressType.action = @selector(itemDidChange:);
+    [self.addressType addItemWithTitle: @"U.S. Address"];
+    [self.addressType addItemWithTitle: @"Canadian Address"];
     [self.imageView addSubview:self.addressType];
 
 
@@ -102,7 +105,10 @@
     x1 = 606.0; y1 = 293.0;
     x2 = 715.0; y2 = 325.0;
     self.state = createPopupButton(viewRect, x1, y1, x2, y2);
-    //    self.addressType.delegate = self;
+    self.state.target = self;
+    self.state.action = @selector(itemDidChange:);
+    [self.state addItemWithTitle: @"CA"];
+    [self.state addItemWithTitle: @"MA"];
     [self.imageView addSubview:self.state];
 
     // ZIP code
@@ -160,6 +166,11 @@
 
 }
 
+
+- (IBAction) itemDidChange:(id) sender
+{
+    NSLog(@"Calling -buttonClicked: with sender: %@", sender);
+}
 
 // NSTextFieldDelegate methods
 
