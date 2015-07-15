@@ -54,8 +54,8 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     [self.headerImageView setNeedsDisplay:YES];
     
     // Initialize the dbManager object.
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
-//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+//    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     // Insert code here to initialize your application
     if (self.tableView) {
         self.tableView.delegate = self;
@@ -312,7 +312,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 // Load the table data.
 - (void) loadData {
     // Form the query.
-    NSString *query = @"select * from peopleInfo";
+//    NSString *query = @"select * from peopleInfo";
+    NSString *query = @"select * from ddte_3d_occ_age_geo_stats";
 //    NSString *query = @"select * from age_stats";
     
     // Get the results.
