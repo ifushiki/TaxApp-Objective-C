@@ -20,6 +20,8 @@
 @property (weak) IBOutlet NSImageView *headerImageView;
 @property (weak) IBOutlet NSImageView *w2LogoImageView;
 @property (weak) IBOutlet NSButton *addNewButton;
+@property (weak) IBOutlet NSPopUpButton *ddtePopup;
+- (IBAction)ddtePopupPressed:(id)sender;
 
 @property (assign) int recordIDToEdit;
 @property (assign) int selectedIndex;

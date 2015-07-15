@@ -48,6 +48,13 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
 @implementation AppDelegate
 
+- (void) setPopupMenu
+{
+    NSArray *itemTitles = [[NSArray alloc] initWithObjects:@"DDTE Case 1", @"DDTE Case 2", @"DDTE Case 3", nil];
+    [self.ddtePopup removeAllItems];
+    [self.ddtePopup addItemsWithTitles:itemTitles];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSImage *headerImage = [ResourceUtil getImage:@"TurboTax W-2 Header" withType:@"png"];
@@ -55,6 +62,8 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     
     [self.headerImageView setImage:headerImage];
     [self.w2LogoImageView setImage:w2LogoImage];
+    
+    [self setPopupMenu];
     
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
@@ -399,4 +408,9 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     NSLog(@"Selected row = %ld", (long) selectedRow);
 }
 
+- (IBAction)ddtePopupPressed:(id)sender {
+    int selectedIndex = (int) self.ddtePopup.indexOfSelectedItem;
+    
+    NSLog(@"DDTE popup: selected index = %d", selectedIndex);
+}
 @end
