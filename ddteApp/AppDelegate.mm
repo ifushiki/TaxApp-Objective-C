@@ -17,6 +17,7 @@
 #import "W2ViewController3.h"
 #import "W2TableViewController.h"
 #import "DdteWindowController.h"
+#import "SqlWindowController.h"
 
 @interface AppDelegate()
 
@@ -25,6 +26,7 @@
 @property (nonatomic)           int         peopleInfoID;
 @property (nonatomic, strong)   NSViewController *currentController;
 @property (nonatomic, strong)   DdteWindowController *ddteWindowController;
+@property (nonatomic, strong)   SqlWindowController *sqlWindowController;
 @property (nonatomic)           int         viewIndex;
 
 - (void) loadData;
@@ -52,7 +54,7 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
 - (void) setPopupMenu
 {
-    NSArray *itemTitles = [[NSArray alloc] initWithObjects:@"DDTE Case 1", @"DDTE Case 2", @"DDTE Case 3", nil];
+    NSArray *itemTitles = [[NSArray alloc] initWithObjects:@"DDTE Case 1", @"DDTE Case 2", @"DDTE Case 3", @"SQL Case", nil];
     [self.ddtePopup removeAllItems];
     [self.ddtePopup addItemsWithTitles:itemTitles];
 }
@@ -439,30 +441,58 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 - (IBAction)ddtePopupPressed:(id)sender {
     int selectedIndex = (int) self.ddtePopup.indexOfSelectedItem;
     
-    float sigma = [self getSigma:selectedIndex];
-    
-    NSLog(@"DDTE popup: Analyzed sigma = %.3f", sigma);
-    
-    self.ddteWindowController = [[DdteWindowController alloc] initWithWindowNibName:@"DdteWindowController"];
-    self.ddteWindowController.sigma = sigma;
-    
-    [self.window beginSheet:self.ddteWindowController.window  completionHandler:^(NSModalResponse returnCode) {
-        NSLog(@"Sheet closed");
+    if (selectedIndex < 3) {
         
-        switch (returnCode) {
-            case NSModalResponseOK:
-                NSLog(@"Done button tapped in Custom Sheet");
-                break;
-            case NSModalResponseCancel:
-                NSLog(@"Cancel button tapped in Custom Sheet");
-                break;
-                
-            default:
-                break;
-        }
+        // Open a modal window for DDTE
+        float sigma = [self getSigma:selectedIndex];
         
-        self.ddteWindowController = nil;
-    }];
+        NSLog(@"DDTE popup: Analyzed sigma = %.3f", sigma);
+        
+        self.ddteWindowController = [[DdteWindowController alloc] initWithWindowNibName:@"DdteWindowController"];
+        self.ddteWindowController.sigma = sigma;
+        
+        [self.window beginSheet:self.ddteWindowController.window  completionHandler:^(NSModalResponse returnCode) {
+            NSLog(@"Sheet closed");
+            
+            switch (returnCode) {
+                case NSModalResponseOK:
+                    NSLog(@"Done button tapped in Custom Sheet");
+                    break;
+                case NSModalResponseCancel:
+                    NSLog(@"Cancel button tapped in Custom Sheet");
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            self.ddteWindowController = nil;
+        }];
+    }
+    else {
+        // Open a modal window for SQL
+        self.sqlWindowController = [[SqlWindowController alloc] initWithWindowNibName:@"SqlWindowController"];
+        
+        [self.window beginSheet:self.sqlWindowController.window  completionHandler:^(NSModalResponse returnCode) {
+            NSLog(@"Sheet closed");
+            
+            switch (returnCode) {
+                case NSModalResponseOK:
+                    NSLog(@"Done button tapped in Custom Sheet");
+                    break;
+                case NSModalResponseCancel:
+                    NSLog(@"Cancel button tapped in Custom Sheet");
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            self.sqlWindowController = nil;
+        }];
+    }
+    
+    
 
 }
 @end

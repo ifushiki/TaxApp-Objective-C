@@ -47,6 +47,9 @@
 		53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57881B565DCF00631BF5 /* DdteWindowController.m */; };
 		53DB578B1B565DCF00631BF5 /* DdteWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57891B565DCF00631BF5 /* DdteWindowController.xib */; };
 		53DB578E1B56635300631BF5 /* DdteResponseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB578D1B56635300631BF5 /* DdteResponseView.m */; };
+		53DB57921B568C6F00631BF5 /* SqlWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57901B568C6F00631BF5 /* SqlWindowController.m */; };
+		53DB57931B568C6F00631BF5 /* SqlWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57911B568C6F00631BF5 /* SqlWindowController.xib */; };
+		53DB57961B568CA700631BF5 /* SqlResponseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57951B568CA700631BF5 /* SqlResponseView.m */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -133,6 +136,11 @@
 		53DB57891B565DCF00631BF5 /* DdteWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DdteWindowController.xib; path = Views/DdteWindowController.xib; sourceTree = "<group>"; };
 		53DB578C1B56635300631BF5 /* DdteResponseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DdteResponseView.h; path = Views/DdteResponseView.h; sourceTree = "<group>"; };
 		53DB578D1B56635300631BF5 /* DdteResponseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DdteResponseView.m; path = Views/DdteResponseView.m; sourceTree = "<group>"; };
+		53DB578F1B568C6F00631BF5 /* SqlWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqlWindowController.h; path = Views/SqlWindowController.h; sourceTree = "<group>"; };
+		53DB57901B568C6F00631BF5 /* SqlWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SqlWindowController.m; path = Views/SqlWindowController.m; sourceTree = "<group>"; };
+		53DB57911B568C6F00631BF5 /* SqlWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SqlWindowController.xib; path = Views/SqlWindowController.xib; sourceTree = "<group>"; };
+		53DB57941B568CA700631BF5 /* SqlResponseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqlResponseView.h; path = Views/SqlResponseView.h; sourceTree = "<group>"; };
+		53DB57951B568CA700631BF5 /* SqlResponseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SqlResponseView.m; path = Views/SqlResponseView.m; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -217,6 +225,11 @@
 				53DB57891B565DCF00631BF5 /* DdteWindowController.xib */,
 				53DB578C1B56635300631BF5 /* DdteResponseView.h */,
 				53DB578D1B56635300631BF5 /* DdteResponseView.m */,
+				53DB578F1B568C6F00631BF5 /* SqlWindowController.h */,
+				53DB57901B568C6F00631BF5 /* SqlWindowController.m */,
+				53DB57911B568C6F00631BF5 /* SqlWindowController.xib */,
+				53DB57941B568CA700631BF5 /* SqlResponseView.h */,
+				53DB57951B568CA700631BF5 /* SqlResponseView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -415,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53463ABC1B55A3BC006B6552 /* ViewController1.xib in Resources */,
+				53DB57931B568C6F00631BF5 /* SqlWindowController.xib in Resources */,
 				538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */,
 				53463AD91B55CCA6006B6552 /* TurboTax W-2 Page-2.png in Resources */,
 				53463AE01B55EB15006B6552 /* ddte-client.sqlite3 in Resources */,
@@ -450,12 +464,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DB57961B568CA700631BF5 /* SqlResponseView.m in Sources */,
 				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
 				53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */,
 				53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */,
 				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
 				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,
+				53DB57921B568C6F00631BF5 /* SqlWindowController.m in Sources */,
 				53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */,
 				53463ACC1B55A62F006B6552 /* W2TableViewController.m in Sources */,
 				53DB578E1B56635300631BF5 /* DdteResponseView.m in Sources */,
