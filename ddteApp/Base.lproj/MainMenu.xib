@@ -14,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="headerImageView" destination="Vc1-l0-NBw" id="m2d-Wg-hxD"/>
+                <outlet property="w2LogoImageView" destination="L1k-qg-ppP" id="7YU-Ao-Ayn"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -676,18 +677,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="1166" height="721"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="1160" placeholderIntrinsicHeight="48" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-l0-NBw">
-                        <rect key="frame" x="0.0" y="673" width="1160" height="48"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" imageScaling="proportionallyDown" id="rfV-Xi-shG"/>
-                    </imageView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAd-vh-hjP">
-                        <rect key="frame" x="504" y="631" width="152" height="32"/>
-                        <buttonCell key="cell" type="push" title="Next View" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z7Y-Df-1WD">
+                        <rect key="frame" x="246" y="625" width="74" height="32"/>
+                        <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z7Y-Df-1WD">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="goToNextView:" target="Voe-Tx-rLC" id="AHb-nc-nkH"/>
+                        </connections>
+                    </button>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="1160" placeholderIntrinsicHeight="48" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-l0-NBw">
+                        <rect key="frame" x="0.0" y="673" width="1045" height="48"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyDown" id="rfV-Xi-shG"/>
+                    </imageView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="138" placeholderIntrinsicHeight="106" translatesAutoresizingMaskIntoConstraints="NO" id="L1k-qg-ppP">
+                        <rect key="frame" x="849" y="615" width="138" height="106"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="V6S-MJ-1eg"/>
+                    </imageView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RRm-6s-b0Q">
+                        <rect key="frame" x="154" y="625" width="74" height="32"/>
+                        <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZYr-qc-Nm7">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="goToPreviousView:" target="Voe-Tx-rLC" id="AHH-RA-Fpg"/>
                         </connections>
                     </button>
                 </subviews>

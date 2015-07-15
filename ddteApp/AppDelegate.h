@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSButton *saveButton;
 @property (weak) IBOutlet NSButton *deleteButton;
 @property (weak) IBOutlet NSImageView *headerImageView;
+@property (weak) IBOutlet NSImageView *w2LogoImageView;
 @property (weak) IBOutlet NSButton *addNewButton;
 
 @property (assign) int recordIDToEdit;
@@ -26,6 +27,7 @@
 - (IBAction) saveRecord:(id)sender;
 - (IBAction) deleteRecord:(id)sender;
 - (IBAction) goToNextView:(id)sender;
+- (IBAction) goToPreviousView:(id)sender;
 - (IBAction) prepareNewRecord:(id)sender;
 
 @end

@@ -48,13 +48,13 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
 
 @implementation AppDelegate
 
-//@synthesize headerImageView;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSImage *headerImage = [ResourceUtil getImage:@"TurboTax W-2 Header" withType:@"png"];
+    NSImage *w2LogoImage = [ResourceUtil getImage:@"TurboTax W-2 Logo" withType:@"png"];
     
     [self.headerImageView setImage:headerImage];
+    [self.w2LogoImageView setImage:w2LogoImage];
     
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
@@ -269,7 +269,7 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     [self updateDetailFields];
 }
 
-- (void) setNextViewController:(BOOL) goToNext
+- (void) setNextViewController:(int) goToNext
 {
     // Remvoe the existing view controller.
     if ([self.currentController view] != nil)
@@ -279,8 +279,11 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     }
     
     // Go to the next index.
-    if(goToNext) {
-        _viewIndex++;
+    if(goToNext !=0 ) {
+        _viewIndex = goToNext > 0 ? _viewIndex + 1: _viewIndex - 1;
+        if (_viewIndex < 0) {
+            _viewIndex = 3; // The last index.
+        }
         _viewIndex = _viewIndex % 4;
     }
     
@@ -309,10 +312,19 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 }
 
 - (IBAction) goToNextView:(id)sender {
-    BOOL goToNext = YES;
+    BOOL goToNext = 1;
     if (sender == nil) {
-        goToNext = NO;
+        goToNext = 0;
     }
+    [self setNextViewController:goToNext];
+    NSRect rect = CGRectMake(40, -30, 1200, 720);
+    [self.currentController.view setFrame:rect];
+    [self.window.contentView addSubview:self.currentController.view];
+}
+
+- (IBAction)goToPreviousView:(id)sender {
+    BOOL goToNext = -1;
+
     [self setNextViewController:goToNext];
     NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
