@@ -44,6 +44,8 @@ std::string kDdtePostTestData3 = "{\"suspects\": [{\"/Return/ReturnData/IRSW2[uu
 
 std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields";
 
+//#define INTEL_NETWORK
+
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -64,7 +66,11 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
         [self loadData];
         
         // Testing curl methods.
+#ifdef INTEL_NETWORK
         [self doCurlTest];
+#else
+        NSLog(@"We are not in Intel Network.  Skipping Curl Test.");
+#endif
     }
     self.recordIDToEdit = -1;
     [self updateDetailFields];

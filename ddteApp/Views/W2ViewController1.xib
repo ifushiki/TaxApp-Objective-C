@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="W2ViewController1">
             <connections>
+                <outlet property="imageView" destination="4U7-bK-HOD" id="7HQ-pH-7My"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -14,6 +15,32 @@
         <customView id="Hz6-mo-xeY" customClass="W2View1">
             <rect key="frame" x="0.0" y="0.0" width="1187" height="775"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView fixedFrame="YES" placeholderIntrinsicWidth="947" placeholderIntrinsicHeight="805" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMa-fV-eHU">
+                    <rect key="frame" x="0.0" y="0.0" width="1187" height="775"/>
+                    <clipView key="contentView" misplaced="YES" id="lVt-kw-HHz">
+                        <rect key="frame" x="1" y="1" width="181" height="94"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3n-OD-MWk">
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="94"/>
+                            </view>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="k69-tB-1Lx">
+                        <rect key="frame" x="1" y="79" width="181" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vcn-2z-GUE">
+                        <rect key="frame" x="166" y="1" width="16" height="94"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="947" placeholderIntrinsicHeight="805" translatesAutoresizingMaskIntoConstraints="NO" id="4U7-bK-HOD">
+                    <rect key="frame" x="0.0" y="93" width="797" height="682"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" id="pun-s1-6gK"/>
+                </imageView>
+            </subviews>
             <point key="canvasLocation" x="684.5" y="421.5"/>
         </customView>
     </objects>

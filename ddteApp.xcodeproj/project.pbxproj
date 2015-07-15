@@ -31,8 +31,8 @@
 		53463ACD1B55A62F006B6552 /* W2TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53463ACB1B55A62F006B6552 /* W2TableViewController.xib */; };
 		53463AD31B55A7E9006B6552 /* W2TableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AD21B55A7E9006B6552 /* W2TableContainer.m */; };
 		53463AD81B55CCA6006B6552 /* TurboTax W-2 Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD41B55CCA6006B6552 /* TurboTax W-2 Header.png */; };
-		53463AD91B55CCA6006B6552 /* TurboTax W-2 Page 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD51B55CCA6006B6552 /* TurboTax W-2 Page 2.png */; };
-		53463ADA1B55CCA6006B6552 /* TurboTax W-2 Page 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD61B55CCA6006B6552 /* TurboTax W-2 Page 3.png */; };
+		53463AD91B55CCA6006B6552 /* TurboTax W-2 Page-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD51B55CCA6006B6552 /* TurboTax W-2 Page-2.png */; };
+		53463ADA1B55CCA6006B6552 /* TurboTax W-2 Page-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD61B55CCA6006B6552 /* TurboTax W-2 Page-3.png */; };
 		53463ADB1B55CCA6006B6552 /* TurboTax W-2 Page-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53463AD71B55CCA6006B6552 /* TurboTax W-2 Page-1.png */; };
 		53463ADE1B55D44C006B6552 /* ResourceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463ADD1B55D44C006B6552 /* ResourceUtil.m */; };
 		53463AE01B55EB15006B6552 /* ddte-client.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 53463ADF1B55EB15006B6552 /* ddte-client.sqlite3 */; };
@@ -109,8 +109,8 @@
 		53463AD11B55A7E9006B6552 /* W2TableContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2TableContainer.h; path = Views/W2TableContainer.h; sourceTree = "<group>"; };
 		53463AD21B55A7E9006B6552 /* W2TableContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = W2TableContainer.m; path = Views/W2TableContainer.m; sourceTree = "<group>"; };
 		53463AD41B55CCA6006B6552 /* TurboTax W-2 Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Header.png"; sourceTree = "<group>"; };
-		53463AD51B55CCA6006B6552 /* TurboTax W-2 Page 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Page 2.png"; sourceTree = "<group>"; };
-		53463AD61B55CCA6006B6552 /* TurboTax W-2 Page 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Page 3.png"; sourceTree = "<group>"; };
+		53463AD51B55CCA6006B6552 /* TurboTax W-2 Page-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Page-2.png"; sourceTree = "<group>"; };
+		53463AD61B55CCA6006B6552 /* TurboTax W-2 Page-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Page-3.png"; sourceTree = "<group>"; };
 		53463AD71B55CCA6006B6552 /* TurboTax W-2 Page-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TurboTax W-2 Page-1.png"; sourceTree = "<group>"; };
 		53463ADC1B55D44C006B6552 /* ResourceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceUtil.h; sourceTree = "<group>"; };
 		53463ADD1B55D44C006B6552 /* ResourceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceUtil.m; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 			children = (
 				53463AD41B55CCA6006B6552 /* TurboTax W-2 Header.png */,
 				53463ADF1B55EB15006B6552 /* ddte-client.sqlite3 */,
-				53463AD51B55CCA6006B6552 /* TurboTax W-2 Page 2.png */,
-				53463AD61B55CCA6006B6552 /* TurboTax W-2 Page 3.png */,
+				53463AD51B55CCA6006B6552 /* TurboTax W-2 Page-2.png */,
+				53463AD61B55CCA6006B6552 /* TurboTax W-2 Page-3.png */,
 				53463AD71B55CCA6006B6552 /* TurboTax W-2 Page-1.png */,
 				5346EE421B45E1D20054E726 /* sampledb.sql */,
 			);
@@ -400,7 +400,7 @@
 			files = (
 				53463ABC1B55A3BC006B6552 /* ViewController1.xib in Resources */,
 				538FA3BC1B4A65D100CEBF48 /* sampledb.sql in Resources */,
-				53463AD91B55CCA6006B6552 /* TurboTax W-2 Page 2.png in Resources */,
+				53463AD91B55CCA6006B6552 /* TurboTax W-2 Page-2.png in Resources */,
 				53463AE01B55EB15006B6552 /* ddte-client.sqlite3 in Resources */,
 				53463ADB1B55CCA6006B6552 /* TurboTax W-2 Page-1.png in Resources */,
 				53463AD81B55CCA6006B6552 /* TurboTax W-2 Header.png in Resources */,
@@ -409,7 +409,7 @@
 				53F7A4A51B44B9900072BB8D /* Images.xcassets in Resources */,
 				53F7A49D1B44B9900072BB8D /* Credits.rtf in Resources */,
 				53F7A4A31B44B9900072BB8D /* MainMenu.xib in Resources */,
-				53463ADA1B55CCA6006B6552 /* TurboTax W-2 Page 3.png in Resources */,
+				53463ADA1B55CCA6006B6552 /* TurboTax W-2 Page-3.png in Resources */,
 				53463AC51B55A3BC006B6552 /* W2ViewController2.xib in Resources */,
 				53463ABE1B55A3BC006B6552 /* ViewController2.xib in Resources */,
 				53463AC31B55A3BC006B6552 /* W2ViewController1.xib in Resources */,

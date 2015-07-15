@@ -10,4 +10,6 @@
 
 @interface W2ViewController2 : NSViewController
 
+@property (weak) IBOutlet NSImageView *imageView;
+
 @end

@@ -6,14 +6,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="W2ViewController2">
             <connections>
+                <outlet property="imageView" destination="Wtk-td-Aya" id="Cj7-r3-ZIT"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY" customClass="W2View2">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+        <customView horizontalCompressionResistancePriority="946" verticalCompressionResistancePriority="650" id="Hz6-mo-xeY" customClass="W2View2">
+            <rect key="frame" x="0.0" y="0.0" width="946" height="650"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wtk-td-Aya">
+                    <rect key="frame" x="0.0" y="0.0" width="946" height="650"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="P0a-6Y-Z7l"/>
+                </imageView>
+            </subviews>
+            <point key="canvasLocation" x="551" y="304"/>
         </customView>
     </objects>
 </document>
