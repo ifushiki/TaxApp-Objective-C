@@ -33,6 +33,16 @@
                     </button>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvP-ao-Z37" customClass="DdteResponseView">
                         <rect key="frame" x="41" y="53" width="906" height="498"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zIY-4E-uNi">
+                                <rect key="frame" x="113" y="357" width="176" height="36"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="DDTE Result" id="i2A-em-fmS">
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </customView>
                 </subviews>
             </view>
