@@ -82,7 +82,7 @@
     CGContextSetRGBStrokeColor(theContext, 1.0,0.0,0.0,1.0);
     [self drawGaussian:frame inContext:theContext];
     
-    CGContextSetRGBStrokeColor(theContext, 1.0,1.0,0.0,1.0);
+    CGContextSetRGBStrokeColor(theContext, 1.0,0.8,0.0,1.0);
     frame.origin.x = rect.size.width*0.1;
     frame.size.width = rect.size.width*0.6;
     [self drawGaussian:frame inContext:theContext];

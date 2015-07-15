@@ -456,10 +456,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
             
             switch (returnCode) {
                 case NSModalResponseOK:
-                    NSLog(@"Done button tapped in Custom Sheet");
+//                    NSLog(@"Done button tapped in Custom Sheet");
                     break;
                 case NSModalResponseCancel:
-                    NSLog(@"Cancel button tapped in Custom Sheet");
+//                    NSLog(@"Cancel button tapped in Custom Sheet");
                     break;
                     
                 default:
@@ -478,10 +478,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
             
             switch (returnCode) {
                 case NSModalResponseOK:
-                    NSLog(@"Done button tapped in Custom Sheet");
+//                    NSLog(@"Done button tapped in Custom Sheet");
                     break;
                 case NSModalResponseCancel:
-                    NSLog(@"Cancel button tapped in Custom Sheet");
+//                    NSLog(@"Cancel button tapped in Custom Sheet");
                     break;
                     
                 default:
