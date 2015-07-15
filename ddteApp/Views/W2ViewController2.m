@@ -27,6 +27,11 @@
     
     [self.imageView setImage:self.image];
     [self.imageView setNeedsDisplay:YES];
+    
+    
+    
+    
+    
 }
 
 @end
