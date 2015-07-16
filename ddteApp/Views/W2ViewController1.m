@@ -78,8 +78,7 @@
     self.state = createPopupButton(viewRect, x1, y1, x2, y2);
     self.state.target = self;
     self.state.action = @selector(itemDidChange:);
-    [self.state addItemWithTitle: @"CA"];
-    [self.state addItemWithTitle: @"MA"];
+    addStatesToPopUpMenu(self.state);
     [self.imageView addSubview:self.state];
 
     // ZIP code

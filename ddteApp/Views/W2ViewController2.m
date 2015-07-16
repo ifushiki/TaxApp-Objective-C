@@ -17,22 +17,37 @@
 
 @implementation W2ViewController2
 
-#if 0
-//-----------------------------------------------------------------------------------------------------------
-// Employer's information
-//-----------------------------------------------------------------------------------------------------------
-@property (nonatomic, strong) NSTextField *box7;                // Social Sec. tips
-@property (nonatomic, strong) NSTextField *box8;                // Allocated tips
-@property (nonatomic, strong) NSTextField *box10;               // Dependent care benefits
-@property (nonatomic, strong) NSTextField *box11;               // Nonqualfied plans
-@property (nonatomic, strong) NSPopUpButton *box12LetterCode;   // Letter code
-@property (nonatomic, strong) NSTextField *box12Amount;         // Box 12 amount
-@property (nonatomic, strong) NSButton *box13SatutoryEmployee;  // Box 13 - Satutory employee
-@property (nonatomic, strong) NSButton *box13RetirementPlan;    // Box 13 - Retirement plan
-@property (nonatomic, strong) NSButton *box13ThirdPartySickPay; // Box 13 - Third-party sick pay
-@property (nonatomic, strong) NSTextField *box14;               // Box 14
-@property (nonatomic, strong) NSTextField *box14Amount;         // Box 14 amount
-#endif
+// Adds letter cocdes (Box 12) to the given popup menu.
+void addLetterCode(NSPopUpButton *popupButton)
+{
+    [popupButton addItemWithTitle: @"Select a code"];
+    [popupButton addItemWithTitle: @"A"];
+    [popupButton addItemWithTitle: @"B"];
+    [popupButton addItemWithTitle: @"C"];
+    [popupButton addItemWithTitle: @"D"];
+    [popupButton addItemWithTitle: @"E"];
+    [popupButton addItemWithTitle: @"F"];
+    [popupButton addItemWithTitle: @"G"];
+    [popupButton addItemWithTitle: @"H"];
+    [popupButton addItemWithTitle: @"J"];
+    [popupButton addItemWithTitle: @"K"];
+    [popupButton addItemWithTitle: @"L"];
+    [popupButton addItemWithTitle: @"M"];
+    [popupButton addItemWithTitle: @"N"];
+    [popupButton addItemWithTitle: @"P"];
+    [popupButton addItemWithTitle: @"Q"];
+    [popupButton addItemWithTitle: @"R"];
+    [popupButton addItemWithTitle: @"S"];
+    [popupButton addItemWithTitle: @"T"];
+    [popupButton addItemWithTitle: @"V"];
+    [popupButton addItemWithTitle: @"W"];
+    [popupButton addItemWithTitle: @"Y"];
+    [popupButton addItemWithTitle: @"Z"];
+    [popupButton addItemWithTitle: @"AA"];
+    [popupButton addItemWithTitle: @"BB"];
+    [popupButton addItemWithTitle: @"DD"];
+    [popupButton addItemWithTitle: @"EE"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,8 +101,7 @@
     self.box12LetterCode = createPopupButton(viewRect, x1, y1, x2, y2);
     self.box12LetterCode.target = self;
     self.box12LetterCode.action = @selector(itemDidChange:);
-    [self.box12LetterCode addItemWithTitle: @"U.S. Address"];
-    [self.box12LetterCode addItemWithTitle: @"Canadian Address"];
+    addLetterCode(self.box12LetterCode);
     [self.imageView addSubview:self.box12LetterCode];
     
     // Box 12 Amount
