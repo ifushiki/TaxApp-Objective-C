@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */; };
-		534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */; };
-		534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523261B502EB2005A3BA4 /* SqLite.cpp */; };
-		5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5345236A1B504B49005A3BA4 /* SqLiteException.cpp */; };
-		534523721B5062A7005A3BA4 /* SqLiteValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 534523701B5062A7005A3BA4 /* SqLiteValue.cpp */; };
 		53463AB91B55A3BC006B6552 /* MyView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA11B55A3BC006B6552 /* MyView1.m */; };
 		53463ABA1B55A3BC006B6552 /* MyView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA31B55A3BC006B6552 /* MyView2.m */; };
 		53463ABB1B55A3BC006B6552 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53463AA51B55A3BC006B6552 /* ViewController1.m */; };
@@ -50,6 +45,11 @@
 		53DB57921B568C6F00631BF5 /* SqlWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57901B568C6F00631BF5 /* SqlWindowController.m */; };
 		53DB57931B568C6F00631BF5 /* SqlWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DB57911B568C6F00631BF5 /* SqlWindowController.xib */; };
 		53DB57961B568CA700631BF5 /* SqlResponseView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53DB57951B568CA700631BF5 /* SqlResponseView.mm */; };
+		53E738B81B58631B00486F3A /* SqLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738B61B58631B00486F3A /* SqLite.cpp */; };
+		53E738C21B5863B300486F3A /* SqLiteDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738BA1B5863B300486F3A /* SqLiteDatabase.cpp */; };
+		53E738C31B5863B300486F3A /* SqLiteException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738BC1B5863B300486F3A /* SqLiteException.cpp */; };
+		53E738C41B5863B300486F3A /* SqLiteQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738BE1B5863B300486F3A /* SqLiteQuery.cpp */; };
+		53E738C51B5863B300486F3A /* SqLiteValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738C01B5863B300486F3A /* SqLiteValue.cpp */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -74,17 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteDatabase.cpp; sourceTree = "<group>"; };
-		534522FF1B4E0633005A3BA4 /* SqLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteDatabase.h; sourceTree = "<group>"; };
-		534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteQuery.cpp; sourceTree = "<group>"; };
-		534523231B4EEDF7005A3BA4 /* SqLiteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteQuery.h; sourceTree = "<group>"; };
 		534523251B502E86005A3BA4 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		534523261B502EB2005A3BA4 /* SqLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLite.cpp; sourceTree = "<group>"; };
-		534523271B502EB2005A3BA4 /* SqLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLite.h; sourceTree = "<group>"; };
-		5345236A1B504B49005A3BA4 /* SqLiteException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteException.cpp; sourceTree = "<group>"; };
-		5345236B1B504B49005A3BA4 /* SqLiteException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteException.h; sourceTree = "<group>"; };
-		534523701B5062A7005A3BA4 /* SqLiteValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SqLiteValue.cpp; sourceTree = "<group>"; };
-		534523711B5062A7005A3BA4 /* SqLiteValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqLiteValue.h; sourceTree = "<group>"; };
 		53463AA01B55A3BC006B6552 /* MyView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyView1.h; path = Views/MyView1.h; sourceTree = "<group>"; };
 		53463AA11B55A3BC006B6552 /* MyView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyView1.m; path = Views/MyView1.m; sourceTree = "<group>"; };
 		53463AA21B55A3BC006B6552 /* MyView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyView2.h; path = Views/MyView2.h; sourceTree = "<group>"; };
@@ -141,6 +131,16 @@
 		53DB57911B568C6F00631BF5 /* SqlWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SqlWindowController.xib; path = Views/SqlWindowController.xib; sourceTree = "<group>"; };
 		53DB57941B568CA700631BF5 /* SqlResponseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqlResponseView.h; path = Views/SqlResponseView.h; sourceTree = "<group>"; };
 		53DB57951B568CA700631BF5 /* SqlResponseView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SqlResponseView.mm; path = Views/SqlResponseView.mm; sourceTree = "<group>"; };
+		53E738B61B58631B00486F3A /* SqLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLite.cpp; path = SqLite/SqLite.cpp; sourceTree = "<group>"; };
+		53E738B71B58631B00486F3A /* SqLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLite.h; path = SqLite/SqLite.h; sourceTree = "<group>"; };
+		53E738BA1B5863B300486F3A /* SqLiteDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLiteDatabase.cpp; path = SqLite/SqLiteDatabase.cpp; sourceTree = "<group>"; };
+		53E738BB1B5863B300486F3A /* SqLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLiteDatabase.h; path = SqLite/SqLiteDatabase.h; sourceTree = "<group>"; };
+		53E738BC1B5863B300486F3A /* SqLiteException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLiteException.cpp; path = SqLite/SqLiteException.cpp; sourceTree = "<group>"; };
+		53E738BD1B5863B300486F3A /* SqLiteException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLiteException.h; path = SqLite/SqLiteException.h; sourceTree = "<group>"; };
+		53E738BE1B5863B300486F3A /* SqLiteQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLiteQuery.cpp; path = SqLite/SqLiteQuery.cpp; sourceTree = "<group>"; };
+		53E738BF1B5863B300486F3A /* SqLiteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLiteQuery.h; path = SqLite/SqLiteQuery.h; sourceTree = "<group>"; };
+		53E738C01B5863B300486F3A /* SqLiteValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLiteValue.cpp; path = SqLite/SqLiteValue.cpp; sourceTree = "<group>"; };
+		53E738C11B5863B300486F3A /* SqLiteValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLiteValue.h; path = SqLite/SqLiteValue.h; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -248,6 +248,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		53E738B91B58632E00486F3A /* SqLite */ = {
+			isa = PBXGroup;
+			children = (
+				53E738BA1B5863B300486F3A /* SqLiteDatabase.cpp */,
+				53E738BB1B5863B300486F3A /* SqLiteDatabase.h */,
+				53E738BC1B5863B300486F3A /* SqLiteException.cpp */,
+				53E738BD1B5863B300486F3A /* SqLiteException.h */,
+				53E738BE1B5863B300486F3A /* SqLiteQuery.cpp */,
+				53E738BF1B5863B300486F3A /* SqLiteQuery.h */,
+				53E738C01B5863B300486F3A /* SqLiteValue.cpp */,
+				53E738C11B5863B300486F3A /* SqLiteValue.h */,
+				53E738B61B58631B00486F3A /* SqLite.cpp */,
+				53E738B71B58631B00486F3A /* SqLite.h */,
+			);
+			name = SqLite;
+			sourceTree = "<group>";
+		};
 		53F7A4801B44B98F0072BB8D = {
 			isa = PBXGroup;
 			children = (
@@ -294,7 +311,6 @@
 		53F7A4921B44B9900072BB8D /* ddteApp */ = {
 			isa = PBXGroup;
 			children = (
-				53463AC81B55A3D0006B6552 /* Views */,
 				534523251B502E86005A3BA4 /* DBManager.h */,
 				5354F8F91B54299200D9AE50 /* CurlTest.cpp */,
 				5354F8FA1B54299200D9AE50 /* CurlTest.h */,
@@ -303,17 +319,9 @@
 				53F7A49F1B44B9900072BB8D /* AppDelegate.mm */,
 				53463ADC1B55D44C006B6552 /* ResourceUtil.h */,
 				53463ADD1B55D44C006B6552 /* ResourceUtil.m */,
+				53E738B91B58632E00486F3A /* SqLite */,
+				53463AC81B55A3D0006B6552 /* Views */,
 				53F7A4A11B44B9900072BB8D /* MainMenu.xib */,
-				534523261B502EB2005A3BA4 /* SqLite.cpp */,
-				534523271B502EB2005A3BA4 /* SqLite.h */,
-				5345236A1B504B49005A3BA4 /* SqLiteException.cpp */,
-				5345236B1B504B49005A3BA4 /* SqLiteException.h */,
-				534522FE1B4E0633005A3BA4 /* SqLiteDatabase.cpp */,
-				534522FF1B4E0633005A3BA4 /* SqLiteDatabase.h */,
-				534523221B4EEDF7005A3BA4 /* SqLiteQuery.cpp */,
-				534523231B4EEDF7005A3BA4 /* SqLiteQuery.h */,
-				534523701B5062A7005A3BA4 /* SqLiteValue.cpp */,
-				534523711B5062A7005A3BA4 /* SqLiteValue.h */,
 				53F7A4A41B44B9900072BB8D /* Images.xcassets */,
 				5346EE411B45DFE00054E726 /* Resources */,
 				53F7A4931B44B9900072BB8D /* Supporting Files */,
@@ -465,31 +473,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				53DB57961B568CA700631BF5 /* SqlResponseView.mm in Sources */,
-				534523241B4EEDF7005A3BA4 /* SqLiteQuery.cpp in Sources */,
 				53463ABD1B55A3BC006B6552 /* ViewController2.m in Sources */,
 				53DB578A1B565DCF00631BF5 /* DdteWindowController.m in Sources */,
 				5346EE181B45A21C0054E726 /* DBManager.mm in Sources */,
-				5345236C1B504B49005A3BA4 /* SqLiteException.cpp in Sources */,
 				53F7A4A01B44B9900072BB8D /* AppDelegate.mm in Sources */,
+				53E738C31B5863B300486F3A /* SqLiteException.cpp in Sources */,
 				53DB57921B568C6F00631BF5 /* SqlWindowController.m in Sources */,
 				53463AC61B55A3BC006B6552 /* W2ViewController3.m in Sources */,
 				53463ACC1B55A62F006B6552 /* W2TableViewController.m in Sources */,
+				53E738C51B5863B300486F3A /* SqLiteValue.cpp in Sources */,
 				53DB578E1B56635300631BF5 /* DdteResponseView.m in Sources */,
 				53463ADE1B55D44C006B6552 /* ResourceUtil.m in Sources */,
-				534523281B502EB2005A3BA4 /* SqLite.cpp in Sources */,
-				534523001B4E0633005A3BA4 /* SqLiteDatabase.cpp in Sources */,
 				53463ABA1B55A3BC006B6552 /* MyView2.m in Sources */,
 				53463AC41B55A3BC006B6552 /* W2ViewController2.m in Sources */,
 				53F7A4991B44B9900072BB8D /* main.m in Sources */,
 				53463ABB1B55A3BC006B6552 /* ViewController1.m in Sources */,
 				53463AC01B55A3BC006B6552 /* W2View2.m in Sources */,
+				53E738C41B5863B300486F3A /* SqLiteQuery.cpp in Sources */,
 				53463AC11B55A3BC006B6552 /* W2View3.m in Sources */,
 				53463AD31B55A7E9006B6552 /* W2TableContainer.m in Sources */,
 				53463AC21B55A3BC006B6552 /* W2ViewController1.m in Sources */,
 				5354F8FB1B54299200D9AE50 /* CurlTest.cpp in Sources */,
 				53463AB91B55A3BC006B6552 /* MyView1.m in Sources */,
-				534523721B5062A7005A3BA4 /* SqLiteValue.cpp in Sources */,
 				53463ABF1B55A3BC006B6552 /* W2View1.m in Sources */,
+				53E738B81B58631B00486F3A /* SqLite.cpp in Sources */,
+				53E738C21B5863B300486F3A /* SqLiteDatabase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

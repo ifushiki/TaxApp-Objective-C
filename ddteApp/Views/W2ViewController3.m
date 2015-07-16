@@ -102,4 +102,22 @@
     NSLog(@"Calling -buttonClicked: with sender: %@", sender);
 }
 
+// NSTextFieldDelegate methods
+
+// controlTextDidEndEditing is called when the focus changes from the current field to othe field.
+-(void)controlTextDidEndEditing:(NSNotification *)aNotification
+{
+    
+}
+
+// controlTextDidChange message will be called when a string is changed even during typing.
+-(void)controlTextDidChange:(NSNotification *)aNotification
+{
+    
+}
+
+-(void)controlTextDidBeginEditing:(NSNotification *)aNotification;{
+    
+}
+
 @end
