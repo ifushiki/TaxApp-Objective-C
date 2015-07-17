@@ -506,8 +506,6 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
             self.sqlWindowController = nil;
         }];
     }
-    
-    
-
 }
+
 @end

@@ -144,7 +144,8 @@
 
 // NSTextFieldDelegate methods
 
-// controlTextDidEndEditing is called when the focus changes from the current field to othe field.
+// controlTextDidEndEditing is called when the focus is changed from the current field to an other field or
+// the user clicked outside of any controls.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
     

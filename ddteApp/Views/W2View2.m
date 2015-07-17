@@ -18,4 +18,10 @@
 //    NSRectFill([self bounds]);
 }
 
+// The purpose of this call is unfocus text views when the mouse is clicked outside.
+- (void) mouseDown:(NSEvent *) theEvent
+{
+    [self.window makeFirstResponder:self.window.contentView];
+}
+
 @end
