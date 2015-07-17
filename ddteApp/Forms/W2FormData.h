@@ -42,6 +42,8 @@ enum {
 
 @interface W2FormData : NSObject
 
++ (id)sharedData;
+
 //-----------------------------------------------------------------------------------------------------------
 // Employer's information
 //-----------------------------------------------------------------------------------------------------------
@@ -71,11 +73,11 @@ enum {
 @property (nonatomic, strong) NSString  *box8;                  // Allocated tips
 @property (nonatomic, strong) NSString  *box10;                 // Dependent care benefits
 @property (nonatomic, strong) NSString  *box11;                 // Nonqualfied plans
-@property (nonatomic)         int       box12LetterCode;       // Letter code
+@property (nonatomic)         int       box12LetterCode;        // Letter code
 @property (nonatomic, strong) NSString  *box12Amount;           // Box 12 amount
-@property (nonatomic)         BOOL       box13SatutoryEmployee;  // Box 13 - Satutory employee
-@property (nonatomic)         BOOL       box13RetirementPlan;    // Box 13 - Retirement plan
-@property (nonatomic)         BOOL       box13ThirdPartySickPay; // Box 13 - Third-party sick pay
+@property (nonatomic)         BOOL      box13SatutoryEmployee;  // Box 13 - Satutory employee
+@property (nonatomic)         BOOL      box13RetirementPlan;    // Box 13 - Retirement plan
+@property (nonatomic)         BOOL      box13ThirdPartySickPay; // Box 13 - Third-party sick pay
 @property (nonatomic, strong) NSString  *box14;                 // Box 14
 @property (nonatomic, strong) NSString  *box14Amount;           // Box 14 amount
 
@@ -89,6 +91,6 @@ enum {
 @property (nonatomic, strong) NSString  *box18;                 // Box 18 - Local wages, tips, etc.
 @property (nonatomic, strong) NSString  *box19;                 // Box 19 - Local income tax
 @property (nonatomic, strong) NSString  *box20;                 // Box 20 - Locality name
-@property (nonatomic)         int       *box20AssociatedState;  // Box 20 - Associated State
+@property (nonatomic)         int       box20AssociatedState;  // Box 20 - Associated State
 
 @end

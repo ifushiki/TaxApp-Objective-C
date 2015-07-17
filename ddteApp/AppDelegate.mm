@@ -18,6 +18,7 @@
 #import "W2TableViewController.h"
 #import "DdteWindowController.h"
 #import "SqlWindowController.h"
+#import "W2FormData.h"
 
 @interface AppDelegate()
 

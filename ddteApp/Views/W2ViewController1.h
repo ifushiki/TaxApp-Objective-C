@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSTextField *boxB;                // Employer's identification number (EIN)
 @property (nonatomic, strong) NSTextField *boxC;                // Employer name
 @property (nonatomic, strong) NSTextField *employerNameLine2;   // Employer name line 2 (optional)
-@property (nonatomic, strong) NSPopUpButton *addressType;       // Address Type as a popup button.
+@property (nonatomic, strong) NSPopUpButton *addressType;        // Address Type as a popup button.
 @property (nonatomic, strong) NSTextField *address;             // Address
 @property (nonatomic, strong) NSTextField *city;                // City
 @property (nonatomic, strong) NSPopUpButton *state;             // State

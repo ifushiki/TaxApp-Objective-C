@@ -8,6 +8,7 @@
 
 #import "W2ViewController2.h"
 #import "ResourceUtil.h"
+#import "W2FormData.h"
 
 @interface W2ViewController2 ()
 
@@ -130,7 +131,17 @@ void addLetterCode(NSPopUpButton *popupButton)
 
 - (IBAction) itemDidChange:(id) sender
 {
-    NSLog(@"Calling -buttonClicked: with sender: %@", sender);
+    W2FormData* sharedData = [W2FormData sharedData];
+    if (sharedData == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+    }
+    
+    if (sender == self.box12LetterCode) {
+        NSLog(@"box12LetterCode has changed.");
+    }
+    else {
+        NSLog(@"An other popup button is selected.");
+    }
 }
 
 // NSTextFieldDelegate methods
@@ -138,7 +149,36 @@ void addLetterCode(NSPopUpButton *popupButton)
 // controlTextDidEndEditing is called when the focus changes from the current field to othe field.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
+    W2FormData* sharedData = [W2FormData sharedData];
+    if (sharedData == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+    }
     
+    NSTextField* textField = (NSTextField *)[aNotification object];
+    if (textField == self.box7) {
+        NSLog(@"box7 was edited");
+    }
+    else if (textField == self.box8) {
+        NSLog(@"box8 was edited");
+    }
+    else if (textField == self.box10) {
+        NSLog(@"box10 was edited");
+    }
+    else if (textField == self.box11) {
+        NSLog(@"box11 was edited");
+    }
+    else if (textField == self.box12Amount) {
+        NSLog(@"box12Amount was edited");
+    }
+    else if (textField == self.box14) {
+        NSLog(@"box14 was edited");
+    }
+    else if (textField == self.box14Amount) {
+        NSLog(@"box14Amount was edited");
+    }
+    else {
+        NSLog(@"An other text field is selected.");
+    }
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.

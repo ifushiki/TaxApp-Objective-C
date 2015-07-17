@@ -69,4 +69,13 @@
     return self;
 }
 
++ (id)sharedData {
+    static W2FormData *sharedData = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedData = [[self alloc] init];
+    });
+    return sharedData;
+}
+
 @end

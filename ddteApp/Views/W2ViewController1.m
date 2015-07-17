@@ -8,6 +8,7 @@
 
 #import "W2ViewController1.h"
 #import "ResourceUtil.h"
+#import "W2FormData.h"
 
 @implementation W2ViewController1
 
@@ -139,16 +140,74 @@
 
 - (IBAction) itemDidChange:(id) sender
 {
-    NSLog(@"Calling -buttonClicked: with sender: %@", sender);
+    W2FormData* sharedData = [W2FormData sharedData];
+    if (sharedData == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+    }
+    
+    if (sender == self.addressType) {
+        NSLog(@"addressType has changed.");
+    }
+    else if (sender== self.state) {
+        NSLog(@"state has changed.");
+    }
+    else {
+        NSLog(@"An other popup button is selected.");
+    }
 }
-
-// NSTextFieldDelegate methods
 
 // controlTextDidEndEditing is called when the focus is changed from the current field to an other field or
 // the user clicked outside of any controls.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
+    W2FormData* sharedData = [W2FormData sharedData];
+    if (sharedData == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+    }
     
+    NSTextField* textField = (NSTextField *)[aNotification object];
+    if (textField == self.boxB) {
+        NSLog(@"boxB was edited");
+    }
+    else if (textField == self.boxC) {
+        NSLog(@"boxC was edited");
+    }
+    else if (textField == self.boxC) {
+        NSLog(@"boxC was edited");
+    }
+    else if (textField == self.employerNameLine2) {
+        NSLog(@"employerNameLine2 was edited");
+    }
+    else if (textField == self.address) {
+        NSLog(@"address was edited");
+    }
+    else if (textField == self.city) {
+        NSLog(@"city was edited");
+    }
+    else if (textField == self.zipCode) {
+        NSLog(@"zipCode was edited");
+    }
+    else if (textField == self.box1) {
+        NSLog(@"box1 was edited");
+    }
+    else if (textField == self.box2) {
+        NSLog(@"box2 was edited");
+    }
+    else if (textField == self.box3) {
+        NSLog(@"box3 was edited");
+    }
+    else if (textField == self.box4) {
+        NSLog(@"box4 was edited");
+    }
+    else if (textField == self.box5) {
+        NSLog(@"box5 was edited");
+    }
+    else if (textField == self.box6) {
+        NSLog(@"box6 was edited");
+    }
+    else {
+        NSLog(@"An other text field is selected.");
+    }
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.
