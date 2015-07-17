@@ -154,31 +154,43 @@ void addLetterCode(NSPopUpButton *popupButton)
         NSLog(@"Failed in getting the shared W2 data");
     }
     
+    W2FormDataID dataID = W2FormData_InvalidID;
+    NSString *str = nil;
+
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.box7) {
+        dataID = W2FormData_box7;
         NSLog(@"box7 was edited");
     }
     else if (textField == self.box8) {
+        dataID = W2FormData_box8;
         NSLog(@"box8 was edited");
     }
     else if (textField == self.box10) {
+        dataID = W2FormData_box10;
         NSLog(@"box10 was edited");
     }
     else if (textField == self.box11) {
+        dataID = W2FormData_box11;
         NSLog(@"box11 was edited");
     }
     else if (textField == self.box12Amount) {
+        dataID = W2FormData_box12Amount;
         NSLog(@"box12Amount was edited");
     }
     else if (textField == self.box14) {
+        dataID = W2FormData_box14;
         NSLog(@"box14 was edited");
     }
     else if (textField == self.box14Amount) {
+        dataID = W2FormData_box14Amount;
         NSLog(@"box14Amount was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
+
+    [sharedData setFormString:str withFormDataID:dataID];
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.

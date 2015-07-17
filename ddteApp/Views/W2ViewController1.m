@@ -165,49 +165,63 @@
         NSLog(@"Failed in getting the shared W2 data");
     }
     
+    W2FormDataID dataID = W2FormData_InvalidID;
+    NSString *str = nil;
+    
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.boxB) {
+        dataID = W2FormData_boxB;
         NSLog(@"boxB was edited");
     }
     else if (textField == self.boxC) {
-        NSLog(@"boxC was edited");
-    }
-    else if (textField == self.boxC) {
+        dataID = W2FormData_boxC;
         NSLog(@"boxC was edited");
     }
     else if (textField == self.employerNameLine2) {
+        dataID = W2FormData_employerNameLine2;
         NSLog(@"employerNameLine2 was edited");
     }
     else if (textField == self.address) {
+        dataID = W2FormData_address;
         NSLog(@"address was edited");
     }
     else if (textField == self.city) {
+        dataID = W2FormData_city;
         NSLog(@"city was edited");
     }
     else if (textField == self.zipCode) {
+        dataID = W2FormData_zipCode;
         NSLog(@"zipCode was edited");
     }
     else if (textField == self.box1) {
+        dataID = W2FormData_box1;
         NSLog(@"box1 was edited");
     }
     else if (textField == self.box2) {
+        dataID = W2FormData_box2;
         NSLog(@"box2 was edited");
     }
     else if (textField == self.box3) {
+        dataID = W2FormData_box3;
         NSLog(@"box3 was edited");
     }
     else if (textField == self.box4) {
+        dataID = W2FormData_box4;
         NSLog(@"box4 was edited");
     }
     else if (textField == self.box5) {
+        dataID = W2FormData_box5;
         NSLog(@"box5 was edited");
     }
     else if (textField == self.box6) {
+        dataID = W2FormData_box6;
         NSLog(@"box6 was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
+    
+    [sharedData setFormString:str withFormDataID:dataID];
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.

@@ -78,4 +78,16 @@
     return sharedData;
 }
 
+- (BOOL) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID
+{
+    // To be implemented.
+    BOOL isValidID = NO;
+    return isValidID;
+}
+- (NSString *) getFormString:(W2FormDataID) dataID
+{
+    // To be implemented.
+    return nil;
+}
+
 @end

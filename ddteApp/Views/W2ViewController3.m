@@ -126,28 +126,39 @@
         NSLog(@"Failed in getting the shared W2 data");
     }
     
+    W2FormDataID dataID = W2FormData_InvalidID;
+    NSString *str = nil;
+    
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.box15EmployerStateID) {
+        dataID = W2FormData_box15EmployerStateID;
         NSLog(@"box15EmployerStateID was edited");
     }
     else if (textField == self.box16) {
+        dataID = W2FormData_box16;
         NSLog(@"box16 was edited");
     }
     else if (textField == self.box17) {
+        dataID = W2FormData_box17;
         NSLog(@"box17 was edited");
     }
     else if (textField == self.box18) {
+        dataID = W2FormData_box18;
         NSLog(@"box18 was edited");
     }
     else if (textField == self.box19) {
+        dataID = W2FormData_box19;
         NSLog(@"box19 was edited");
     }
     else if (textField == self.box20) {
+        dataID = W2FormData_box20;
         NSLog(@"box20 was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
+
+    [sharedData setFormString:str withFormDataID:dataID];
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.
