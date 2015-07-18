@@ -49,8 +49,9 @@
 		53E738C31B5863B300486F3A /* SqLiteException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738BC1B5863B300486F3A /* SqLiteException.cpp */; };
 		53E738C41B5863B300486F3A /* SqLiteQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738BE1B5863B300486F3A /* SqLiteQuery.cpp */; };
 		53E738C51B5863B300486F3A /* SqLiteValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738C01B5863B300486F3A /* SqLiteValue.cpp */; };
-		53E738C91B58694200486F3A /* W2FormData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53E738C81B58694200486F3A /* W2FormData.mm */; };
+		53E738C91B58694200486F3A /* W2FormData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738C81B58694200486F3A /* W2FormData.cpp */; };
 		53E738CD1B586A1400486F3A /* CurlTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738CB1B586A1400486F3A /* CurlTest.cpp */; };
+		53E738D01B5982D100486F3A /* W2FormManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53E738CF1B5982D100486F3A /* W2FormManager.mm */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -141,9 +142,12 @@
 		53E738C01B5863B300486F3A /* SqLiteValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SqLiteValue.cpp; path = SqLite/SqLiteValue.cpp; sourceTree = "<group>"; };
 		53E738C11B5863B300486F3A /* SqLiteValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SqLiteValue.h; path = SqLite/SqLiteValue.h; sourceTree = "<group>"; };
 		53E738C71B58694200486F3A /* W2FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2FormData.h; path = Forms/W2FormData.h; sourceTree = "<group>"; };
-		53E738C81B58694200486F3A /* W2FormData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = W2FormData.mm; path = Forms/W2FormData.mm; sourceTree = "<group>"; };
+		53E738C81B58694200486F3A /* W2FormData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = W2FormData.cpp; path = Forms/W2FormData.cpp; sourceTree = "<group>"; };
 		53E738CB1B586A1400486F3A /* CurlTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CurlTest.cpp; path = REST/CurlTest.cpp; sourceTree = "<group>"; };
 		53E738CC1B586A1400486F3A /* CurlTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurlTest.h; path = REST/CurlTest.h; sourceTree = "<group>"; };
+		53E738CE1B5982D100486F3A /* W2FormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2FormManager.h; path = Forms/W2FormManager.h; sourceTree = "<group>"; };
+		53E738CF1B5982D100486F3A /* W2FormManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = W2FormManager.mm; path = Forms/W2FormManager.mm; sourceTree = "<group>"; };
+		53E738D11B5989B700486F3A /* W2FormTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = W2FormTypes.h; path = Forms/W2FormTypes.h; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -272,7 +276,10 @@
 			isa = PBXGroup;
 			children = (
 				53E738C71B58694200486F3A /* W2FormData.h */,
-				53E738C81B58694200486F3A /* W2FormData.mm */,
+				53E738C81B58694200486F3A /* W2FormData.cpp */,
+				53E738CE1B5982D100486F3A /* W2FormManager.h */,
+				53E738CF1B5982D100486F3A /* W2FormManager.mm */,
+				53E738D11B5989B700486F3A /* W2FormTypes.h */,
 			);
 			name = Forms;
 			sourceTree = "<group>";
@@ -515,9 +522,10 @@
 				53463AD31B55A7E9006B6552 /* W2TableContainer.m in Sources */,
 				53463AC21B55A3BC006B6552 /* W2ViewController1.m in Sources */,
 				53463AB91B55A3BC006B6552 /* MyView1.m in Sources */,
-				53E738C91B58694200486F3A /* W2FormData.mm in Sources */,
+				53E738C91B58694200486F3A /* W2FormData.cpp in Sources */,
 				53E738CD1B586A1400486F3A /* CurlTest.cpp in Sources */,
 				53463ABF1B55A3BC006B6552 /* W2View1.m in Sources */,
+				53E738D01B5982D100486F3A /* W2FormManager.mm in Sources */,
 				53E738B81B58631B00486F3A /* SqLite.cpp in Sources */,
 				53E738C21B5863B300486F3A /* SqLiteDatabase.cpp in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 #import "W2ViewController1.h"
 #import "ResourceUtil.h"
-#import "W2FormData.h"
+#import "W2FormManager.h"
 
 @implementation W2ViewController1
 
@@ -55,8 +55,10 @@
     self.addressType = createPopupButton(viewRect, x1, y1, x2, y2);
     self.addressType.target = self;
     self.addressType.action = @selector(itemDidChange:);
+    [self.addressType addItemWithTitle:@"Select address type"];
     [self.addressType addItemWithTitle: @"U.S. Address"];
     [self.addressType addItemWithTitle: @"Canadian Address"];
+    [self.addressType selectItemAtIndex:1]; // Start at US address.
     [self.imageView addSubview:self.addressType];
 
     // Address
@@ -140,8 +142,8 @@
 
 - (IBAction) itemDidChange:(id) sender
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -160,8 +162,8 @@
 // the user clicked outside of any controls.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -171,57 +173,71 @@
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.boxB) {
         dataID = W2FormData_boxB;
+        str = [self.boxB stringValue];
         NSLog(@"boxB was edited");
     }
     else if (textField == self.boxC) {
         dataID = W2FormData_boxC;
+        str = [self.boxC stringValue];
         NSLog(@"boxC was edited");
     }
     else if (textField == self.employerNameLine2) {
         dataID = W2FormData_employerNameLine2;
+        str = [self.employerNameLine2 stringValue];
         NSLog(@"employerNameLine2 was edited");
     }
     else if (textField == self.address) {
         dataID = W2FormData_address;
+        str = [self.address stringValue];
         NSLog(@"address was edited");
     }
     else if (textField == self.city) {
         dataID = W2FormData_city;
+        str = [self.city stringValue];
         NSLog(@"city was edited");
     }
     else if (textField == self.zipCode) {
         dataID = W2FormData_zipCode;
+        str = [self.zipCode stringValue];
         NSLog(@"zipCode was edited");
     }
     else if (textField == self.box1) {
         dataID = W2FormData_box1;
+        str = [self.box1 stringValue];
         NSLog(@"box1 was edited");
     }
     else if (textField == self.box2) {
         dataID = W2FormData_box2;
+        str = [self.box2 stringValue];
         NSLog(@"box2 was edited");
     }
     else if (textField == self.box3) {
         dataID = W2FormData_box3;
+        str = [self.box3 stringValue];
         NSLog(@"box3 was edited");
     }
     else if (textField == self.box4) {
         dataID = W2FormData_box4;
+        str = [self.box4 stringValue];
         NSLog(@"box4 was edited");
     }
     else if (textField == self.box5) {
         dataID = W2FormData_box5;
+        str = [self.box5 stringValue];
         NSLog(@"box5 was edited");
     }
     else if (textField == self.box6) {
         dataID = W2FormData_box6;
+        str = [self.box6 stringValue];
         NSLog(@"box6 was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
     
-    [sharedData setFormString:str withFormDataID:dataID];
+    if (str) {
+        [w2Form setFormString:str withFormDataID:dataID];
+    }
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.

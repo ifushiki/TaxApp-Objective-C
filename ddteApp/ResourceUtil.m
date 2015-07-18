@@ -7,6 +7,7 @@
 //
 
 #import "ResourceUtil.h"
+#import "W2FormTypes.h"
 
 @implementation ResourceUtil
 

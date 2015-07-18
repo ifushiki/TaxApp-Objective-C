@@ -8,7 +8,7 @@
 
 #import "W2ViewController2.h"
 #import "ResourceUtil.h"
-#import "W2FormData.h"
+#import "W2FormManager.h"
 
 @interface W2ViewController2 ()
 
@@ -131,8 +131,8 @@ void addLetterCode(NSPopUpButton *popupButton)
 
 - (IBAction) itemDidChange:(id) sender
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -149,8 +149,8 @@ void addLetterCode(NSPopUpButton *popupButton)
 // controlTextDidEndEditing is called when the focus changes from the current field to othe field.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -160,37 +160,46 @@ void addLetterCode(NSPopUpButton *popupButton)
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.box7) {
         dataID = W2FormData_box7;
+        str = [self.box7 stringValue];
         NSLog(@"box7 was edited");
     }
     else if (textField == self.box8) {
         dataID = W2FormData_box8;
+        str = [self.box8 stringValue];
         NSLog(@"box8 was edited");
     }
     else if (textField == self.box10) {
         dataID = W2FormData_box10;
+        str = [self.box10 stringValue];
         NSLog(@"box10 was edited");
     }
     else if (textField == self.box11) {
         dataID = W2FormData_box11;
+        str = [self.box11 stringValue];
         NSLog(@"box11 was edited");
     }
     else if (textField == self.box12Amount) {
         dataID = W2FormData_box12Amount;
+        str = [self.box12Amount stringValue];
         NSLog(@"box12Amount was edited");
     }
     else if (textField == self.box14) {
         dataID = W2FormData_box14;
+        str = [self.box14 stringValue];
         NSLog(@"box14 was edited");
     }
     else if (textField == self.box14Amount) {
         dataID = W2FormData_box14Amount;
+        str = [self.box14Amount stringValue];
         NSLog(@"box14Amount was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
 
-    [sharedData setFormString:str withFormDataID:dataID];
+    if (str) {
+        [w2Form setFormString:str withFormDataID:dataID];
+    }
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.

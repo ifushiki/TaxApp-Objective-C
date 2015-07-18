@@ -8,7 +8,7 @@
 
 #import "W2ViewController3.h"
 #import "ResourceUtil.h"
-#import "W2FormData.h"
+#import "W2FormManager.h"
 
 @interface W2ViewController3 ()
 
@@ -100,8 +100,8 @@
 
 - (IBAction) itemDidChange:(id) sender
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -121,8 +121,8 @@
 // controlTextDidEndEditing is called when the focus changes from the current field to othe field.
 -(void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
-    W2FormData* sharedData = [W2FormData sharedData];
-    if (sharedData == nil) {
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
     
@@ -132,33 +132,41 @@
     NSTextField* textField = (NSTextField *)[aNotification object];
     if (textField == self.box15EmployerStateID) {
         dataID = W2FormData_box15EmployerStateID;
+        str = [self.box15EmployerStateID stringValue];
         NSLog(@"box15EmployerStateID was edited");
     }
     else if (textField == self.box16) {
         dataID = W2FormData_box16;
+        str = [self.box16 stringValue];
         NSLog(@"box16 was edited");
     }
     else if (textField == self.box17) {
         dataID = W2FormData_box17;
+        str = [self.box17 stringValue];
         NSLog(@"box17 was edited");
     }
     else if (textField == self.box18) {
         dataID = W2FormData_box18;
+        str = [self.box18 stringValue];
         NSLog(@"box18 was edited");
     }
     else if (textField == self.box19) {
         dataID = W2FormData_box19;
+        str = [self.box19 stringValue];
         NSLog(@"box19 was edited");
     }
     else if (textField == self.box20) {
         dataID = W2FormData_box20;
+        str = [self.box20 stringValue];
         NSLog(@"box20 was edited");
     }
     else {
         NSLog(@"An other text field is selected.");
     }
 
-    [sharedData setFormString:str withFormDataID:dataID];
+    if (str) {
+        [w2Form setFormString:str withFormDataID:dataID];
+    }
 }
 
 // controlTextDidChange message will be called when a string is changed even during typing.
