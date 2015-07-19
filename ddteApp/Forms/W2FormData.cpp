@@ -23,54 +23,6 @@ W2FormData::W2FormData()
     this->box20AssociatedState = kState_Unspecified;
 }
 
-/*
-W2FormData_InvalidID = 0,
-W2FormData_boxB,                  // Employer's identification number (EIN)
-W2FormData_boxC,                  // Employer name
-W2FormData_employerNameLine2,     // Employer name line 2 (optional)
-W2FormData_addressType,            // Address Type as a popup button.
-W2FormData_address,               // Address
-W2FormData_city,                  // City
-W2FormData_state,                  // State
-W2FormData_zipCode,               // ZIP code
-
-//-----------------------------------------------------------------------------------------------------------
-// Incoem & taxes withheld (Boxes 1-6)
-//-----------------------------------------------------------------------------------------------------------
-W2FormData_box1,                  // Wages, tips, other
-W2FormData_box2,                  // Federal tax withheld
-W2FormData_box3,                  // Social Sec. wages
-W2FormData_box4,                  // Social Sec. tax withheld
-W2FormData_box5,                  // Medicare Wages
-W2FormData_box6,                  // Medicre tax withheld
-
-//-----------------------------------------------------------------------------------------------------------
-// Employer's information
-//-----------------------------------------------------------------------------------------------------------
-W2FormData_box7,                  // Social Sec. tips
-W2FormData_box8,                  // Allocated tips
-W2FormData_box10,                 // Dependent care benefits
-W2FormData_box11,                 // Nonqualfied plans
-W2FormData_box12LetterCode,        // Letter code
-W2FormData_box12Amount,           // Box 12 amount
-W2FormData_box13SatutoryEmployee,  // Box 13 - Satutory employee
-W2FormData_box13RetirementPlan,    // Box 13 - Retirement plan
-W2FormData_box13ThirdPartySickPay, // Box 13 - Third-party sick pay
-W2FormData_box14,                 // Box 14
-W2FormData_box14Amount,           // Box 14 amount
-
-//-----------------------------------------------------------------------------------------------------------
-// State & local taxes (Boxes 15-20) - Leave blank if no value
-//-----------------------------------------------------------------------------------------------------------
-W2FormData_box15,                  // Box 15 - State
-W2FormData_box15EmployerStateID,  // Box 15 - Employer's state ID number
-W2FormData_box16,                 // Box 16 - State wages, tips, etc.
-W2FormData_box17,                 // Box 17 - State income tax
-W2FormData_box18,                 // Box 18 - Local wages, tips, etc.
-W2FormData_box19,                 // Box 19 - Local income tax
-W2FormData_box20,                 // Box 20 - Locality name
-W2FormData_box20AssociatedState,  // Box 20 - Associated State
-*/
 bool W2FormData::setField(std::string& str, W2FormDataID dataID)
 {
     bool success = false;

@@ -14,6 +14,9 @@ NSTextField * createTextField(NSRect parentsBounds, float x1, float y1, float x2
 // Create a popup button with the given boundary (in topLeft corner as zero).
 NSPopUpButton * createPopupButton(NSRect parentsBounds, float x1, float y1, float x2, float y2);
 
+// Create a checkbox with the given boundary (in topLeft corner as zero).
+NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, float y2);
+
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton);
 

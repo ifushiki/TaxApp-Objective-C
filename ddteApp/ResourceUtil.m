@@ -45,6 +45,23 @@ NSPopUpButton * createPopupButton(NSRect parentsBounds, float x1, float y1, floa
     return popupButton;
 }
 
+// Create a checkbox with the given boundary (in topLeft corner as zero).
+NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, float y2)
+{
+    NSRect rect;
+    rect.size.width = x2 - x1;
+    rect.size.height = y2 - y1;
+    rect.origin.x = x1;
+    rect.origin.y = parentsBounds.size.height - y2;
+    NSButton *checkBox = [[NSButton alloc] initWithFrame:rect];
+    [checkBox setButtonType:NSSwitchButton];    // Set to the check box type.
+    [checkBox setBezelStyle:0];
+    [checkBox setTitle:@""];
+    [checkBox setState:NSOffState];
+    
+    return checkBox;
+}
+
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton)
 {

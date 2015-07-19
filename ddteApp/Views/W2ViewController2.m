@@ -112,7 +112,27 @@ void addLetterCode(NSPopUpButton *popupButton)
     self.box12Amount.delegate = self;
     [self.imageView addSubview:self.box12Amount];
     
-    // Add check boxes
+    // Box 13 (3 check buttons)
+    x1 = 481.0; y1 = 343.0;
+    x2 = 491.0; y2 = 353.0;
+    self.box13SatutoryEmployee = createCheckBox(viewRect, x1, y1, x2, y2);
+    self.box13SatutoryEmployee.target = self;
+    self.box13SatutoryEmployee.action = @selector(checkBoxClicked:);
+    [self.imageView addSubview:self.box13SatutoryEmployee];
+
+    x1 = 481.0; y1 = 370.0;
+    x2 = 491.0; y2 = 380.0;
+    self.box13RetirementPlan = createCheckBox(viewRect, x1, y1, x2, y2);
+    self.box13RetirementPlan.target = self;
+    self.box13RetirementPlan.action = @selector(checkBoxClicked:);
+    [self.imageView addSubview:self.box13RetirementPlan];
+
+    x1 = 481.0; y1 = 397.0;
+    x2 = 491.0; y2 = 407.0;
+    self.box13ThirdPartySickPay = createCheckBox(viewRect, x1, y1, x2, y2);
+    self.box13ThirdPartySickPay.target = self;
+    self.box13ThirdPartySickPay.action = @selector(checkBoxClicked:);
+    [self.imageView addSubview:self.box13ThirdPartySickPay];
 
     // Box 14
     x1 = 107.0; y1 = 526.0;
@@ -141,6 +161,34 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
     else {
         NSLog(@"An other popup button is selected.");
+    }
+}
+
+- (IBAction) checkBoxClicked:(id) sender
+{
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+    }
+    
+    if (sender == self.box13SatutoryEmployee) {
+        NSLog(@"box13SatutoryEmployee is clicked.");
+    }
+    else if (sender == self.box13RetirementPlan) {
+        NSLog(@"box13RetirementPlan is clicked.");
+    }
+    else if (sender == self.box13ThirdPartySickPay) {
+        NSLog(@"box13ThirdPartySickPay is clicked.");
+    }
+    else {
+        NSLog(@"An other check box is clicked.");
+    }
+    NSInteger checkBoxStatus = [sender state];
+    if (checkBoxStatus == NSOnState) {
+        NSLog(@"Check box is selected.");
+    }
+    else {
+        NSLog(@"Check box is unselected.");
     }
 }
 
