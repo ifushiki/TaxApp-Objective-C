@@ -155,12 +155,19 @@ void addLetterCode(NSPopUpButton *popupButton)
     if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
+    W2FormDataID dataID = W2FormData_InvalidID;
     
     if (sender == self.box12LetterCode) {
+        dataID = W2FormData_box12LetterCode;
         NSLog(@"box12LetterCode has changed.");
     }
     else {
         NSLog(@"An other popup button is selected.");
+    }
+
+    int selectedID = 0;
+    if ([w2Form setFormSelection:selectedID withFormDataID:dataID] == NO) {
+        NSLog(@"setFromSelection: Failed in setting the selectedID for popup ID = %d", dataID);
     }
 }
 
@@ -170,14 +177,18 @@ void addLetterCode(NSPopUpButton *popupButton)
     if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
+    W2FormDataID dataID = W2FormData_InvalidID;
     
     if (sender == self.box13SatutoryEmployee) {
+        dataID = W2FormData_box13SatutoryEmployee;
         NSLog(@"box13SatutoryEmployee is clicked.");
     }
     else if (sender == self.box13RetirementPlan) {
+        dataID = W2FormData_box13RetirementPlan;
         NSLog(@"box13RetirementPlan is clicked.");
     }
     else if (sender == self.box13ThirdPartySickPay) {
+        dataID = W2FormData_box13ThirdPartySickPay;
         NSLog(@"box13ThirdPartySickPay is clicked.");
     }
     else {
@@ -187,8 +198,18 @@ void addLetterCode(NSPopUpButton *popupButton)
     if (checkBoxStatus == NSOnState) {
         NSLog(@"Check box is selected.");
     }
-    else {
+    if (checkBoxStatus == NSOffState) {
         NSLog(@"Check box is unselected.");
+    }
+    if (checkBoxStatus == NSMixedState) {
+        NSLog(@"Check box: mixed state.");
+    }
+    else {
+        NSLog(@"Check box: Unknown state.");
+    }
+
+    if ([w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID] == NO) {
+        NSLog(@"setFormCheckBosStatis: Failed in setting status for check box ID = %d", dataID);
     }
 }
 
