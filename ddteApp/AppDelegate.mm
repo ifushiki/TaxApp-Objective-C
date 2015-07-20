@@ -577,10 +577,12 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     y1 = self.sheetOrigin.y;
     
     float x = x1 + dx;
-    float y = rect.origin.y - y1;
+//    float y = sheetRect.origin.y - sheetRect.size.height- y1;
+    float y = y1;
 
     fieldRect.origin.x = x;
     fieldRect.origin.y = y;
+//    fieldRect.origin.y = 0;
     fieldRect.size.height = 0;
     return fieldRect;
 }

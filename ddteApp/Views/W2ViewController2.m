@@ -169,8 +169,8 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 
     if (dataID != W2FormData_InvalidID) {
-        CGPoint topLeftPt = getTopLeft((NSView *) sender);
-        if ([w2Form setFormSelection:selectedID withFormDataID:dataID at:topLeftPt] == NO) {
+        CGPoint pt = getOrigin((NSView *) sender);
+        if ([w2Form setFormSelection:selectedID withFormDataID:dataID at:pt] == NO) {
             NSLog(@"setFormSelection: Failed in setting status for check box ID = %d", dataID);
         }
     }
@@ -200,10 +200,10 @@ void addLetterCode(NSPopUpButton *popupButton)
         NSLog(@"An other check box is clicked.");
     }
     
-    CGPoint topLeftPt = getTopLeft((NSView *) sender);
+    CGPoint pt = getOrigin((NSView *) sender);
 
     // Test method to show warning.
-    [AppDelegate showWarning:@"Please check your input." at:topLeftPt];
+    [AppDelegate showWarning:@"Please check your input." at:pt];
 
     if (dataID != W2FormData_InvalidID) {
         NSInteger checkBoxStatus = [sender state];
@@ -220,8 +220,8 @@ void addLetterCode(NSPopUpButton *popupButton)
             NSLog(@"Check box: Unknown state.");
         }
         
-        CGPoint topLeftPt = getTopLeft((NSView *) sender);
-        W2Error w2Error = [w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID at:topLeftPt];
+        CGPoint pt = getOrigin((NSView *) sender);
+        W2Error w2Error = [w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID at:pt];
         switch (w2Error) {
             case kW2Error_OK:
                 // The result is OK.  Nothing more to do.
@@ -296,8 +296,8 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 
     if (str) {
-        CGPoint topLeftPt = getTopLeft(textField);
-        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID at:topLeftPt];
+        CGPoint pt = getOrigin(textField);
+        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID at:pt];
         switch (w2Error) {
             case kW2Error_OK:
                 // The result is OK.  Nothing more to do.

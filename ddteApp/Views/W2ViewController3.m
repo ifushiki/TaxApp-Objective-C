@@ -122,8 +122,8 @@
     }
     
     if (dataID != W2FormData_InvalidID) {
-        CGPoint topLeftPt = getTopLeft((NSView *) sender);
-        if ([w2Form setFormSelection:selectedID withFormDataID:dataID at:topLeftPt] == NO) {
+        CGPoint pt = getOrigin((NSView *) sender);
+        if ([w2Form setFormSelection:selectedID withFormDataID:dataID at:pt] == NO) {
             NSLog(@"setFormSelection: Failed in setting status for check box ID = %d", dataID);
         }
     }
@@ -178,8 +178,8 @@
     }
 
     if (str) {
-        CGPoint topLeftPt = getTopLeft(textField);
-        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID at:topLeftPt];
+        CGPoint pt = getOrigin(textField);
+        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID at:pt];
         switch (w2Error) {
             case kW2Error_OK:
                 // The result is OK.  Nothing more to do.
