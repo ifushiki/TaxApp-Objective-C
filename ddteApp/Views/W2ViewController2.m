@@ -223,20 +223,6 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 }
 
-
-- (void) alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci {
-    switch(rc) {
-        case NSAlertFirstButtonReturn:
-            // "First" pressed
-            break;
-        case NSAlertSecondButtonReturn:
-            // "Second" pressed
-            break;
-        
-        default:
-            break;
-    }
-}
 // NSTextFieldDelegate methods
 
 // controlTextDidEndEditing is called when the focus changes from the current field to othe field.
