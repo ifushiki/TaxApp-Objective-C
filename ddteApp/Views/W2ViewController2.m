@@ -169,7 +169,8 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 
     if (dataID != W2FormData_InvalidID) {
-        if ([w2Form setFormSelection:selectedID withFormDataID:dataID] == NO) {
+        CGPoint topLeftPt = getTopLeft((NSView *) sender);
+        if ([w2Form setFormSelection:selectedID withFormDataID:dataID at:topLeftPt] == NO) {
             NSLog(@"setFormSelection: Failed in setting status for check box ID = %d", dataID);
         }
     }
@@ -198,9 +199,11 @@ void addLetterCode(NSPopUpButton *popupButton)
     else {
         NSLog(@"An other check box is clicked.");
     }
+    
+    CGPoint topLeftPt = getTopLeft((NSView *) sender);
 
     // Test method to show warning.
-    [AppDelegate showWarning:@"Please check your input."];
+    [AppDelegate showWarning:@"Please check your input." at:topLeftPt];
 
     if (dataID != W2FormData_InvalidID) {
         NSInteger checkBoxStatus = [sender state];
@@ -217,7 +220,8 @@ void addLetterCode(NSPopUpButton *popupButton)
             NSLog(@"Check box: Unknown state.");
         }
         
-        W2Error w2Error = [w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID];
+        CGPoint topLeftPt = getTopLeft((NSView *) sender);
+        W2Error w2Error = [w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID at:topLeftPt];
         switch (w2Error) {
             case kW2Error_OK:
                 // The result is OK.  Nothing more to do.
@@ -292,7 +296,8 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 
     if (str) {
-        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID];
+        CGPoint topLeftPt = getTopLeft(textField);
+        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID at:topLeftPt];
         switch (w2Error) {
             case kW2Error_OK:
                 // The result is OK.  Nothing more to do.

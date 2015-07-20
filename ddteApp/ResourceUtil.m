@@ -33,6 +33,26 @@ NSTextField * createTextField(NSRect parentsBounds, float x1, float y1, float x2
     return textField;
 }
 
+// This returns the topLeft corner coordinate of the view.
+// The value is masured in the coornidate of the parent view but the origin is topLeft
+// and y-coordinate will move downward.
+CGPoint getTopLeft(NSView *view)
+{
+    CGPoint pt;
+    
+    if (view) {
+        NSRect frame = view.frame;
+        NSRect parentFrame = frame; // Initialized as the same as the current view.
+        if (view.superview) {
+            parentFrame = view.superview.frame;
+        }
+        pt.x = frame.origin.x;
+        pt.y = parentFrame.size.height - (frame.origin.y + frame.size.height);
+    }
+    
+    return pt;
+}
+
 NSPopUpButton * createPopupButton(NSRect parentsBounds, float x1, float y1, float x2, float y2)
 {
     NSRect rect;

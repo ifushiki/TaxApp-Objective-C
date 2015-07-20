@@ -29,6 +29,8 @@
 @property (nonatomic, strong)   DdteWindowController *ddteWindowController;
 @property (nonatomic, strong)   SqlWindowController *sqlWindowController;
 @property (nonatomic)           int         viewIndex;
+@property (nonatomic)           CGPoint     sheetOrigin;
+@property (nonatomic)           CGPoint     sheetOriginOffset;  // Offset from the sheetOrigin.
 
 - (void) loadData;
 - (void) loadInfoToEdit;
@@ -511,10 +513,11 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     }
 }
 
-+ (void) showWarning:(NSString *) message
++ (void) showWarning:(NSString *) message at:(CGPoint) topLeftPt;
 {
     AppDelegate *appDelegate = (AppDelegate *) [NSApp delegate];
-
+    appDelegate.sheetOrigin = topLeftPt;
+    
     NSAlert *alert = [[NSAlert alloc] init];
     
     [alert addButtonWithTitle:@"OK"];
@@ -564,8 +567,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     float dx = - (rect.size.width  - sheetRect.size.width)/2;   // We need to send this x-shift to make the s
 
     float x1, y1;   // TopLeft corner of the sheet [as TopLeft as (0, 0) and y-cordinate moving downward.
-    x1 = 0;
-    y1 = 0;
+    x1 = self.sheetOrigin.x;
+    y1 = self.sheetOrigin.y;
     
     float x = x1 + dx;
     float y = rect.origin.y - y1;

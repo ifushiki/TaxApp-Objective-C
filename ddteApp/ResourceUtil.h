@@ -20,6 +20,8 @@ NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, fl
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton);
 
+CGPoint getTopLeft(NSView *view);
+
 @interface ResourceUtil : NSObject
 
 + (NSImage *) getImage:(NSString *) imageName withType:(NSString *) type;

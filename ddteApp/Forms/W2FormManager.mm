@@ -38,13 +38,13 @@
     return errorMessage;
 }
 
-- (W2Error) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID
+- (W2Error) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
 {
     std::string str1([str UTF8String]);
     W2Error success = data.setField(str1, dataID);
     
     if (success == kW2Error_Warning) {
-        [AppDelegate showWarning:[self getErrorMessage]];
+        [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
     return success;
@@ -58,12 +58,12 @@
     return nsStr;
 }
 
-- (W2Error) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID
+- (W2Error) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
 {
     W2Error success = data.setSelection(selectedID, dataID);
     
     if (success == kW2Error_Warning) {
-        [AppDelegate showWarning:[self getErrorMessage]];
+        [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
     return success;
@@ -74,12 +74,12 @@
     return data.getSelection(dataID);
 }
 
-- (W2Error) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID
+- (W2Error) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
 {
     W2Error success = data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
     
     if (success == kW2Error_Warning) {
-        [AppDelegate showWarning:[self getErrorMessage]];
+        [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
     return success;
