@@ -17,6 +17,12 @@ public:
     bool setField(std::string& str, W2FormDataID dataID);
     std::string getField(W2FormDataID dataID);
     
+    bool setSelection(int selectionID, W2FormDataID dataID);
+    int getSelection(W2FormDataID dataID);
+    
+    bool setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
+    CheckBoxStatus getFormCheckBoxStatus(W2FormDataID dataID);
+
 private:
     std::string boxB;                       // Employer's identification number (EIN)
     std::string boxC;                       // Employer name
@@ -46,9 +52,9 @@ private:
     std::string box11;                      // Nonqualfied plans
     int         box12LetterCode;            // Letter code
     std::string box12Amount;                // Box 12 amount
-    bool        box13SatutoryEmployee;      // Box 13 - Satutory employee is unchecked.
-    bool        box13RetirementPlan;        // Box 13 - Retirement plan is unchecked.
-    bool        box13ThirdPartySickPay;     // Box 13 - Third-party sick pay
+    CheckBoxStatus box13SatutoryEmployee;   // Box 13 - Satutory employee is unchecked.
+    CheckBoxStatus box13RetirementPlan;     // Box 13 - Retirement plan is unchecked.
+    CheckBoxStatus box13ThirdPartySickPay;  // Box 13 - Third-party sick pay
     std::string box14;                      // Box 14
     std::string box14Amount;                // Box 14 amount
     

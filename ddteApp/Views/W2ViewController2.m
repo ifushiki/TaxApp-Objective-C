@@ -156,18 +156,21 @@ void addLetterCode(NSPopUpButton *popupButton)
         NSLog(@"Failed in getting the shared W2 data");
     }
     W2FormDataID dataID = W2FormData_InvalidID;
+    int selectedID = 0;
     
     if (sender == self.box12LetterCode) {
         dataID = W2FormData_box12LetterCode;
+        // Need fine the selected ID.
         NSLog(@"box12LetterCode has changed.");
     }
     else {
         NSLog(@"An other popup button is selected.");
     }
 
-    int selectedID = 0;
-    if ([w2Form setFormSelection:selectedID withFormDataID:dataID] == NO) {
-        NSLog(@"setFromSelection: Failed in setting the selectedID for popup ID = %d", dataID);
+    if (dataID != W2FormData_InvalidID) {
+        if ([w2Form setFormSelection:selectedID withFormDataID:dataID] == NO) {
+            NSLog(@"setFormSelection: Failed in setting status for check box ID = %d", dataID);
+        }
     }
 }
 
@@ -194,22 +197,25 @@ void addLetterCode(NSPopUpButton *popupButton)
     else {
         NSLog(@"An other check box is clicked.");
     }
-    NSInteger checkBoxStatus = [sender state];
-    if (checkBoxStatus == NSOnState) {
-        NSLog(@"Check box is selected.");
-    }
-    if (checkBoxStatus == NSOffState) {
-        NSLog(@"Check box is unselected.");
-    }
-    if (checkBoxStatus == NSMixedState) {
-        NSLog(@"Check box: mixed state.");
-    }
-    else {
-        NSLog(@"Check box: Unknown state.");
-    }
 
-    if ([w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID] == NO) {
-        NSLog(@"setFormCheckBosStatis: Failed in setting status for check box ID = %d", dataID);
+    if (dataID != W2FormData_InvalidID) {
+        NSInteger checkBoxStatus = [sender state];
+        if (checkBoxStatus == NSOnState) {
+            NSLog(@"Check box is selected.");
+        }
+        if (checkBoxStatus == NSOffState) {
+            NSLog(@"Check box is unselected.");
+        }
+        if (checkBoxStatus == NSMixedState) {
+            NSLog(@"Check box: mixed state.");
+        }
+        else {
+            NSLog(@"Check box: Unknown state.");
+        }
+        
+        if ([w2Form setFormCheckBoxStatus:checkBoxStatus withFormDataID:dataID] == NO) {
+            NSLog(@"setFormCheckBosStatis: Failed in setting status for check box ID = %d", dataID);
+        }
     }
 }
 
@@ -267,7 +273,9 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 
     if (str) {
-        [w2Form setFormString:str withFormDataID:dataID];
+        if ([w2Form setFormString:str withFormDataID:dataID] == NO) {
+            NSLog(@"setFormString: Failed in setting text for text fiele ID = %d", dataID);
+        }
     }
 }
 

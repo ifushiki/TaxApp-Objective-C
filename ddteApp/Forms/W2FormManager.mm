@@ -50,29 +50,34 @@
 
 - (BOOL) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID
 {
-    // Not implemented yet.
-    NSLog(@"setFormSelection: Not implemented yet");
-    return NO;
+    bool success = data.setSelection(selectedID, dataID);
+    
+    if (success)
+        return YES;
+    else
+        return NO;
 }
+
 - (int) getFormSelection:(W2FormDataID) dataID
 {
-    // Not implemented yet.
-    NSLog(@"getFormSelection: Not implemented yet.");
-    return W2FormData_InvalidID;
+    return data.getSelection(dataID);
 }
 
 - (BOOL) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID
 {
-    // Not implemented yet.
-    NSLog(@"setFormCheckBoxStatus: Not implemented yet.");
-    return NO;
+    bool success = data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
+    
+    if (success)
+        return YES;
+    else
+        return NO;
 }
 
 - (NSInteger) getFormCheckBoxStatus:(W2FormDataID) dataID
 {
-    // Not implemented yet.
-    NSLog(@"getFormCheckBoxStatus: Not implemented yet.");
-    return NSOffState;
+    CheckBoxStatus status = data.getFormCheckBoxStatus(dataID);
+
+    return (NSInteger) status;
 }
 
 @end

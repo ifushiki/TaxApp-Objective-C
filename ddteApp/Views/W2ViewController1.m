@@ -146,15 +146,28 @@
     if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
+    W2FormDataID dataID = W2FormData_InvalidID;
+    int selectedID = 0;
     
     if (sender == self.addressType) {
+        dataID = W2FormData_addressType;
+        // Need fine the selected ID.
         NSLog(@"addressType has changed.");
     }
     else if (sender== self.state) {
+        dataID = W2FormData_state;
+        // Need fine the selected ID.
         NSLog(@"state has changed.");
     }
     else {
         NSLog(@"An other popup button is selected.");
+    }
+
+    if (dataID != W2FormData_InvalidID) {
+        selectedID = (int) [(NSPopUpButton *) sender indexOfSelectedItem];
+        if ([w2Form setFormSelection:selectedID withFormDataID:dataID] == NO) {
+            NSLog(@"setFormSelection: Failed in setting status for check box ID = %d", dataID);
+        }
     }
 }
 
@@ -166,11 +179,11 @@
     if (w2Form == nil) {
         NSLog(@"Failed in getting the shared W2 data");
     }
-    
     W2FormDataID dataID = W2FormData_InvalidID;
+
     NSString *str = nil;
-    
     NSTextField* textField = (NSTextField *)[aNotification object];
+
     if (textField == self.boxB) {
         dataID = W2FormData_boxB;
         str = [self.boxB stringValue];
@@ -236,7 +249,9 @@
     }
     
     if (str) {
-        [w2Form setFormString:str withFormDataID:dataID];
+        if ([w2Form setFormString:str withFormDataID:dataID] == NO) {
+            NSLog(@"setFormString: Failed in setting text for text fiele ID = %d", dataID);
+        }
     }
 }
 

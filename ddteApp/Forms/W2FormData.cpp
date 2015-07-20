@@ -16,9 +16,9 @@ W2FormData::W2FormData()
     this->addressType = kAddressType_US;
     this->state = kState_Unspecified;
     this->box12LetterCode = kLetterCode_Unspecified;
-    this->box13SatutoryEmployee = false;
-    this->box13RetirementPlan = false;
-    this->box13ThirdPartySickPay = false;
+    this->box13SatutoryEmployee = kCheckBoxStatus_Off;
+    this->box13RetirementPlan = kCheckBoxStatus_Off;
+    this->box13ThirdPartySickPay = kCheckBoxStatus_Off;
     this->box15 = kState_Unspecified;
     this->box20AssociatedState = kState_Unspecified;
 }
@@ -43,9 +43,9 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = true;
             break;
             
-//        case W2FormData_addressType:
-//            this->addressType = str;
-//            break;
+        case W2FormData_addressType:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
             
         case W2FormData_address:
             this->address = str;
@@ -57,9 +57,9 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = true;
             break;
             
-//        case W2FormData_state:
-//            this->state = str;
-//            break;
+        case W2FormData_state:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
             
         case W2FormData_zipCode:
             this->zipCode = str;
@@ -116,26 +116,26 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = true;
             break;
             
-//        case W2FormData_box12LetterCode:
-//            this->box12LetterCode = str;
-//            break;
+        case W2FormData_box12LetterCode:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
             
         case W2FormData_box12Amount:
             this->box12Amount = str;
             success = true;
             break;
             
-//        case W2FormData_box13SatutoryEmployee:
-//            this->box13SatutoryEmployee = str;
-//            break;
+        case W2FormData_box13SatutoryEmployee:
+            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+            break;
             
-//        case W2FormData_box13RetirementPlan:
-//            this->box13RetirementPlan = str;
-//            break;
+        case W2FormData_box13RetirementPlan:
+            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+            break;
             
-//        case W2FormData_box13ThirdPartySickPay:
-//            this->box13ThirdPartySickPay = str;
-//            break;
+        case W2FormData_box13ThirdPartySickPay:
+            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+            break;
             
         case W2FormData_box14:
             this->box14 = str;
@@ -147,9 +147,9 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = true;
             break;
             
-//        case W2FormData_box15:
-//            this->box15 = str;
-//            break;
+        case W2FormData_box15:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
             
         case W2FormData_box15EmployerStateID:
             this->box15EmployerStateID = str;
@@ -181,9 +181,9 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = true;
             break;
             
-//        case W2FormData_box20AssociatedState:
-//            this->box20AssociatedState = str;
-//            break;
+        case W2FormData_box20AssociatedState:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
             
         default:
             break;
@@ -209,20 +209,12 @@ std::string W2FormData::getField(W2FormDataID dataID)
             str = this->employerNameLine2;
             break;
             
-        case W2FormData_addressType:
-            str = this->addressType;
-            break;
-            
         case W2FormData_address:
             str = this->address;
             break;
             
         case W2FormData_city:
             str = this->city;
-            break;
-            
-        case W2FormData_state:
-            str = this->state;
             break;
             
         case W2FormData_zipCode:
@@ -269,24 +261,8 @@ std::string W2FormData::getField(W2FormDataID dataID)
             str = this->box11;
             break;
             
-        case W2FormData_box12LetterCode:
-            str = this->box12LetterCode;
-            break;
-            
         case W2FormData_box12Amount:
             str = this->box12Amount;
-            break;
-            
-        case W2FormData_box13SatutoryEmployee:
-            str = this->box13SatutoryEmployee;
-            break;
-            
-        case W2FormData_box13RetirementPlan:
-            str = this->box13RetirementPlan;
-            break;
-            
-        case W2FormData_box13ThirdPartySickPay:
-            str = this->box13ThirdPartySickPay;
             break;
             
         case W2FormData_box14:
@@ -294,11 +270,7 @@ std::string W2FormData::getField(W2FormDataID dataID)
             break;
             
         case W2FormData_box14Amount:
-            str = this->boxC;
-            break;
-            
-        case W2FormData_box15:
-            str = this->boxC;
+            str = this->box14Amount;
             break;
             
         case W2FormData_box15EmployerStateID:
@@ -325,13 +297,129 @@ std::string W2FormData::getField(W2FormDataID dataID)
             str = this->box20;
             break;
             
-        case W2FormData_box20AssociatedState:
-            str = this->box20AssociatedState;
-            break;
-            
         default:
             break;
     }
 
     return str;
+}
+
+bool W2FormData::setSelection(int selectionID, W2FormDataID dataID)
+{
+    bool success = false;
+    
+    switch (dataID) {
+        case W2FormData_addressType:
+            this->addressType = selectionID;
+            success = true;
+            break;
+            
+        case W2FormData_state:
+            this->state = selectionID;
+            success = true;
+            break;
+            
+        case W2FormData_box12LetterCode:
+            this->box12LetterCode = selectionID;
+            success = true;
+            break;
+
+        case W2FormData_box15:
+            this->box15 = selectionID;
+            success = true;
+            break;
+            
+        case W2FormData_box20AssociatedState:
+            this->box20AssociatedState = selectionID;
+            success = true;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return success;
+}
+
+int W2FormData::getSelection(W2FormDataID dataID)
+{
+    int selectedID = 0;
+    
+    switch (dataID) {
+        case W2FormData_addressType:
+            selectedID = this->addressType;
+            break;
+            
+        case W2FormData_state:
+            selectedID = this->state;
+            break;
+            
+        case W2FormData_box12LetterCode:
+            selectedID = this->box12LetterCode;
+            break;
+            
+        case W2FormData_box15:
+            selectedID = this->box15;
+            break;
+            
+        case W2FormData_box20AssociatedState:
+            selectedID = this->box20AssociatedState;
+            break;
+            
+        default:
+            break;
+    }
+    return selectedID;
+}
+
+bool W2FormData::setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID)
+{
+    bool success = false;
+    
+    switch (dataID) {
+        case W2FormData_box13SatutoryEmployee:
+            this->box13SatutoryEmployee = status;
+            success = true;
+            break;
+            
+        case W2FormData_box13RetirementPlan:
+            this->box13RetirementPlan = status;
+            success = true;
+            break;
+            
+        case W2FormData_box13ThirdPartySickPay:
+            this->box13ThirdPartySickPay = status;
+            success = true;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return success;
+}
+
+CheckBoxStatus W2FormData::getFormCheckBoxStatus(W2FormDataID dataID)
+{
+    CheckBoxStatus status = kCheckBoxStatus_Off;
+    
+    switch (dataID) {
+        case W2FormData_box13SatutoryEmployee:
+            status = this->box13SatutoryEmployee;
+            break;
+            
+        case W2FormData_box13RetirementPlan:
+            status = this->box13RetirementPlan;
+            break;
+            
+        case W2FormData_box13ThirdPartySickPay:
+            status = this->box13ThirdPartySickPay;
+            break;
+            
+            
+        default:
+            break;
+    }
+
+    return status;
 }

@@ -102,6 +102,13 @@ typedef enum {
 
 typedef enum
 {
+    kCheckBoxStatus_Off = 0,
+    kCheckBoxStatus_On = 1,
+    kCheckBoxStatus_Mixed = -1,
+} CheckBoxStatus;
+
+typedef enum
+{
     kAddressType_Invalid = 0,
     kAddressType_US,
     kAddressType_Canada,
