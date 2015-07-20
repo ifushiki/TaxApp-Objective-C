@@ -75,6 +75,12 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     // Initialize the dbManager object.
 //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+//    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
+    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
+    
+    // Load the relevant data.
+//    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+
     // Insert code here to initialize your application
     if (self.tableView) {
         self.tableView.delegate = self;

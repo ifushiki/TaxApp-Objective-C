@@ -116,6 +116,52 @@
     }
 }
 
+// This load the data from database.
+- (void) retrieveDataCpp1:(SqLite::Query*) query {
+    // Declare an array to keep the data for each fetched row.
+    sqlite3_stmt * compiledStatement = query->getStatment();
+    std::vector<std::string> *dataRow;
+    std::vector<std::vector<std::string> *> dataTable;
+    std::vector<std::string> columnTitles;
+    
+    // Loop through the results and add them to the results array row by row.
+    while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+        dataRow = new std::vector<std::string>();
+        
+        // Initialize the mutable array that will contain the data of a fetched row.
+        // Get the total number of columns.
+        int totalColumns = sqlite3_column_count(compiledStatement);
+        
+        // Go through all columns and fetch each column data.
+        for (int i=0; i<totalColumns; i++){
+            // Convert the column data to text (characters).
+            char *dbDataAsChars = (char *)sqlite3_column_text(compiledStatement, i);
+            
+            // If there are contents in the currenct column (field) then add them to the current row array.
+            if (dbDataAsChars != NULL) {
+                // Convert the characters to string.
+//                [arrDataRow addObject:[NSString  stringWithUTF8String:dbDataAsChars]];
+                dataRow->push_back(dbDataAsChars);
+            }
+            
+            // Keep the current column name.
+            if (self.arrColumnNames.count != totalColumns) {
+                dbDataAsChars = (char *)sqlite3_column_name(compiledStatement, i);
+                columnTitles.push_back(dbDataAsChars);
+//                [self.arrColumnNames addObject:[NSString stringWithUTF8String:dbDataAsChars]];
+            }
+        }
+        
+        // Store each fetched data row in the results array, but first check if there is actually data.
+        if (dataRow->size() > 0) {
+            dataTable.push_back(dataRow);
+        }
+//        if (arrDataRow.count > 0) {
+//            [self.arrResults addObject:arrDataRow];
+//        }
+    }
+}
+
 // This inserts or updates the database.
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database
 {
