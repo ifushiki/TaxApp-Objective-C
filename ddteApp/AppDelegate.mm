@@ -84,6 +84,8 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     self.recordIDToEdit = -1;
     [self updateDetailFields];
     
+    [self.window setDelegate:self];
+    
     
     // Testing curl methods.
 #ifdef INTEL_NETWORK
@@ -548,6 +550,30 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
      }
      */
 
+}
+
+// NSWindowDelegate method
+// This is used to place a sheet in a disiered location.
+// The given rect has zero value except for rect.origin.y and rect.size.width
+- (NSRect)window:(NSWindow *)window willPositionSheet:(NSWindow *)sheet usingRect:(NSRect)rect {
+    NSRect fieldRect = rect;            // Bounds of the window
+    NSRect sheetRect = sheet.frame;     // Frame of sheet.
+    
+    // Sheet frame is calculated as the sheet center (in x-coordinate as the middle)
+    // We need to sheft the following value to place the sheet to the left edge of the window.
+    float dx = - (rect.size.width  - sheetRect.size.width)/2;   // We need to send this x-shift to make the s
+
+    float x1, y1;   // TopLeft corner of the sheet [as TopLeft as (0, 0) and y-cordinate moving downward.
+    x1 = 0;
+    y1 = 0;
+    
+    float x = x1 + dx;
+    float y = rect.origin.y - y1;
+
+    fieldRect.origin.x = x;
+    fieldRect.origin.y = y;
+    fieldRect.size.height = 0;
+    return fieldRect;
 }
 
 @end
