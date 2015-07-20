@@ -32,4 +32,6 @@
 - (IBAction) goToPreviousView:(id)sender;
 - (IBAction) prepareNewRecord:(id)sender;
 
++ (void) showWarning:(NSString *) message;
+
 @end

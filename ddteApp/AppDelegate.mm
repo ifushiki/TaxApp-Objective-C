@@ -509,4 +509,45 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     }
 }
 
++ (void) showWarning:(NSString *) message
+{
+    AppDelegate *appDelegate = (AppDelegate *) [NSApp delegate];
+
+    NSAlert *alert = [[NSAlert alloc] init];
+    
+    [alert addButtonWithTitle:@"OK"];
+    //    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"DDTE Warning"];
+    [alert setInformativeText:message];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    [alert beginSheetModalForWindow:appDelegate.window completionHandler:nil];
+    
+    // With a completion handler
+    /*
+     [alert beginSheetModalForWindow:[self.view window] completionHandler:^(NSInteger returnCode)
+     {
+     switch(returnCode) {
+     case NSAlertFirstButtonReturn:
+     // "First" pressed
+     break;
+     case NSAlertSecondButtonReturn:
+     // "Second" pressed
+     break;
+     
+     default:
+     break;
+     }
+     }];
+     */
+    
+    // Run as a modal window.
+    /*
+     if ([alert runModal] == NSAlertFirstButtonReturn) {
+     // OK clicked, delete the record
+     }
+     */
+
+}
+
 @end

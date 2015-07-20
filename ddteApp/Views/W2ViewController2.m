@@ -9,6 +9,7 @@
 #import "W2ViewController2.h"
 #import "ResourceUtil.h"
 #import "W2FormManager.h"
+#import "AppDelegate.h"
 
 @interface W2ViewController2 ()
 
@@ -198,6 +199,9 @@ void addLetterCode(NSPopUpButton *popupButton)
         NSLog(@"An other check box is clicked.");
     }
 
+    // Test method to show warning.
+    [AppDelegate showWarning:@"Please check your input."];
+
     if (dataID != W2FormData_InvalidID) {
         NSInteger checkBoxStatus = [sender state];
         if (checkBoxStatus == NSOnState) {
@@ -219,6 +223,20 @@ void addLetterCode(NSPopUpButton *popupButton)
     }
 }
 
+
+- (void) alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci {
+    switch(rc) {
+        case NSAlertFirstButtonReturn:
+            // "First" pressed
+            break;
+        case NSAlertSecondButtonReturn:
+            // "Second" pressed
+            break;
+        
+        default:
+            break;
+    }
+}
 // NSTextFieldDelegate methods
 
 // controlTextDidEndEditing is called when the focus changes from the current field to othe field.
