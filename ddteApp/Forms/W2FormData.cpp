@@ -23,24 +23,50 @@ W2FormData::W2FormData()
     this->box20AssociatedState = kState_Unspecified;
 }
 
-bool W2FormData::setField(std::string& str, W2FormDataID dataID)
+W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 {
-    bool success = false;
+    // Not implemented yet.  Simply retuns a warning for now.
+    return kW2Error_Warning;
+}
+
+W2Error W2FormData::checkSelection(int selectionID, W2FormDataID dataID)
+{
+    // Not implemented yet.  Simply retuns a warning for now.
+    return kW2Error_Warning;
+}
+
+W2Error W2FormData::checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID)
+{
+    // Not implemented yet.  Simply retuns a warning for now.
+    return kW2Error_Warning;
+}
+
+std::string W2FormData::getErrorMessage()
+{
+    // Not fully implemented.  But return the same error message now.
+    this->errorMessage  = "Are you sure you typed the data correctly?";
+    
+    return this->errorMessage;
+}
+
+W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
+{
+    W2Error success = kW2Error_Invalid;
     
     switch (dataID) {
         case W2FormData_boxB:
             this->boxB = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_boxC:
             this->boxC = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_employerNameLine2:
             this->employerNameLine2 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_addressType:
@@ -49,12 +75,12 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             
         case W2FormData_address:
             this->address = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_city:
             this->city = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_state:
@@ -63,57 +89,57 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             
         case W2FormData_zipCode:
             this->zipCode = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box1:
             this->box1 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box2:
             this->box2 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box3:
             this->box3 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box4:
             this->box4 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box5:
             this->box5 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box6:
             this->box6 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box7:
             this->box7 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box8:
             this->box8 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box10:
             this->box10 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box11:
             this->box11 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box12LetterCode:
@@ -122,7 +148,7 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             
         case W2FormData_box12Amount:
             this->box12Amount = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box13SatutoryEmployee:
@@ -139,12 +165,12 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             
         case W2FormData_box14:
             this->box14 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box14Amount:
             this->box14Amount = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box15:
@@ -153,32 +179,32 @@ bool W2FormData::setField(std::string& str, W2FormDataID dataID)
             
         case W2FormData_box15EmployerStateID:
             this->box15EmployerStateID = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box16:
             this->box16 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box17:
             this->box17 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box18:
             this->box18 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box19:
             this->box19 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box20:
             this->box20 = str;
-            success = true;
+            success = this->checkField(str, dataID);
             break;
             
         case W2FormData_box20AssociatedState:
@@ -304,34 +330,35 @@ std::string W2FormData::getField(W2FormDataID dataID)
     return str;
 }
 
-bool W2FormData::setSelection(int selectionID, W2FormDataID dataID)
+W2Error W2FormData::setSelection(int selectionID, W2FormDataID dataID)
 {
-    bool success = false;
+//    bool success = false;
+    W2Error success = kW2Error_Invalid;
     
     switch (dataID) {
         case W2FormData_addressType:
             this->addressType = selectionID;
-            success = true;
+            success = this->checkSelection(selectionID, dataID);
             break;
             
         case W2FormData_state:
             this->state = selectionID;
-            success = true;
+            success = this->checkSelection(selectionID, dataID);
             break;
             
         case W2FormData_box12LetterCode:
             this->box12LetterCode = selectionID;
-            success = true;
+            success = this->checkSelection(selectionID, dataID);
             break;
 
         case W2FormData_box15:
             this->box15 = selectionID;
-            success = true;
+            success = this->checkSelection(selectionID, dataID);
             break;
             
         case W2FormData_box20AssociatedState:
             this->box20AssociatedState = selectionID;
-            success = true;
+            success = this->checkSelection(selectionID, dataID);
             break;
             
         default:
@@ -372,24 +399,25 @@ int W2FormData::getSelection(W2FormDataID dataID)
     return selectedID;
 }
 
-bool W2FormData::setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID)
+W2Error W2FormData::setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID)
 {
-    bool success = false;
+//    bool success = false;
+    W2Error success = kW2Error_Invalid;
     
     switch (dataID) {
         case W2FormData_box13SatutoryEmployee:
             this->box13SatutoryEmployee = status;
-            success = true;
+            success = this->checkCheckBoxStatus(status, dataID);
             break;
             
         case W2FormData_box13RetirementPlan:
             this->box13RetirementPlan = status;
-            success = true;
+            success = this->checkCheckBoxStatus(status, dataID);
             break;
             
         case W2FormData_box13ThirdPartySickPay:
             this->box13ThirdPartySickPay = status;
-            success = true;
+            success = this->checkCheckBoxStatus(status, dataID);
             break;
             
         default:

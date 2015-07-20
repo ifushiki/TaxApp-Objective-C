@@ -9,6 +9,12 @@
 #ifndef ddteApp_W2FormTypes_h
 #define ddteApp_W2FormTypes_h
 
+typedef enum {
+    kW2Error_OK = 0,
+    kW2Error_Warning = 1,
+    kW2Error_Invalid = -1,
+} W2Error;
+
 // This matches with the index ID of State popup menu.
 typedef enum {
     kState_Unspecified = 0,

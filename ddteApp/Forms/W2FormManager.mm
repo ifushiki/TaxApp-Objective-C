@@ -9,6 +9,7 @@
 #include <iostream>
 #import "W2FormManager.h"
 #import "W2FormData.h"
+#import "AppDelegate.h"
 
 @interface W2FormManager()
 {
@@ -29,15 +30,24 @@
 }
 
 
-- (BOOL) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID
+- (NSString *) getErrorMessage
+{
+    NSString *errorMessage = [NSString stringWithCString:data.getErrorMessage().c_str()
+                                                encoding:[NSString defaultCStringEncoding]];
+    
+    return errorMessage;
+}
+
+- (W2Error) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID
 {
     std::string str1([str UTF8String]);
-    bool success = data.setField(str1, dataID);
-
-    if (success)
-        return YES;
-    else
-        return NO;
+    W2Error success = data.setField(str1, dataID);
+    
+    if (success == kW2Error_Warning) {
+        [AppDelegate showWarning:[self getErrorMessage]];
+    }
+    
+    return success;
 }
 
 - (NSString *) getFormString:(W2FormDataID) dataID
@@ -48,14 +58,15 @@
     return nsStr;
 }
 
-- (BOOL) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID
+- (W2Error) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID
 {
-    bool success = data.setSelection(selectedID, dataID);
+    W2Error success = data.setSelection(selectedID, dataID);
     
-    if (success)
-        return YES;
-    else
-        return NO;
+    if (success == kW2Error_Warning) {
+        [AppDelegate showWarning:[self getErrorMessage]];
+    }
+    
+    return success;
 }
 
 - (int) getFormSelection:(W2FormDataID) dataID
@@ -63,14 +74,15 @@
     return data.getSelection(dataID);
 }
 
-- (BOOL) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID
+- (W2Error) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID
 {
-    bool success = data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
+    W2Error success = data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
     
-    if (success)
-        return YES;
-    else
-        return NO;
+    if (success == kW2Error_Warning) {
+        [AppDelegate showWarning:[self getErrorMessage]];
+    }
+    
+    return success;
 }
 
 - (NSInteger) getFormCheckBoxStatus:(W2FormDataID) dataID

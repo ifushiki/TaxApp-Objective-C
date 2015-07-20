@@ -14,16 +14,23 @@ class W2FormData
 public:
     W2FormData();
     
-    bool setField(std::string& str, W2FormDataID dataID);
+    W2Error setField(std::string& str, W2FormDataID dataID);
+    W2Error checkField(std::string& str, W2FormDataID dataID);
     std::string getField(W2FormDataID dataID);
     
-    bool setSelection(int selectionID, W2FormDataID dataID);
+    W2Error setSelection(int selectionID, W2FormDataID dataID);
+    W2Error checkSelection(int selectionID, W2FormDataID dataID);
     int getSelection(W2FormDataID dataID);
     
-    bool setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
+    W2Error setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
+    W2Error checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
     CheckBoxStatus getFormCheckBoxStatus(W2FormDataID dataID);
+    
+    std::string getErrorMessage();
 
 private:
+    std::string errorMessage;               // An Error Message for an operation.
+
     std::string boxB;                       // Employer's identification number (EIN)
     std::string boxC;                       // Employer name
     std::string employerNameLine2;          // Employer name line 2 (optional)

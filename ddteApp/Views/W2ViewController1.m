@@ -249,8 +249,23 @@
     }
     
     if (str) {
-        if ([w2Form setFormString:str withFormDataID:dataID] == NO) {
-            NSLog(@"setFormString: Failed in setting text for text fiele ID = %d", dataID);
+        W2Error w2Error = [w2Form setFormString:str withFormDataID:dataID];
+        switch (w2Error) {
+            case kW2Error_OK:
+                // The result is OK.  Nothing more to do.
+                break;
+            
+            case kW2Error_Warning:
+                // Needs to show a warning.
+                break;
+                
+            case kW2Error_Invalid:
+                // Invalid data.
+                NSLog(@"setFormString: Failed in setting text for text fiele ID = %d", dataID);
+                break;
+                
+            default:
+                break;
         }
     }
 }
