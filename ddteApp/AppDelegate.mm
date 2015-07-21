@@ -212,7 +212,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
-    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
+//    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
+    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
     
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];

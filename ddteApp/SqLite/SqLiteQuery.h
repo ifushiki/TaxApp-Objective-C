@@ -10,6 +10,7 @@
 #define __ddteApp__SqLiteQuery__
 
 #include <iostream>
+#include <vector>
 #include <map>
 #include <sqlite3.h>
 #include "SqLiteValue.h"
@@ -37,6 +38,10 @@ public:
     
     sqlite3_stmt* getStatment() const {
         return fStmt;
+    }
+    
+    int getColumnCount() const {
+        return fColumnCount;
     }
 
     /**
@@ -148,6 +153,12 @@ public:
      */
     bool nextRow();
 
+    const char* getValueStringForIndex(const int index);
+    const char* getValueStringForKey(const std::string& key);
+    
+    bool retrieveData();
+    void printTable(int maxRow);
+    
     /**
      * @brief Return a copy of the column data specified by its index
      *
@@ -271,6 +282,9 @@ private:
         std::map<std::string, int>   fColumnNames;   //!< Map of columns index by name
         bool            fOk;           //!< true when a row has been fetched with executeStep()
         bool            fDone;         //!< true when the last executeStep() had no more row to fetch
+
+        std::vector<std::vector<std::string> *> dataTable;
+        std::vector<std::string> columnTitles;
 };
 
 }

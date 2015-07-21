@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <map>
 #include <assert.h>
 #include <sqlite3.h>
 #include "SqLiteQuery.h"
@@ -73,6 +75,39 @@ namespace SqLite {
         return fOk; // true only if one row is accessible by getColumn(N)
     }
 
+    // Return a pointer to the text value (NULL terminated string) of the column specified by its index starting at 0
+    const char* Query::getValueStringForIndex(const int index)
+    {
+        checkRow();
+        checkIndex(index);
+        
+        const char* str = reinterpret_cast<const char*>(sqlite3_column_text(fStmt, index));
+        return str;
+    }
+
+    const char* Query::getValueStringForKey(const std::string& key)
+    {
+        checkRow();
+        
+        if (fColumnNames.empty())
+        {
+            for (int i = 0; i < fColumnCount; ++i)
+            {
+                const char* pName = sqlite3_column_name(fStmt, i);
+                fColumnNames[pName] = i;
+            }
+        }
+        
+        const TColumnNames::const_iterator it = fColumnNames.find(key);
+        if (it == fColumnNames.end())
+        {
+            throw Exception("Unknown column name.");
+        }
+        // Share the Statement Object handle with the new Column created
+        const char* str = reinterpret_cast<const char*>(sqlite3_column_text(fStmt, (*it).second));
+        return str;
+    }
+
     // Return a copy of the column data specified by its index starting at 0
     // (use the Column copy-constructor)
     Value Query::getColumnAtInex(const int aIndex)
@@ -108,6 +143,76 @@ namespace SqLite {
         // Share the Statement Object handle with the new Column created
         return Value(fStmt, (*iIndex).second);
     }
+    
+    bool Query::retrieveData()
+    {
+        // Declare an array to keep the data for each fetched row.
+        this->dataTable.clear();
+        std::vector<std::string> *dataRow;
+        this->columnTitles.clear();
+        
+        // Loop through the results and add them to the results array row by row.
+        while(this->nextRow()) {
+            dataRow = new std::vector<std::string>();
+            
+            // Initialize the mutable array that will contain the data of a fetched row.
+            // Get the total number of columns.
+            int totalColumns = this->getColumnCount();
+            
+            // Go through all columns and fetch each column data.
+            for (int i = 0; i < totalColumns; i++){
+                // Convert the column data to text (characters).
+                const char *dbDataAsChars = this->getValueStringForIndex(i);
+                
+                // If there are contents in the currenct column (field) then add them to the current row array.
+                if (dbDataAsChars != NULL) {
+                    // Convert the characters to string.
+                    dataRow->push_back(dbDataAsChars);
+                }
+                
+                // Keep the current column name.
+                if (this->columnTitles.size() != totalColumns) {
+                    dbDataAsChars = this->getColumnName(i);
+                    this->columnTitles.push_back(dbDataAsChars);
+                }
+            }
+            
+            // Store each fetched data row in the results array, but first check if there is actually data.
+            if (dataRow->size() > 0) {
+                this->dataTable.push_back(dataRow);
+            }
+        }
+        
+        std::cout << std::endl;
+
+        if (this->dataTable.size() > 0) {
+            std::cout << "Table row size = " << dataTable.size() << std::endl;
+        }
+        return true;
+    }
+
+    void Query::printTable(int maxRow)
+    {
+        std::cout << "============================================================================" << std::endl;
+        for (int j = 0; j < this->columnTitles.size(); j++) {
+            std::cout << this->columnTitles[j] << ", ";
+        }
+        std::cout << std::endl;
+        std::cout << "----------------------------------------------------------------------------" << std::endl;
+        
+        int rowSize = (int) this->dataTable.size();
+        
+        int imax = rowSize > maxRow ? maxRow : rowSize;
+        for(int i = 0; i < imax; i++)
+        {
+            std::vector<std::string> *row = this->dataTable[i];
+            for (int j = 0; j < row->size(); j++) {
+                std::cout << (*row)[j] << ", ";
+            }
+            std::cout << std::endl;
+        }
+    }
+
     
     // Test if the column is NULL
     bool Query::isColumnNull(const int aIndex) const

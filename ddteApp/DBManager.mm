@@ -124,38 +124,32 @@
 - (void) retrieveDataCpp:(SqLite::Query*) query {
     // Declare an array to keep the data for each fetched row.
     dataTable.clear();
-    sqlite3_stmt * compiledStatement = query->getStatment();
     std::vector<std::string> *dataRow;
-//    std::vector<std::vector<std::string> *> dataTable;
-//    std::vector<std::string> columnTitles;
     columnTitles.clear();
     
     // Loop through the results and add them to the results array row by row.
-    while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+    while(query->nextRow()) {
         dataRow = new std::vector<std::string>();
         
         // Initialize the mutable array that will contain the data of a fetched row.
         // Get the total number of columns.
-        int totalColumns = sqlite3_column_count(compiledStatement);
+        int totalColumns = query->getColumnCount();
         
         // Go through all columns and fetch each column data.
         for (int i=0; i<totalColumns; i++){
             // Convert the column data to text (characters).
-            char *dbDataAsChars = (char *)sqlite3_column_text(compiledStatement, i);
+            const char *dbDataAsChars = query->getValueStringForIndex(i);
             
             // If there are contents in the currenct column (field) then add them to the current row array.
             if (dbDataAsChars != NULL) {
                 // Convert the characters to string.
-//                [arrDataRow addObject:[NSString  stringWithUTF8String:dbDataAsChars]];
                 dataRow->push_back(dbDataAsChars);
             }
             
             // Keep the current column name.
-//            if (self.arrColumnNames.count != totalColumns) {
             if (columnTitles.size() != totalColumns) {
-                dbDataAsChars = (char *)sqlite3_column_name(compiledStatement, i);
+                dbDataAsChars = query->getColumnName(i);
                 columnTitles.push_back(dbDataAsChars);
-//                [self.arrColumnNames addObject:[NSString stringWithUTF8String:dbDataAsChars]];
             }
         }
         
@@ -163,9 +157,6 @@
         if (dataRow->size() > 0) {
             dataTable.push_back(dataRow);
         }
-//        if (arrDataRow.count > 0) {
-//            [self.arrResults addObject:arrDataRow];
-//        }
     }
     
     NSLog(@"");

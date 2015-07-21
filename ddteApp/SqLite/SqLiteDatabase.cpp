@@ -57,16 +57,18 @@ void Database::setQuery(const std::string& query)
 
 
 #if 0
-    bool Database::tableExists(const std::string& aTableName)
+bool Database::tableExists(const std::string& aTableName)
 {
-    Query query(*this, std::string("SELECT count(*) FROM sqlite_master WHERE type='table' AND name=?"));
+    Query query(this->getDBHandle(), std::string("SELECT count(*) FROM sqlite_master WHERE type='table' AND name=?"));
     query.bindAtIndex(1, aTableName.c_str());
+//    Query query(this->getDBHandle(), std::string("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='zip_dma'"));
     (void)query.nextRow(); // Cannot return false, as the above query always return a result
-    const int Nb = query.getColumn(0);
+    const int Nb = query.getColumnCount();
     return (1 == Nb);
 }
     
-// Shortcut to execute one or multiple SQL statements without results (UPDATE, INSERT, ALTER, COMMIT, CREATE...).
+    /*
+    // Shortcut to execute one or multiple SQL statements without results (UPDATE, INSERT, ALTER, COMMIT, CREATE...).
 int Database::exec(const char* apQueries)
 {
     const int ret = sqlite3_exec(mpSQLite, apQueries, NULL, NULL, NULL);
@@ -75,6 +77,7 @@ int Database::exec(const char* apQueries)
     // Return the number of rows modified by those SQL statements (INSERT, UPDATE or DELETE only)
     return sqlite3_changes(mpSQLite);
 }
+ */
 
 // Shortcut to execute a one step query and fetch the first column of the result.
 // WARNING: Be very careful with this dangerous method: you have to
