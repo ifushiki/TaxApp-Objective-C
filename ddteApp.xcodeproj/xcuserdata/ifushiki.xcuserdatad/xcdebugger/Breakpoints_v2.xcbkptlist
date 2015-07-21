@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ddteApp/DBManager.mm"
-            timestampString = "459164419.472631"
+            timestampString = "459165120.238257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-runQuery:isQueryExecutale:"
             landmarkType = "5">
          </BreakpointContent>

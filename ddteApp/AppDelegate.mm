@@ -217,7 +217,7 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-    [self.dbManager printTable:10];
+//    [self.dbManager printTable:10];
     
 /*
     // Insert code here to initialize your application
