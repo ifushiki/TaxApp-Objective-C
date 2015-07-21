@@ -26,7 +26,146 @@ W2FormData::W2FormData()
 W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 {
     // Not implemented yet.  Simply retuns a warning for now.
-    return kW2Error_Warning;
+    W2Error success = kW2Error_Warning;
+    
+    switch (dataID) {
+        case W2FormData_boxB:
+            // Check the validity
+            break;
+            
+        case W2FormData_boxC:
+            // Check the validity
+            break;
+            
+        case W2FormData_employerNameLine2:
+            // Check the validity
+            break;
+            
+//        case W2FormData_addressType:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
+        case W2FormData_address:
+            // Check the validity
+            break;
+            
+        case W2FormData_city:
+            // Check the validity
+            break;
+            
+//        case W2FormData_state:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
+        case W2FormData_zipCode:
+            // Check the validity
+            break;
+            
+        case W2FormData_box1:
+            // Check the validity
+            break;
+            
+        case W2FormData_box2:
+            // Check the validity
+            break;
+            
+        case W2FormData_box3:
+            // Check the validity
+            break;
+            
+        case W2FormData_box4:
+            // Check the validity
+            break;
+            
+        case W2FormData_box5:
+            // Check the validity
+            break;
+            
+        case W2FormData_box6:
+            // Check the validity
+            break;
+            
+        case W2FormData_box7:
+            // Check the validity
+            break;
+            
+        case W2FormData_box8:
+            // Check the validity
+            break;
+            
+        case W2FormData_box10:
+            // Check the validity
+            break;
+            
+        case W2FormData_box11:
+            // Check the validity
+            break;
+            
+//        case W2FormData_box12LetterCode:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
+        case W2FormData_box12Amount:
+            // Check the validity
+            break;
+            
+//        case W2FormData_box13SatutoryEmployee:
+//            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+//            break;
+            
+//        case W2FormData_box13RetirementPlan:
+//            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+//            break;
+            
+//        case W2FormData_box13ThirdPartySickPay:
+//            std::cout << "Use setCheckBoxStatus() for the checkbox status." << std::endl;
+//            break;
+            
+        case W2FormData_box14:
+            // Check the validity
+            break;
+            
+        case W2FormData_box14Amount:
+            // Check the validity
+            break;
+            
+//        case W2FormData_box15:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
+        case W2FormData_box15EmployerStateID:
+            // Check the validity
+            break;
+            
+        case W2FormData_box16:
+            // Check the validity
+            break;
+            
+        case W2FormData_box17:
+            // Check the validity
+            break;
+            
+        case W2FormData_box18:
+            // Check the validity
+            break;
+            
+        case W2FormData_box19:
+            // Check the validity
+            break;
+            
+        case W2FormData_box20:
+            // Check the validity
+            break;
+            
+//        case W2FormData_box20AssociatedState:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
+        default:
+            break;
+    }
+    
+    return success;
 }
 
 W2Error W2FormData::checkSelection(int selectionID, W2FormDataID dataID)
