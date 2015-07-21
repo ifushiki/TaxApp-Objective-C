@@ -131,3 +131,97 @@ void addStatesToPopUpMenu(NSPopUpButton *popupButton)
     [popupButton addItemWithTitle: @"WI"];  // Wisconsin
     [popupButton addItemWithTitle: @"WY"];  // Wyoming
 }
+
+// Adds State Abbreviation codes to the given popup menu.
+void addOccupationsToPopUpMenu(NSPopUpButton *popupButton)
+{
+    [popupButton addItemWithTitle: @"Select an occupation"];
+    [popupButton addItemWithTitle: @"accounting supervisor"];
+    [popupButton addItemWithTitle: @"art conservator"];
+    [popupButton addItemWithTitle: @"art teacher"];
+    [popupButton addItemWithTitle: @"auto body technician"];
+    [popupButton addItemWithTitle: @"banquet chef"];
+    [popupButton addItemWithTitle: @"billing representative"];
+    [popupButton addItemWithTitle: @"bryologist"];
+    [popupButton addItemWithTitle: @"budget analyst"];
+    [popupButton addItemWithTitle: @"bus driver"];
+    [popupButton addItemWithTitle: @"car washer"];
+    [popupButton addItemWithTitle: @"chief executive officer"];
+    [popupButton addItemWithTitle: @"child care worker"];
+    [popupButton addItemWithTitle: @"claims processor"];
+    [popupButton addItemWithTitle: @"cleaning service"];
+    [popupButton addItemWithTitle: @"clinic director"];
+    [popupButton addItemWithTitle: @"courtroom clerk"];
+    [popupButton addItemWithTitle: @"debt collector"];
+    [popupButton addItemWithTitle: @"defense contractor"];
+    [popupButton addItemWithTitle: @"deli"];
+    [popupButton addItemWithTitle: @"dental office manager"];
+    [popupButton addItemWithTitle: @"detention deputy"];
+    [popupButton addItemWithTitle: @"diabetes educator"];
+    [popupButton addItemWithTitle: @"diesel technician"];
+    [popupButton addItemWithTitle: @"dog bather"];
+    [popupButton addItemWithTitle: @"drywall hanger"];
+    [popupButton addItemWithTitle: @"dsp"];
+    [popupButton addItemWithTitle: @"electrical drafter"];
+    [popupButton addItemWithTitle: @"elevator constructor"];
+    [popupButton addItemWithTitle: @"facility manager"];
+    [popupButton addItemWithTitle: @"financial"];
+    [popupButton addItemWithTitle: @"food scientist"];
+    [popupButton addItemWithTitle: @"funeral arranger"];
+    [popupButton addItemWithTitle: @"gis specialist"];
+    [popupButton addItemWithTitle: @"hospice social worker"];
+    [popupButton addItemWithTitle: @"hostess"];
+    [popupButton addItemWithTitle: @"hr assistant"];
+    [popupButton addItemWithTitle: @"independent consultant"];
+    [popupButton addItemWithTitle: @"inside sales rep"];
+    [popupButton addItemWithTitle: @"law enforcement"];
+    [popupButton addItemWithTitle: @"limousine driver"];
+    [popupButton addItemWithTitle: @"logistics planner"];
+    [popupButton addItemWithTitle: @"lpta"];
+    [popupButton addItemWithTitle: @"maintenance manager"];
+    [popupButton addItemWithTitle: @"maintenance supervisor"];
+    [popupButton addItemWithTitle: @"maintenance technician"];
+    [popupButton addItemWithTitle: @"mason"];
+    [popupButton addItemWithTitle: @"material expediter"];
+    [popupButton addItemWithTitle: @"medical scientist"];
+    [popupButton addItemWithTitle: @"meteorologist"];
+    [popupButton addItemWithTitle: @"municipal clerk"];
+    [popupButton addItemWithTitle: @"neurologist"];
+    [popupButton addItemWithTitle: @"occ"];
+    [popupButton addItemWithTitle: @"parking attendant"];
+    [popupButton addItemWithTitle: @"payroll clerk"];
+    [popupButton addItemWithTitle: @"pharmacist technician"];
+    [popupButton addItemWithTitle: @"pharmacy assistant"];
+    [popupButton addItemWithTitle: @"phlebotomist"];
+    [popupButton addItemWithTitle: @"port captain"];
+    [popupButton addItemWithTitle: @"prison guard"];
+    [popupButton addItemWithTitle: @"production"];
+    [popupButton addItemWithTitle: @"production engineer"];
+    [popupButton addItemWithTitle: @"professor"];
+    [popupButton addItemWithTitle: @"radiologist"];
+    [popupButton addItemWithTitle: @"radiology technologist"];
+    [popupButton addItemWithTitle: @"risk management"];
+    [popupButton addItemWithTitle: @"rn"];
+    [popupButton addItemWithTitle: @"sahm"];
+    [popupButton addItemWithTitle: @"sales person"];
+    [popupButton addItemWithTitle: @"school bus mechanic"];
+    [popupButton addItemWithTitle: @"security manager"];
+    [popupButton addItemWithTitle: @"service"];
+    [popupButton addItemWithTitle: @"sheet metal worker"];
+    [popupButton addItemWithTitle: @"shipper"];
+    [popupButton addItemWithTitle: @"software architect"];
+    [popupButton addItemWithTitle: @"software programmer"];
+    [popupButton addItemWithTitle: @"software tester"];
+    [popupButton addItemWithTitle: @"songwriter"];
+    [popupButton addItemWithTitle: @"sous chef"];
+    [popupButton addItemWithTitle: @"specialist"];
+    [popupButton addItemWithTitle: @"state employee"];
+    [popupButton addItemWithTitle: @"teacher aide"];
+    [popupButton addItemWithTitle: @"team leader"];
+    [popupButton addItemWithTitle: @"tool maker"];
+    [popupButton addItemWithTitle: @"township clerk"];
+    [popupButton addItemWithTitle: @"truckdriver"];
+    [popupButton addItemWithTitle: @"veterinary assistant"];
+    [popupButton addItemWithTitle: @"volunteer coordinator"];
+    [popupButton addItemWithTitle: @"xray tech"];
+}

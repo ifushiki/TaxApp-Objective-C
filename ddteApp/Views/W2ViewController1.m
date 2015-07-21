@@ -92,6 +92,27 @@
     [self.imageView addSubview:self.zipCode];
 
     //-----------------------------------------------------------------------------------------------------------
+    // Extra fields needed for Query (Boxes 0)
+    //-----------------------------------------------------------------------------------------------------------
+
+    // Box 0 - Age
+    x1 = 481; y1 = 403;
+    x2 = 590; y2 = 436;
+    self.box0_Age = createTextField(viewRect, x1, y1, x2, y2);
+    self.box0_Age.delegate = self;
+    [self.imageView addSubview:self.box0_Age];
+    
+
+    // Box 0 - Occupation
+    x1 = 611; y1 = 403;
+    x2 = 844; y2 = 435;
+    self.box0_Occupation = createPopupButton(viewRect, x1, y1, x2, y2);
+    self.box0_Occupation.target = self;
+    self.box0_Occupation.action = @selector(itemDidChange:);
+    addOccupationsToPopUpMenu(self.box0_Occupation);
+    [self.imageView addSubview:self.box0_Occupation];
+
+    //-----------------------------------------------------------------------------------------------------------
     // Incoem & taxes withheld (Boxes 1-6)
     //-----------------------------------------------------------------------------------------------------------
 
@@ -159,6 +180,11 @@
         // Need fine the selected ID.
         NSLog(@"state has changed.");
     }
+    else if (sender== self.box0_Occupation) {
+        dataID = W2FormData_box0_Occupation;
+        // Need fine the selected ID.
+        NSLog(@"box0_Occupation has changed.");
+    }
     else {
         NSLog(@"An other popup button is selected.");
     }
@@ -214,6 +240,11 @@
         dataID = W2FormData_zipCode;
         str = [self.zipCode stringValue];
         NSLog(@"zipCode was edited");
+    }
+    else if (textField == self.box0_Age) {
+        dataID = W2FormData_box0_Age;
+        str = [self.box0_Age stringValue];
+        NSLog(@"box0_Age was edited");
     }
     else if (textField == self.box1) {
         dataID = W2FormData_box1;

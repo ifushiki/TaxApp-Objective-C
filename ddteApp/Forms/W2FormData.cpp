@@ -61,6 +61,14 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             // Check the validity
             break;
             
+        case W2FormData_box0_Age:
+            // Check the validity
+            break;
+            
+//        case W2FormData_box0_Occupation:
+//            std::cout << "Use setSelection() for the selected ID." << std::endl;
+//            break;
+            
         case W2FormData_box1:
             // Check the validity
             break;
@@ -231,6 +239,15 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             success = this->checkField(str, dataID);
             break;
             
+        case W2FormData_box0_Age:
+            this->box0_Age = str;
+            success = this->checkField(str, dataID);
+            break;
+            
+        case W2FormData_box0_Occupation:
+            std::cout << "Use setSelection() for the selected ID." << std::endl;
+            break;
+
         case W2FormData_box1:
             this->box1 = str;
             success = this->checkField(str, dataID);
@@ -386,6 +403,10 @@ std::string W2FormData::getField(W2FormDataID dataID)
             str = this->zipCode;
             break;
             
+        case W2FormData_box0_Age:
+            str = this->box0_Age;
+            break;
+
         case W2FormData_box1:
             str = this->box1;
             break;
@@ -485,6 +506,11 @@ W2Error W2FormData::setSelection(int selectionID, W2FormDataID dataID)
             success = this->checkSelection(selectionID, dataID);
             break;
             
+        case W2FormData_box0_Occupation:
+            this->box0_Occupation = selectionID;
+            success = this->checkSelection(selectionID, dataID);
+            break;
+            
         case W2FormData_box12LetterCode:
             this->box12LetterCode = selectionID;
             success = this->checkSelection(selectionID, dataID);
@@ -520,6 +546,10 @@ int W2FormData::getSelection(W2FormDataID dataID)
             selectedID = this->state;
             break;
             
+        case W2FormData_box0_Occupation:
+            selectedID = this->box0_Occupation;
+            break;
+
         case W2FormData_box12LetterCode:
             selectedID = this->box12LetterCode;
             break;

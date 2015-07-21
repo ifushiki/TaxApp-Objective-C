@@ -27,6 +27,12 @@
 @property (nonatomic, strong) NSTextField *zipCode;             // ZIP code
 
 //-----------------------------------------------------------------------------------------------------------
+// Extra fields needed for Query (Boxes 0)
+//-----------------------------------------------------------------------------------------------------------
+@property (nonatomic, strong) NSTextField *box0_Age;            // Age
+@property (nonatomic, strong) NSPopUpButton *box0_Occupation;   // Occupation
+
+//-----------------------------------------------------------------------------------------------------------
 // Incoem & taxes withheld (Boxes 1-6)
 //-----------------------------------------------------------------------------------------------------------
 @property (nonatomic, strong) NSTextField *box1;                // Wages, tips, other
