@@ -52,6 +52,7 @@
 		53E738C91B58694200486F3A /* W2FormData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738C81B58694200486F3A /* W2FormData.cpp */; };
 		53E738CD1B586A1400486F3A /* CurlTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53E738CB1B586A1400486F3A /* CurlTest.cpp */; };
 		53E738D01B5982D100486F3A /* W2FormManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53E738CF1B5982D100486F3A /* W2FormManager.mm */; };
+		53E738D61B5DC0A300486F3A /* TurboTax icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 53E738D51B5DC0A300486F3A /* TurboTax icon.jpeg */; };
 		53F7A48D1B44B9900072BB8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F7A48C1B44B9900072BB8D /* Cocoa.framework */; };
 		53F7A4971B44B9900072BB8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53F7A4951B44B9900072BB8D /* InfoPlist.strings */; };
 		53F7A4991B44B9900072BB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F7A4981B44B9900072BB8D /* main.m */; };
@@ -148,6 +149,7 @@
 		53E738CE1B5982D100486F3A /* W2FormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = W2FormManager.h; path = Forms/W2FormManager.h; sourceTree = "<group>"; };
 		53E738CF1B5982D100486F3A /* W2FormManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = W2FormManager.mm; path = Forms/W2FormManager.mm; sourceTree = "<group>"; };
 		53E738D11B5989B700486F3A /* W2FormTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = W2FormTypes.h; path = Forms/W2FormTypes.h; sourceTree = "<group>"; };
+		53E738D51B5DC0A300486F3A /* TurboTax icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "TurboTax icon.jpeg"; sourceTree = "<group>"; };
 		53F7A4891B44B9900072BB8D /* ddteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F7A48C1B44B9900072BB8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		53F7A48F1B44B9900072BB8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -244,6 +246,7 @@
 		5346EE411B45DFE00054E726 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				53E738D51B5DC0A300486F3A /* TurboTax icon.jpeg */,
 				53DB57851B564D5C00631BF5 /* TurboTax W-2 Logo.png */,
 				53463AD41B55CCA6006B6552 /* TurboTax W-2 Header.png */,
 				53463ADF1B55EB15006B6552 /* ddte-client.sqlite3 */,
@@ -479,6 +482,7 @@
 				53463ADA1B55CCA6006B6552 /* TurboTax W-2 Page-3.png in Resources */,
 				53463AC51B55A3BC006B6552 /* W2ViewController2.xib in Resources */,
 				53DB57861B564D5C00631BF5 /* TurboTax W-2 Logo.png in Resources */,
+				53E738D61B5DC0A300486F3A /* TurboTax icon.jpeg in Resources */,
 				53463ABE1B55A3BC006B6552 /* ViewController2.xib in Resources */,
 				53463AC31B55A3BC006B6552 /* W2ViewController1.xib in Resources */,
 				53463AC71B55A3BC006B6552 /* W2ViewController3.xib in Resources */,

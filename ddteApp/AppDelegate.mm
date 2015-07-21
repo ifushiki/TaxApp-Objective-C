@@ -524,13 +524,16 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     AppDelegate *appDelegate = (AppDelegate *) [NSApp delegate];
     appDelegate.sheetOrigin = topLeftPt;
     
+    NSImage *iconImage = [ResourceUtil getImage:@"TurboTax icon" withType:@"jpeg"];
+
     NSAlert *alert = [[NSAlert alloc] init];
     
-    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Got it"];
     //    [alert addButtonWithTitle:@"Cancel"];
-    [alert setMessageText:@"DDTE Warning"];
+    [alert setMessageText:@"Are you sure?"];
     [alert setInformativeText:message];
     [alert setAlertStyle:NSWarningAlertStyle];
+    alert.icon = iconImage;
     
     [alert beginSheetModalForWindow:appDelegate.window completionHandler:nil];
     
@@ -577,12 +580,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     y1 = self.sheetOrigin.y;
     
     float x = x1 + dx;
-//    float y = sheetRect.origin.y - sheetRect.size.height- y1;
     float y = y1;
 
     fieldRect.origin.x = x;
     fieldRect.origin.y = y;
-//    fieldRect.origin.y = 0;
     fieldRect.size.height = 0;
     return fieldRect;
 }
