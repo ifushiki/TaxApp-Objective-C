@@ -211,10 +211,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     // Initialize the dbManager object.
     //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
-
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
 //    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
-    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
+//    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
+    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
     [self.dbManager loadDataFromDB:query];
 }
 
@@ -390,8 +390,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 - (void) loadData {
     // Form the query.
 //    NSString *query = @"select * from peopleInfo";
-    NSString *query = @"select * from ddte_3d_occ_age_geo_stats";
-//    NSString *query = @"select * from age_stats";
+//    NSString *query = @"select * from ddte_3d_occ_age_geo_stats";
+    NSString *query = @"select w2_field, pct2,pct98 from ddte_1d_fs";
     
     // Get the results.
     if (self.arrPeopleInfo != nil) {
