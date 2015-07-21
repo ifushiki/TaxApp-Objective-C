@@ -11,7 +11,7 @@
 @interface DBManager : NSObject
 
 - (instancetype) initWithDatabaseFilename:(NSString *) dbFilename;
-- (NSArray *) loadDataFromDB:(NSString *) query;
+- (void) loadDataFromDB:(NSString *) query;
 - (void) executeQuery:(NSString *) query;
 
 @property (nonatomic, strong) NSMutableArray *arrColumnNames;

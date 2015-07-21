@@ -232,13 +232,13 @@
     }
 }
 
-- (NSArray *) loadDataFromDB:(NSString *)query {
+- (void) loadDataFromDB:(NSString *)query {
     // Run the query and indicate that it is not executable.
     // The query string is converted to a char* obect.
     [self runQueryCpp:[query UTF8String] isQueryExecutale:NO];
     
     // Return the loaded results.
-    return (NSArray *) self.arrResults;
+//    return (NSArray *) self.arrResults;
 }
 
 - (void) executeQuery:(NSString *)query {

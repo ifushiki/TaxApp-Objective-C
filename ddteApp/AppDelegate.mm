@@ -210,28 +210,12 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 {
     // Initialize the dbManager object.
     //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
     //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
+
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
 //    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
     NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
-    
-    // Load the relevant data.
-    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-//    [self.dbManager printTable:10];
-    
-/*
-    // Insert code here to initialize your application
-    if (self.tableView) {
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        
-        [self loadData];
-        
-    }
-    self.recordIDToEdit = -1;
-    [self updateDetailFields];
- */
-    
+    [self.dbManager loadDataFromDB:query];
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row NS_AVAILABLE_MAC(10_7);
@@ -413,7 +397,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     if (self.arrPeopleInfo != nil) {
         self.arrPeopleInfo = nil;
     }
-    self.arrPeopleInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    [self.dbManager loadDataFromDB:query];
+//    self.arrPeopleInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the tale view.
     [self.tableView reloadData];
@@ -425,12 +410,15 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
     
     // Load the relevant data.
+    [self.dbManager loadDataFromDB:query];
+/*
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Set the loaded data to the text fields.
     self.firstName.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"firstname"]];
     self.lastName.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"lastname"]];
     self.age.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"age"]];
+ */
 }
 
 // Update the buttons and texts in detailed fields.
