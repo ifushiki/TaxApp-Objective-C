@@ -20,7 +20,8 @@ NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, fl
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton);
 
-CGPoint getOrigin(NSView *view);    // This returns the origin of the view relative to the parent's coordinate.
+// This returns the origin of the view relative to the containing window.
+CGPoint getOrigin(NSView *view);
 
 @interface ResourceUtil : NSObject
 

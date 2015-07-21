@@ -496,6 +496,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
         
         self.ddteWindowController = [[DdteWindowController alloc] initWithWindowNibName:@"DdteWindowController"];
         self.ddteWindowController.sigma = sigma;
+        NSRect windowFrame = self.window.frame;
+        float kOffset = 120;    // Offset from the top of the window.
+        _sheetOrigin.x = 0;
+        _sheetOrigin.y = windowFrame.size.height - kOffset;
         
         [self.window beginSheet:self.ddteWindowController.window  completionHandler:^(NSModalResponse returnCode) {
             NSLog(@"Sheet closed");
@@ -592,10 +596,11 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     NSRect sheetRect = sheet.frame;     // Frame of sheet.
     
     // Sheet frame is calculated as the sheet center (in x-coordinate as the middle)
-    // We need to sheft the following value to place the sheet to the left edge of the window.
+    // We need to shift the following value to place the sheet to the left edge of the window.
     float dx = - (rect.size.width  - sheetRect.size.width)/2;   // We need to send this x-shift to make the s
 
-    float x1, y1;   // TopLeft corner of the sheet [as TopLeft as (0, 0) and y-cordinate moving downward.
+    // We need to supply the top left corner of the sheet.
+    float x1, y1;
     x1 = self.sheetOrigin.x;
     y1 = self.sheetOrigin.y;
     

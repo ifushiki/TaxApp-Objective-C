@@ -33,23 +33,12 @@ NSTextField * createTextField(NSRect parentsBounds, float x1, float y1, float x2
     return textField;
 }
 
-// This returns the origin of the view relative to the parent's coordinate.
+// This returns the origin relative to the containing window.
 CGPoint getOrigin(NSView *view)
 {
     CGPoint pt;
-    
-/*
-    if (view) {
-        NSRect frame = view.frame;
-        NSRect parentFrame = frame; // Initialized as the same as the current view.
-        if (view.superview) {
-            parentFrame = view.superview.frame;
-        }
-        pt.x = frame.origin.x;
-        pt.y = parentFrame.size.height - (frame.origin.y + frame.size.height);
-    }
- */
-    pt = view.frame.origin;
+    NSRect frameRelativeToWindow = [view convertRect:view.bounds toView:nil];
+    pt = frameRelativeToWindow.origin;
     
     return pt;
 }
