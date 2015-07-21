@@ -13,6 +13,10 @@
 #import "SqLite.h"
 
 @interface DBManager()
+{
+    std::vector<std::vector<std::string> *> dataTable;
+    std::vector<std::string> columnTitles;
+}
 
 @property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSString *databaseFilename;
@@ -109,7 +113,7 @@
 }
 
 // This load the data from database.
-- (void) retrieveDataCpp:(SqLite::Query*) query {
+- (void) retrieveDataCpp0:(SqLite::Query*) query {
     // Declare an array to keep the data for each fetched row.
     if (query) {
         [self retrieveData:query->getStatment()];
@@ -117,12 +121,14 @@
 }
 
 // This load the data from database.
-- (void) retrieveDataCpp1:(SqLite::Query*) query {
+- (void) retrieveDataCpp:(SqLite::Query*) query {
     // Declare an array to keep the data for each fetched row.
+    dataTable.clear();
     sqlite3_stmt * compiledStatement = query->getStatment();
     std::vector<std::string> *dataRow;
-    std::vector<std::vector<std::string> *> dataTable;
-    std::vector<std::string> columnTitles;
+//    std::vector<std::vector<std::string> *> dataTable;
+//    std::vector<std::string> columnTitles;
+    columnTitles.clear();
     
     // Loop through the results and add them to the results array row by row.
     while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
@@ -145,7 +151,8 @@
             }
             
             // Keep the current column name.
-            if (self.arrColumnNames.count != totalColumns) {
+//            if (self.arrColumnNames.count != totalColumns) {
+            if (columnTitles.size() != totalColumns) {
                 dbDataAsChars = (char *)sqlite3_column_name(compiledStatement, i);
                 columnTitles.push_back(dbDataAsChars);
 //                [self.arrColumnNames addObject:[NSString stringWithUTF8String:dbDataAsChars]];
@@ -160,7 +167,35 @@
 //            [self.arrResults addObject:arrDataRow];
 //        }
     }
+    
+    NSLog(@"");
+    if (dataTable.size() > 0) {
+        NSLog(@"Table row size = %d", (int) dataTable.size());
+    }
 }
+
+- (void) printTable:(int) maxRow
+{
+    std::cout << "============================================================================" << std::endl;
+    for (int j = 0; j < columnTitles.size(); j++) {
+        std::cout << columnTitles[j] << ", ";
+    }
+    std::cout << std::endl;
+    std::cout << "----------------------------------------------------------------------------" << std::endl;
+    
+    int rowSize = (int) dataTable.size();
+    
+    int imax = rowSize > maxRow ? maxRow : rowSize;
+    for(int i = 0; i < imax; i++)
+    {
+        std::vector<std::string> *row = dataTable[i];
+        for (int j = 0; j < row->size(); j++) {
+            std::cout << (*row)[j] << ", ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 
 // This inserts or updates the database.
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database

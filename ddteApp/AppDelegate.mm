@@ -37,6 +37,7 @@
 - (void) updateDetailFields;
 - (void) clearDetailFields;
 - (void) doCurlTest;
+- (void) doSqLiteTest;
 
 @end
 
@@ -72,11 +73,12 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     
     [self setPopupMenu];
     
+#if 0
     // Initialize the dbManager object.
 //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
 //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
-    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
+    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
     
     // Load the relevant data.
 //    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
@@ -88,10 +90,11 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
         
         [self loadData];
         
+        self.recordIDToEdit = -1;
+        [self updateDetailFields];
     }
-    self.recordIDToEdit = -1;
-    [self updateDetailFields];
-    
+#endif
+
     [self.window setDelegate:self];
     
     
@@ -109,7 +112,8 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     [self goToNextView:nil];
     
     [self.headerImageView setNeedsDisplay:YES];
-
+    
+    [self doSqLiteTest];
 }
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
@@ -199,6 +203,33 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
         
         std::cout << "Content:\n" << curl.Content() << std::endl;
     }
+    
+}
+
+- (void) doSqLiteTest
+{
+    // Initialize the dbManager object.
+    //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
+    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
+    
+    // Load the relevant data.
+    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    [self.dbManager printTable:10];
+    
+/*
+    // Insert code here to initialize your application
+    if (self.tableView) {
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        
+        [self loadData];
+        
+    }
+    self.recordIDToEdit = -1;
+    [self updateDetailFields];
+ */
     
 }
 

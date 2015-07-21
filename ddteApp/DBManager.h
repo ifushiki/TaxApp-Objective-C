@@ -14,6 +14,8 @@
 - (NSArray *) loadDataFromDB:(NSString *) query;
 - (void) executeQuery:(NSString *) query;
 
+- (void) printTable:(int) maxRow;
+
 @property (nonatomic, strong) NSMutableArray *arrColumnNames;
 @property (nonatomic) int affectedRows;
 @property (nonatomic) long long lastInsertedRowID;
