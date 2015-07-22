@@ -28,6 +28,8 @@ public:
     bool getDouble(const std::string& str, double&d);
     bool getInteger(const std::string& str, int&i);
     
+    void setOccupationString(const std::string& str);
+    
     std::string getErrorMessage();
     std::string getAgeBracket(int age);
     

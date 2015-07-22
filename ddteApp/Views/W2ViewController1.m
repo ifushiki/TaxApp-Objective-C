@@ -182,7 +182,9 @@
     }
     else if (sender== self.box0_Occupation) {
         dataID = W2FormData_box0_Occupation;
-        // Need fine the selected ID.
+        NSString *title = self.box0_Occupation.titleOfSelectedItem;
+        [w2Form setOccupationString:title];
+        
         NSLog(@"box0_Occupation has changed.");
     }
     else {

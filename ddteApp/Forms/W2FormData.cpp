@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include "W2FormData.h"
+#import "SQLite.h"
 
 W2FormData::W2FormData()
 {
@@ -95,6 +96,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             int i;
             if (getInteger(str, i)) {
                 std::cout << "The number = " << i << std::endl;
+                geoString = getDMACode(str);
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -324,16 +326,58 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
     return success;
 }
 
+void W2FormData::setOccupationString(const std::string& str)
+{
+    occupationString = str;
+}
+
 W2Error W2FormData::checkSelection(int selectionID, W2FormDataID dataID)
 {
-    // Not implemented yet.  Simply retuns a warning for now.
-    return kW2Error_Warning;
+    W2Error success = kW2Error_Invalid;
+    
+    switch (dataID) {
+        case W2FormData_addressType:
+            this->addressType = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        case W2FormData_state:
+            this->state = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        case W2FormData_box0_Occupation:
+            this->box0_Occupation = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        case W2FormData_box12LetterCode:
+            this->box12LetterCode = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        case W2FormData_box15:
+            this->box15 = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        case W2FormData_box20AssociatedState:
+            this->box20AssociatedState = selectionID;
+            success = kW2Error_OK;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return success;
+//    return kW2Error_Warning;
 }
 
 W2Error W2FormData::checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID)
 {
-    // Not implemented yet.  Simply retuns a warning for now.
-    return kW2Error_Warning;
+    // Not implemented yet.  Simply retuns a OK for now.
+    return kW2Error_OK;
 }
 
 std::string W2FormData::getErrorMessage()

@@ -93,4 +93,10 @@
     return (NSInteger) status;
 }
 
+- (void) setOccupationString:(NSString *) str
+{
+    const char* cStr = [str UTF8String];
+    data.setOccupationString(cStr);
+}
+
 @end

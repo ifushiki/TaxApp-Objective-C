@@ -24,4 +24,7 @@
 
 - (NSString *) getErrorMessage;
 
+- (void) setOccupationString:(NSString *) str;
+
+
 @end
