@@ -29,6 +29,8 @@ public:
     
     std::string getErrorMessage();
     std::string getAgeBracket(int age);
+    
+    std::string getQueryString();
 
 private:
     std::string errorMessage;               // An Error Message for an operation.
@@ -84,5 +86,4 @@ private:
     std::string box19;                      // Box 19 - Local income tax
     std::string box20;                      // Box 20 - Locality name
     int         box20AssociatedState;       // Box 20 - Associated State
-
 };

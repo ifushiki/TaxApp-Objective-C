@@ -44,6 +44,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 {
     // Not implemented yet.  Simply retuns a warning for now.
     W2Error success = kW2Error_Warning;
+    this->errorMessage = "";    // Initialized to an empty string.
     
     switch (dataID) {
         case W2FormData_boxB:
@@ -86,53 +87,143 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
             }
         }
-            // Check the validity
-            break;
+             break;
             
 //        case W2FormData_box0_Occupation:
 //            std::cout << "Use setSelection() for the selected ID." << std::endl;
 //            break;
             
         case W2FormData_box1:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box2:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box3:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box4:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box5:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box6:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box7:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box8:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box10:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box11:
-            // Check the validity
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+            }
+            success = kW2Error_Invalid;
+        }
             break;
             
 //        case W2FormData_box12LetterCode:
@@ -217,7 +308,7 @@ W2Error W2FormData::checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID data
 std::string W2FormData::getErrorMessage()
 {
     // Not fully implemented.  But return the same error message now.
-    this->errorMessage  = "Are you sure you typed the data correctly?";
+//    this->errorMessage  = "Are you sure you typed the data correctly?";
     
     return this->errorMessage;
 }
@@ -268,18 +359,24 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
     
     switch (dataID) {
         case W2FormData_boxB:
-            this->boxB = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->boxB = str;
+            }
             break;
             
         case W2FormData_boxC:
-            this->boxC = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->boxC = str;
+            }
             break;
             
         case W2FormData_employerNameLine2:
-            this->employerNameLine2 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->employerNameLine2 = str;
+            }
             break;
             
         case W2FormData_addressType:
@@ -287,13 +384,17 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_address:
-            this->address = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->address = str;
+            }
             break;
             
         case W2FormData_city:
-            this->city = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->city = str;
+            }
             break;
             
         case W2FormData_state:
@@ -301,13 +402,17 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_zipCode:
-            this->zipCode = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->zipCode = str;
+            }
             break;
             
         case W2FormData_box0_Age:
-            this->box0_Age = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box0_Age = str;
+            }
             break;
             
         case W2FormData_box0_Occupation:
@@ -315,53 +420,73 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
 
         case W2FormData_box1:
-            this->box1 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box1 = str;
+            }
             break;
             
         case W2FormData_box2:
-            this->box2 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box2 = str;
+            }
             break;
             
         case W2FormData_box3:
-            this->box3 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box3 = str;
+            }
             break;
             
         case W2FormData_box4:
-            this->box4 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box4 = str;
+            }
             break;
             
         case W2FormData_box5:
-            this->box5 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box5 = str;
+            }
             break;
             
         case W2FormData_box6:
-            this->box6 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box6 = str;
+            }
             break;
             
         case W2FormData_box7:
-            this->box7 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box7 = str;
+            }
             break;
             
         case W2FormData_box8:
-            this->box8 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box8 = str;
+            }
             break;
             
         case W2FormData_box10:
-            this->box10 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box10 = str;
+            }
             break;
             
         case W2FormData_box11:
-            this->box11 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box11 = str;
+            }
             break;
             
         case W2FormData_box12LetterCode:
@@ -369,8 +494,10 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_box12Amount:
-            this->box12Amount = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box12Amount = str;
+            }
             break;
             
         case W2FormData_box13SatutoryEmployee:
@@ -386,13 +513,17 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_box14:
-            this->box14 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box14 = str;
+            }
             break;
             
         case W2FormData_box14Amount:
-            this->box14Amount = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box14Amount = str;
+            }
             break;
             
         case W2FormData_box15:
@@ -400,33 +531,45 @@ W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_box15EmployerStateID:
-            this->box15EmployerStateID = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box15EmployerStateID = str;
+            }
             break;
             
         case W2FormData_box16:
-            this->box16 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box16 = str;
+            }
             break;
             
         case W2FormData_box17:
-            this->box17 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box17 = str;
+            }
             break;
             
         case W2FormData_box18:
-            this->box18 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box18 = str;
+            }
             break;
             
         case W2FormData_box19:
-            this->box19 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box19 = str;
+            }
             break;
             
         case W2FormData_box20:
-            this->box20 = str;
             success = this->checkField(str, dataID);
+            if (success != kW2Error_Invalid) {
+                this->box20 = str;
+            }
             break;
             
         case W2FormData_box20AssociatedState:
@@ -686,3 +829,11 @@ CheckBoxStatus W2FormData::getFormCheckBoxStatus(W2FormDataID dataID)
 
     return status;
 }
+
+std::string getQueryString()
+{
+    std::string query;
+    
+    return query;
+}
+

@@ -44,7 +44,7 @@
     std::string str1([str UTF8String]);
     W2Error success = data.setField(str1, dataID);
     
-    if (success == kW2Error_Warning) {
+    if (success == kW2Error_Warning || success == kW2Error_Invalid) {
         [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
@@ -63,7 +63,7 @@
 {
     W2Error success = data.setSelection(selectedID, dataID);
     
-    if (success == kW2Error_Warning) {
+    if (success == kW2Error_Warning || success == kW2Error_Invalid) {
         [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
@@ -79,7 +79,7 @@
 {
     W2Error success = data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
     
-    if (success == kW2Error_Warning) {
+    if (success == kW2Error_Warning || success == kW2Error_Invalid) {
         [AppDelegate showWarning:[self getErrorMessage] at:topLeftPt];
     }
     
