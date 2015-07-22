@@ -143,6 +143,41 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
                 w2FieldString = "federal_tax_withheld";
+                
+                if (geoString != "") {
+                    std::vector<std::string> rowList;
+                    getRangeFromGeo(rowList, geoString, w2FieldString);
+                    std::cout << "Box 2 - Fedral Tax Withheld with Geo." << std::endl;
+                    std::cout << "column count = " << rowList.size() << std::endl;
+                    for(int i = 0; i < rowList.size(); i++)
+                    {
+                        std::cout << rowList[i] << ", ";
+                    }
+                    std::cout << std::endl;
+                }
+                if (occupationString != "") {
+                    std::vector<std::string> rowList2;
+                    getRangeFromOccupation(rowList2, occupationString, w2FieldString);
+                    std::cout << "Box 2 - Fedral Tax Withheld with Occupation." << std::endl;
+                    std::cout << "column count = " << rowList2.size() << std::endl;
+                    for(int i = 0; i < rowList2.size(); i++)
+                    {
+                        std::cout << rowList2[i] << ", ";
+                    }
+                    std::cout << std::endl;
+                }
+                if (ageString != "") {
+                    std::vector<std::string> rowList3;
+                    getRangeFromAge(rowList3, ageString, w2FieldString);
+                    std::cout << "Box 2 - Fedral Tax Withheld with Age." << std::endl;
+                    std::cout << "column count = " << rowList3.size() << std::endl;
+                    for(int i = 0; i < rowList3.size(); i++)
+                    {
+                        std::cout << rowList3[i] << ", ";
+                    }
+                    std::cout << std::endl;
+                }
+
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
