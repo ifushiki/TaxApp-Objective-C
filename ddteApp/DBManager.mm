@@ -12,6 +12,73 @@
 #import "DBManager.h"
 #import "SqLite.h"
 
+// Obtain the dma code.
+std::string getDMACode(std::string& zipCode)
+{
+    std::vector<std::string> rowList;
+    std::string query = "select dma_id from zip_dma where zip = '" + zipCode + "'";
+    
+    DBManager *dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
+    [dbManager loadDataFromDB:nsQuery withList:rowList];
+    std::cout << "column count = " << rowList.size() << std::endl;
+    for(int i = 0; i < rowList.size(); i++)
+    {
+        std::cout << rowList[i] << ", ";
+    }
+    std::cout << std::endl;
+    
+    return rowList[0];
+}
+
+// Obtains the outlier range from geo table.
+void getRangeFromGeo(std::vector<std::string>& rowList, std::string& dmaCode, std::string& w2Field)
+{
+    std::string query = "select pct2,pct98 from ddte_1d_geo where geo = " + dmaCode + " and w2_field = '" + w2Field + "'";
+                         
+    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
+    [dbManager loadDataFromDB:nsQuery withList:rowList];
+    std::cout << "column count = " << rowList.size() << std::endl;
+    for(int i = 0; i < rowList.size(); i++)
+    {
+        std::cout << rowList[i] << ", ";
+    }
+    std::cout << std::endl;
+}
+
+// Obtains the outlier range from age table.
+void getRangeFromAge(std::vector<std::string>& rowList, std::string& ageBracket, std::string& w2Field)
+{
+    std::string query = "select pct2,pct98 from ddte_1d_age where age_bracket = '" + ageBracket + "' and w2_field = '" + w2Field + "'";
+    
+    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()]; 
+    [dbManager loadDataFromDB:nsQuery withList:rowList];
+    std::cout << "column count = " << rowList.size() << std::endl;
+    for(int i = 0; i < rowList.size(); i++)
+    {
+        std::cout << rowList[i] << ", ";
+    }
+    std::cout << std::endl;
+}
+
+// Obtains the outlier range from occupation table.
+void getRangeFromOccupation(std::vector<std::string>& rowList, std::string& occupation, std::string& w2Field)
+{
+    std::string query = "select pct2,pct98 from ddte_1d_occ where occupation = '" + occupation + "' and w2_field = '" + w2Field + "'";
+    
+    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];
+    [dbManager loadDataFromDB:nsQuery withList:rowList];
+    std::cout << "column count = " << rowList.size() << std::endl;
+    for(int i = 0; i < rowList.size(); i++)
+    {
+        std::cout << rowList[i] << ", ";
+    }
+    std::cout << std::endl;
+}
+
 @interface DBManager()
 @property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSString *databaseFilename;

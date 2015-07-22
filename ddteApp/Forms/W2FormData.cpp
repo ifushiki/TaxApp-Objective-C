@@ -24,7 +24,7 @@ W2FormData::W2FormData()
     this->box20AssociatedState = kState_Unspecified;
 }
 
-bool W2FormData::getDouble(const std::string& str, double&d )
+bool W2FormData::getDouble(const std::string& str, double&d)
 {
     bool success = false;
     try {
@@ -33,7 +33,22 @@ bool W2FormData::getDouble(const std::string& str, double&d )
         success = true;
     }
     catch (...) {
-        std::cout << "An exception is converting a string to double";
+        std::cout << "An exception in converting a string to double";
+        this->errorMessage = "This field must be a number.";
+    }
+    
+    return success;
+}
+
+bool W2FormData::getInteger(const std::string& str, int&i)
+{
+    bool success = false;
+    try {
+        i = std::stoi(str);
+        success = true;
+    }
+    catch (...) {
+        std::cout << "An exception in converting a string to integer";
         this->errorMessage = "This field must be a number.";
     }
     
@@ -76,7 +91,16 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 //            break;
             
         case W2FormData_zipCode:
-            // Check the validity
+        {
+            int i;
+            if (getInteger(str, i)) {
+                std::cout << "The number = " << i << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+                success = kW2Error_Invalid;
+            }
+        }
             break;
             
         case W2FormData_box0_Age:
@@ -84,6 +108,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                ageString = this->getAgeBracket((int) d);
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -101,6 +126,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "wages";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -114,6 +140,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "federal_tax_withheld";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -127,6 +154,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "social_security_wages";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -140,6 +168,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "federal_tax_withheld";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -153,6 +182,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "medicare_wages";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;
@@ -166,6 +196,7 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             double d;
             if (getDouble(str, d)) {
                 std::cout << "The number = " << d << std::endl;
+                w2FieldString = "medicare_tax_withheld";
             }
             else {
                 std::cout << "Failed the double conversion." << std::endl;

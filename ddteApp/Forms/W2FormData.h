@@ -25,7 +25,8 @@ public:
     W2Error setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
     W2Error checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
     CheckBoxStatus getFormCheckBoxStatus(W2FormDataID dataID);
-    bool getDouble(const std::string& str, double&d );
+    bool getDouble(const std::string& str, double&d);
+    bool getInteger(const std::string& str, int&i);
     
     std::string getErrorMessage();
     std::string getAgeBracket(int age);
@@ -86,4 +87,14 @@ private:
     std::string box19;                      // Box 19 - Local income tax
     std::string box20;                      // Box 20 - Locality name
     int         box20AssociatedState;       // Box 20 - Associated State
+
+
+    //-----------------------------------------------------------------------------------------------------------
+    // Query strings
+    //-----------------------------------------------------------------------------------------------------------
+    std::string ageString;
+    std::string occupationString;
+    std::string geoString;
+    std::string w2FieldString;
+    
 };
