@@ -18,17 +18,27 @@ std::string getDMACode(std::string& zipCode)
     std::vector<std::string> rowList;
     std::string query = "select dma_id from zip_dma where zip = '" + zipCode + "'";
     
-    DBManager *dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
-    [dbManager loadDataFromDB:nsQuery withList:rowList];
-    std::cout << "column count = " << rowList.size() << std::endl;
-    for(int i = 0; i < rowList.size(); i++)
-    {
-        std::cout << rowList[i] << ", ";
+    try {
+        DBManager *dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+        NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
+        [dbManager loadDataFromDB:nsQuery withList:rowList];
+        std::cout << "column count = " << rowList.size() << std::endl;
+        for(int i = 0; i < rowList.size(); i++)
+        {
+            std::cout << rowList[i] << ", ";
+        }
+        std::cout << std::endl;
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in getDMACode()";
     }
-    std::cout << std::endl;
     
-    return rowList[0];
+    if (rowList.size() > 0) {
+        return rowList[0];
+    }
+    else
+        return "";
 }
 
 // Obtains the outlier range from geo table.
@@ -36,15 +46,21 @@ void getRangeFromGeo(std::vector<std::string>& rowList, const std::string& dmaCo
 {
     std::string query = "select pct2,pct98 from ddte_1d_geo where geo = " + dmaCode + " and w2_field = '" + w2Field + "'";
                          
-    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
-    [dbManager loadDataFromDB:nsQuery withList:rowList];
-    std::cout << "column count = " << rowList.size() << std::endl;
-    for(int i = 0; i < rowList.size(); i++)
-    {
-        std::cout << rowList[i] << ", ";
+    try {
+        DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+        NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];;
+        [dbManager loadDataFromDB:nsQuery withList:rowList];
+        std::cout << "column count = " << rowList.size() << std::endl;
+        for(int i = 0; i < rowList.size(); i++)
+        {
+            std::cout << rowList[i] << ", ";
+        }
+        std::cout << std::endl;
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in getRangeFromGeo()";
     }
-    std::cout << std::endl;
 }
 
 // Obtains the outlier range from age table.
@@ -52,15 +68,21 @@ void getRangeFromAge(std::vector<std::string>& rowList, const std::string& ageBr
 {
     std::string query = "select pct2,pct98 from ddte_1d_age where age_bracket = '" + ageBracket + "' and w2_field = '" + w2Field + "'";
     
-    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()]; 
-    [dbManager loadDataFromDB:nsQuery withList:rowList];
-    std::cout << "column count = " << rowList.size() << std::endl;
-    for(int i = 0; i < rowList.size(); i++)
-    {
-        std::cout << rowList[i] << ", ";
+    try {
+        DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+        NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];
+        [dbManager loadDataFromDB:nsQuery withList:rowList];
+        std::cout << "column count = " << rowList.size() << std::endl;
+        for(int i = 0; i < rowList.size(); i++)
+        {
+            std::cout << rowList[i] << ", ";
+        }
+        std::cout << std::endl;
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in getRangeFromAge()";
     }
-    std::cout << std::endl;
 }
 
 // Obtains the outlier range from occupation table.
@@ -68,15 +90,22 @@ void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string
 {
     std::string query = "select pct2,pct98 from ddte_1d_occ where occupation = '" + occupation + "' and w2_field = '" + w2Field + "'";
     
-    DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];
-    [dbManager loadDataFromDB:nsQuery withList:rowList];
-    std::cout << "column count = " << rowList.size() << std::endl;
-    for(int i = 0; i < rowList.size(); i++)
-    {
-        std::cout << rowList[i] << ", ";
+    try {
+        DBManager* dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+        NSString *nsQuery = [NSString stringWithUTF8String:query.c_str()];
+        [dbManager loadDataFromDB:nsQuery withList:rowList];
+        std::cout << "column count = " << rowList.size() << std::endl;
+        for(int i = 0; i < rowList.size(); i++)
+        {
+            std::cout << rowList[i] << ", ";
+        }
+        std::cout << std::endl;
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in getRangeFromOccupation()";
+
     }
-    std::cout << std::endl;
 }
 
 @interface DBManager()
@@ -107,18 +136,24 @@ void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string
 - (instancetype) initWithDatabaseFilename:(NSString *)dbFilename {
     self = [super init];
     if (self) {
-        // Set the document directory path to the documentsDirectory property.
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        self.documentsDirectory = [paths objectAtIndex:0];
-        
-        // Keep the databease file name.
-        self.databaseFilename = dbFilename;
-        
-        // Copy the database file into the documents dirtry if necessary.
-        [self copyDatabaseIntoDocumentsDirectory];
-        
-        self.fQuery = NULL;
-        
+        try {
+            self.fQuery = NULL;
+
+            // Set the document directory path to the documentsDirectory property.
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            self.documentsDirectory = [paths objectAtIndex:0];
+            
+            // Keep the databease file name.
+            self.databaseFilename = dbFilename;
+            
+            // Copy the database file into the documents dirtry if necessary.
+            [self copyDatabaseIntoDocumentsDirectory];
+
+        } catch (...) {
+            // Notify the exception
+            std::cout << "Exception in initWithDatabaseFilename()";
+
+        }
     }
     return self;
 }
@@ -189,11 +224,19 @@ void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string
 
 // This load the data from database.
 - (void) retrieveDataCpp:(SqLite::Query*) query withList:(std::vector<std::string>&) rowList {
-//    std::vector<std::string> rowList;
-    self.fQuery = query;
-    query->retrieveData();
-    query->printTable(10, rowList);
-    std::cout << "rowList = " << rowList[0] << std::endl;
+
+    try {
+        self.fQuery = query;
+        query->retrieveData();
+        query->printTable(10, rowList);
+        if (rowList.size() > 0)
+            std::cout << "rowList = " << rowList[0] << std::endl;
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in retrieveDataCpp()";
+    }
+    
 }
 
 - (SqLite::Query *) getSqLiteQuery
@@ -289,27 +332,34 @@ void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string
 }
 
 - (void) runQueryCpp:(const std::string&) query withList:(std::vector<std::string>&) rowList isQueryExecutale:(BOOL)queryExecutable {
-    // Set the database file path.
-    NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
-    
-    // Clear internal arrays
-    [self clearArrays];
-    
-    // Create a sqlite object.
-    // Open the database.
-    std::string dbFilename = [databasePath UTF8String];
-    SqLite::Database database(dbFilename);
-    database.setQuery(query);
-
-    if (!queryExecutable){
-        // In this case data must be loaded from the database.
-        [self retrieveDataCpp:database.getQuery() withList:rowList];
+    try {
+        // Set the database file path.
+        NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
         
+        // Clear internal arrays
+        [self clearArrays];
+        
+        // Create a sqlite object.
+        // Open the database.
+        std::string dbFilename = [databasePath UTF8String];
+        SqLite::Database database(dbFilename);
+        database.setQuery(query);
+        
+        if (!queryExecutable){
+            // In this case data must be loaded from the database.
+            [self retrieveDataCpp:database.getQuery() withList:rowList];
+            
+        }
+        else {
+            // This is the case of an executable query (insert, update, ...).
+            [self updateDataCpp:database.getQuery() inDatabase:&database];
+        }
+
+    } catch (...) {
+        // Notify the exception
+        std::cout << "Exception in runQueryCpp()";
     }
-    else {
-        // This is the case of an executable query (insert, update, ...).
-        [self updateDataCpp:database.getQuery() inDatabase:&database];
-    }
+    
 }
 
 - (void) loadDataFromDB:(NSString *)query withList:(std::vector<std::string>&) rowList
