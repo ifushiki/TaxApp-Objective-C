@@ -17,9 +17,9 @@
 #include "SqLiteValue.h"
 
 std::string getDMACode(std::string& zipCode);
-void getRangeFromGeo(std::vector<std::string>& rowList, std::string& dmaCode, std::string& w2Field);
-void getRangeFromAge(std::vector<std::string>& rowList, std::string& ageBracket, std::string& w2Field);
-void getRangeFromOccupation(std::vector<std::string>& rowList, std::string& occupation, std::string& w2Field);
+void getRangeFromGeo(std::vector<std::string>& rowList, const std::string& dmaCode, const std::string& w2Field);
+void getRangeFromAge(std::vector<std::string>& rowList, const std::string& ageBracket, const std::string& w2Field);
+void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string& occupation, const std::string& w2Field);
 
 namespace SqLite
 {

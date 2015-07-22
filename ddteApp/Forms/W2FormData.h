@@ -27,6 +27,7 @@ public:
     CheckBoxStatus getFormCheckBoxStatus(W2FormDataID dataID);
     bool getDouble(const std::string& str, double&d);
     bool getInteger(const std::string& str, int&i);
+    W2Error checkOutlier(double amount, const std::string& w2FieldString);
     
     void setOccupationString(const std::string& str);
     

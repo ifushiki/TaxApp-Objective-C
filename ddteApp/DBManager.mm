@@ -32,7 +32,7 @@ std::string getDMACode(std::string& zipCode)
 }
 
 // Obtains the outlier range from geo table.
-void getRangeFromGeo(std::vector<std::string>& rowList, std::string& dmaCode, std::string& w2Field)
+void getRangeFromGeo(std::vector<std::string>& rowList, const std::string& dmaCode, const std::string& w2Field)
 {
     std::string query = "select pct2,pct98 from ddte_1d_geo where geo = " + dmaCode + " and w2_field = '" + w2Field + "'";
                          
@@ -48,7 +48,7 @@ void getRangeFromGeo(std::vector<std::string>& rowList, std::string& dmaCode, st
 }
 
 // Obtains the outlier range from age table.
-void getRangeFromAge(std::vector<std::string>& rowList, std::string& ageBracket, std::string& w2Field)
+void getRangeFromAge(std::vector<std::string>& rowList, const std::string& ageBracket, const std::string& w2Field)
 {
     std::string query = "select pct2,pct98 from ddte_1d_age where age_bracket = '" + ageBracket + "' and w2_field = '" + w2Field + "'";
     
@@ -64,7 +64,7 @@ void getRangeFromAge(std::vector<std::string>& rowList, std::string& ageBracket,
 }
 
 // Obtains the outlier range from occupation table.
-void getRangeFromOccupation(std::vector<std::string>& rowList, std::string& occupation, std::string& w2Field)
+void getRangeFromOccupation(std::vector<std::string>& rowList, const std::string& occupation, const std::string& w2Field)
 {
     std::string query = "select pct2,pct98 from ddte_1d_occ where occupation = '" + occupation + "' and w2_field = '" + w2Field + "'";
     
