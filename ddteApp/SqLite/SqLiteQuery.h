@@ -157,7 +157,9 @@ public:
     const char* getValueStringForKey(const std::string& key);
     
     bool retrieveData();
-    void printTable(int maxRow);
+    void printTable(int maxRow, std::vector<std::string> &rowList);
+    std::string getTableValue(int i, int j);
+    void getFirstRow(std::vector<std::string>& list);
     
     /**
      * @brief Return a copy of the column data specified by its index

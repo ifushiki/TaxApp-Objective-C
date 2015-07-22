@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSString *databaseFilename;
 @property (nonatomic, strong) NSMutableArray *arrResults;
+@property (nonatomic) std::vector<std::string> resultList;
+@property (nonatomic) SqLite::Query *fQuery;
 
 - (void) copyDatabaseIntoDocumentsDirectory;
 - (void) clearArrays;
@@ -26,8 +28,8 @@
 - (void) updateData:(sqlite3_stmt *)compiledStatement inDatabase:(sqlite3 *) sqlite3Database;
 
 // C++ version
-- (void) runQueryCpp:(const std::string&) query isQueryExecutale:(BOOL)queryExecutable;
-- (void) retrieveDataCpp:(SqLite::Query*) query;
+- (void) runQueryCpp:(const std::string&) query withList:(std::vector<std::string>&) rowList isQueryExecutale:(BOOL)queryExecutable;
+- (void) retrieveDataCpp:(SqLite::Query*) query withList:(std::vector<std::string>&) rowList;
 - (void) updateDataCpp:(SqLite::Query *) query inDatabase:(SqLite::Database *) database;
 
 
@@ -47,6 +49,9 @@
         
         // Copy the database file into the documents dirtry if necessary.
         [self copyDatabaseIntoDocumentsDirectory];
+        
+        self.fQuery = NULL;
+        
     }
     return self;
 }
@@ -116,9 +121,17 @@
 }
 
 // This load the data from database.
-- (void) retrieveDataCpp:(SqLite::Query*) query {
+- (void) retrieveDataCpp:(SqLite::Query*) query withList:(std::vector<std::string>&) rowList {
+//    std::vector<std::string> rowList;
+    self.fQuery = query;
     query->retrieveData();
-    query->printTable(10);
+    query->printTable(10, rowList);
+    std::cout << "rowList = " << rowList[0] << std::endl;
+}
+
+- (SqLite::Query *) getSqLiteQuery
+{
+    return self.fQuery;
 }
 
 // This inserts or updates the database.
@@ -208,7 +221,7 @@
     sqlite3_close(sqlite3Database);
 }
 
-- (void) runQueryCpp:(const std::string&) query isQueryExecutale:(BOOL)queryExecutable {
+- (void) runQueryCpp:(const std::string&) query withList:(std::vector<std::string>&) rowList isQueryExecutale:(BOOL)queryExecutable {
     // Set the database file path.
     NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     
@@ -223,7 +236,7 @@
 
     if (!queryExecutable){
         // In this case data must be loaded from the database.
-        [self retrieveDataCpp:database.getQuery()];
+        [self retrieveDataCpp:database.getQuery() withList:rowList];
         
     }
     else {
@@ -232,10 +245,11 @@
     }
 }
 
-- (void) loadDataFromDB:(NSString *)query {
+- (void) loadDataFromDB:(NSString *)query withList:(std::vector<std::string>&) rowList
+{
     // Run the query and indicate that it is not executable.
     // The query string is converted to a char* obect.
-    [self runQueryCpp:[query UTF8String] isQueryExecutale:NO];
+    [self runQueryCpp:[query UTF8String] withList:rowList isQueryExecutale:NO];
     
     // Return the loaded results.
 //    return (NSArray *) self.arrResults;
@@ -243,7 +257,8 @@
 
 - (void) executeQuery:(NSString *)query {
     // Run the query and indicate that it is executable.
-    [self runQueryCpp:[query UTF8String] isQueryExecutale:YES];
+    std::vector<std::string>  rowList;
+    [self runQueryCpp:[query UTF8String] withList:rowList isQueryExecutale:YES];
 }
 
 @end

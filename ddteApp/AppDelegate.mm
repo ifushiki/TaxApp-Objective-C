@@ -211,17 +211,73 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     // Initialize the dbManager object.
     //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
+    NSString* query;
+    std::vector<std::string> rowList;
+    
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
+    query = [NSString stringWithFormat:@"select dma_id from zip_dma where zip = '94040'"];
+    [self.dbManager loadDataFromDB:query withList:rowList];
+    std::cout << "column count = " << rowList.size() << std::endl;
+    for(int i = 0; i < rowList.size(); i++)
+    {
+        std::cout << rowList[i] << ", ";
+    }
+    std::cout << std::endl;
+ //   std::vector<std::string> dma_list;
+ //   SqLite::Query *sqQuary = [self.dbManager getSqLiteQuery];
+ //   std::string dmaStr = sqQuary->getTableValue(0, 0);
+    
+    std::vector<std::string> rowList2;
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    query = [NSString stringWithFormat:@" select pct2,pct98 from ddte_1d_geo where geo = 807 AND w2_field = 'medicare_wages'"];
+//    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
 //    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
 //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
-    [self.dbManager loadDataFromDB:query];
+    [self.dbManager loadDataFromDB:query withList:rowList2];
+    std::cout << "column count = " << rowList2.size() << std::endl;
+    for(int i = 0; i < rowList2.size(); i++)
+    {
+        std::cout << rowList2[i] << ", ";
+    }
 
     // Do other query.
+    std::vector<std::string> rowList3;
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    query = [NSString stringWithFormat:@"select * from zip_dma"];
+//    query = [NSString stringWithFormat:@"select * from zip_dma"];
+    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_geo where geo = 807 AND w2_field = 'wages'"];
     //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
-    [self.dbManager loadDataFromDB:query];
+    [self.dbManager loadDataFromDB:query withList:rowList3];
+    std::cout << "column count = " << rowList2.size() << std::endl;
+    for(int i = 0; i < rowList3.size(); i++)
+    {
+        std::cout << rowList3[i] << ", ";
+    }
+
+    // Do other query.
+    std::vector<std::string> rowList4;
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    //    query = [NSString stringWithFormat:@"select * from zip_dma"];
+    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_age where age_bracket = '20-29' AND w2_field = 'wages'"];
+    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
+    [self.dbManager loadDataFromDB:query withList:rowList4];
+    std::cout << "column count = " << rowList4.size() << std::endl;
+    for(int i = 0; i < rowList4.size(); i++)
+    {
+        std::cout << rowList4[i] << ", ";
+    }
+
+    // Do other query.
+    std::vector<std::string> rowList5;
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    //    query = [NSString stringWithFormat:@"select * from zip_dma"];
+    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_occ where occupation = 'professor' AND w2_field = 'wages'"];
+    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
+    [self.dbManager loadDataFromDB:query withList:rowList5];
+    std::cout << "column count = " << rowList5.size() << std::endl;
+    for(int i = 0; i < rowList5.size(); i++)
+    {
+        std::cout << rowList5[i] << ", ";
+    }
 
 }
 
@@ -399,12 +455,13 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 //    NSString *query = @"select * from peopleInfo";
 //    NSString *query = @"select * from ddte_3d_occ_age_geo_stats";
     NSString *query = @"select w2_field, pct2,pct98 from ddte_1d_fs";
+    std::vector<std::string> rowList;
     
     // Get the results.
     if (self.arrPeopleInfo != nil) {
         self.arrPeopleInfo = nil;
     }
-    [self.dbManager loadDataFromDB:query];
+    [self.dbManager loadDataFromDB:query withList:rowList];
 //    self.arrPeopleInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the tale view.
@@ -415,9 +472,10 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 - (void) loadInfoToEdit {
     // Create a query.
     NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
-    
+    std::vector<std::string> rowList;
+   
     // Load the relevant data.
-    [self.dbManager loadDataFromDB:query];
+    [self.dbManager loadDataFromDB:query withList:rowList];
 /*
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     

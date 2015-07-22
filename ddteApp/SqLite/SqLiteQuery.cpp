@@ -191,7 +191,7 @@ namespace SqLite {
         return true;
     }
 
-    void Query::printTable(int maxRow)
+    void Query::printTable(int maxRow, std::vector<std::string> &rowList)
     {
         std::cout << "============================================================================" << std::endl;
         for (int j = 0; j < this->columnTitles.size(); j++) {
@@ -207,13 +207,46 @@ namespace SqLite {
         {
             std::vector<std::string> *row = this->dataTable[i];
             for (int j = 0; j < row->size(); j++) {
-                std::cout << (*row)[j] << ", ";
+                std::string value = (*row)[j];
+                if (i == 0) {
+                    rowList.push_back(value);
+                }
+                std::cout << value << ", ";
             }
             std::cout << std::endl;
         }
     }
 
+    std::string Query::getTableValue(int i, int j)
+    {
+        int imax = (int) dataTable.size();
+        int jmax = (int) columnTitles.size();
+        std::string value;
+        
+        if (i < imax && j < jmax) {
+            std::vector<std::string> *row = this->dataTable[i];
+            std::string value = (*row)[j];
+        }
+        else {
+            std::cout << "Out of Range" << std::endl;
+        }
+        
+        return value;
+    }
     
+    void Query::getFirstRow(std::vector<std::string>& list)
+    {
+        int imax = (int) this->dataTable.size();
+        int jmax = (int) this->columnTitles.size();
+        std::string value;
+        if (imax > 0 && jmax > 0) {
+            std::vector<std::string> *row = this->dataTable[0];
+            for (int j = 0;  j < jmax; j++) {
+                list.push_back((*row)[j]);
+            }
+        }
+    }
+
     // Test if the column is NULL
     bool Query::isColumnNull(const int aIndex) const
     {
