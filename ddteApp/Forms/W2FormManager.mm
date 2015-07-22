@@ -32,6 +32,7 @@
 
 - (NSString *) getErrorMessage
 {
+    std::string errorString = data.getErrorMessage();
     NSString *errorMessage = [NSString stringWithCString:data.getErrorMessage().c_str()
                                                 encoding:[NSString defaultCStringEncoding]];
     

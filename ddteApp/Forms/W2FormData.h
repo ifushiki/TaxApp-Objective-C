@@ -25,8 +25,10 @@ public:
     W2Error setCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
     W2Error checkCheckBoxStatus(CheckBoxStatus status, W2FormDataID dataID);
     CheckBoxStatus getFormCheckBoxStatus(W2FormDataID dataID);
+    bool getDouble(const std::string& str, double&d );
     
     std::string getErrorMessage();
+    std::string getAgeBracket(int age);
 
 private:
     std::string errorMessage;               // An Error Message for an operation.

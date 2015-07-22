@@ -105,13 +105,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ddteApp/AppDelegate.mm"
-            timestampString = "459169557.383136"
+            filePath = "ddteApp/Forms/W2FormData.cpp"
+            timestampString = "459214952.981737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
-            landmarkName = "-window:willPositionSheet:usingRect:"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "W2FormData::checkField(std::string&amp; str, W2FormDataID dataID)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ddteApp/Forms/W2FormData.cpp"
+            timestampString = "459217526.125972"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "W2FormData::getDouble(const std::string&amp; str, double&amp;d )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ddteApp/Forms/W2FormManager.mm"
+            timestampString = "459217756.705791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-getErrorMessage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

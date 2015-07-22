@@ -29,7 +29,6 @@ Database::Database(const std::string& apFilename) :
     
 }
 
-
 // Close the SQLite database connection.
 Database::~Database() noexcept // nothrow
 {
@@ -38,7 +37,7 @@ Database::~Database() noexcept // nothrow
 
     const int ret = sqlite3_close(fSQLite);
     assert(ret == SQLITE_OK);
-
+    
     /*
     // Only case of error is SQLITE_BUSY: "database is locked" (some statements are not finalized)
     // Never throw an exception in a destructor :

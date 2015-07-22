@@ -212,10 +212,17 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
     //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-//    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
+    NSString *query = [NSString stringWithFormat:@"select * from zip_dma where zip=94087"];
 //    NSString *query = [NSString stringWithFormat:@"select * from zip_dma"];
-    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
+//    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
     [self.dbManager loadDataFromDB:query];
+
+    // Do other query.
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
+    query = [NSString stringWithFormat:@"select * from zip_dma"];
+    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
+    [self.dbManager loadDataFromDB:query];
+
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row NS_AVAILABLE_MAC(10_7);

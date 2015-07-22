@@ -38,7 +38,7 @@ namespace SqLite {
             return fSQLite;
         }
 
-        /**
+         /**
          * @brief Close the SQLite database connection.
          *
          * All SQLite statements must have been finalized before,

@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include "W2FormData.h"
 
 W2FormData::W2FormData()
@@ -21,6 +22,22 @@ W2FormData::W2FormData()
     this->box13ThirdPartySickPay = kCheckBoxStatus_Off;
     this->box15 = kState_Unspecified;
     this->box20AssociatedState = kState_Unspecified;
+}
+
+bool W2FormData::getDouble(const std::string& str, double&d )
+{
+    bool success = false;
+    try {
+        size_t n_size;
+        d = std::stod(str, &n_size);
+        success = true;
+    }
+    catch (...) {
+        std::cout << "An exception is converting a string to double";
+        this->errorMessage = "This field must be a number.";
+    }
+    
+    return success;
 }
 
 W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
@@ -62,6 +79,15 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
             break;
             
         case W2FormData_box0_Age:
+        {
+            double d;
+            if (getDouble(str, d)) {
+                std::cout << "The number = " << d << std::endl;
+            }
+            else {
+                std::cout << "Failed the double conversion." << std::endl;
+            }
+        }
             // Check the validity
             break;
             
@@ -195,6 +221,46 @@ std::string W2FormData::getErrorMessage()
     
     return this->errorMessage;
 }
+
+// This return the age bracket as a string for the given age.
+std::string W2FormData::getAgeBracket(int age)
+{
+    std::string bracket;
+    
+    if (age < 10) {
+        bracket = "0-9";
+    }
+    else if (age < 20) {
+        bracket = "10-19";
+    }
+    else if (age < 30) {
+        bracket = "20-29";
+    }
+    else if (age < 40) {
+        bracket = "30-39";
+    }
+    else if (age < 50) {
+        bracket = "40-49";
+    }
+    else if (age < 60) {
+        bracket = "50-60";
+    }
+    else if (age < 70) {
+        bracket = "60-69";
+    }
+    else if (age < 80) {
+        bracket = "70-79";
+    }
+    else if (age < 90) {
+        bracket = "80-89";
+    }
+    else {
+        // Peopel over 99 is also included in this braket.
+        bracket = "90-99";
+    }
+    return bracket;
+}
+
 
 W2Error W2FormData::setField(std::string& str, W2FormDataID dataID)
 {
