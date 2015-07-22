@@ -18,6 +18,9 @@ NSPopUpButton * createPopupButton(NSRect parentsBounds, float x1, float y1, floa
 // Create a checkbox with the given boundary (in topLeft corner as zero).
 NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, float y2);
 
+// Create an image view with the given boundary (in topLeft corner as zero).
+NSImageView* createImageView(NSRect parentsBounds, float x1, float y1, float x2, float y2);
+
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton);
 

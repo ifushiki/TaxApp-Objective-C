@@ -65,6 +65,29 @@ std::string kDdteGetTestURL = "http://api.ddte.corp.intuit.net/v1/listtestfields
     [self.ddtePopup addItemsWithTitles:itemTitles];
 }
 
+- (NSScrollView *) createScrollView
+{
+    // create the scroll view so that it fills the entire window
+    // to do that we'll grab the frame of the window's contentView
+    // theWindow is an outlet connected to a window instance in Interface Builder
+    NSScrollView *scrollView = [[NSScrollView alloc] initWithFrame:[[self.window contentView] frame]];
+    
+    // the scroll view should have both horizontal
+    // and vertical scrollers
+    [scrollView setHasVerticalScroller:YES];
+    [scrollView setHasHorizontalScroller:YES];
+    
+    // configure the scroller to have no visible border
+    [scrollView setBorderType:NSNoBorder];
+    
+    // set the autoresizing mask so that the scroll view will
+    // resize with the window
+    [scrollView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
+    
+    return scrollView;
+}
+
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSImage *headerImage = [ResourceUtil getImage:@"TurboTax W-2 Header" withType:@"png"];
@@ -435,6 +458,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     BOOL goToNext = 1;
     if (sender == nil) {
         goToNext = 0;
+        NSScrollView *scrollView = [self createScrollView];
+        [self.window setContentView:scrollView];
     }
     [self setNextViewController:goToNext];
 
@@ -446,7 +471,8 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     NSRect rect = currentRect;
 //    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
-    [self.window.contentView addSubview:self.currentController.view];
+//    [self.window.contentView addSubview:self.currentController.view];
+    [(NSScrollView *)self.window.contentView setDocumentView:self.currentController.view];
 }
 
 - (IBAction)goToPreviousView:(id)sender {

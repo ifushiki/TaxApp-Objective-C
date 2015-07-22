@@ -72,6 +72,19 @@ NSButton * createCheckBox(NSRect parentsBounds, float x1, float y1, float x2, fl
     return checkBox;
 }
 
+NSImageView* createImageView(NSRect parentsBounds, float x1, float y1, float x2, float y2)
+{
+    NSRect rect;
+    rect.size.width = x2 - x1;
+    rect.size.height = y2 - y1;
+    rect.origin.x = x1;
+    rect.origin.y = parentsBounds.size.height - y2;
+    NSImageView *imageView = [[NSImageView alloc] initWithFrame:rect];
+    [imageView setBounds:rect];
+    
+    return imageView;
+}
+
 // Adds State Abbreviation codes to the given popup menu.
 void addStatesToPopUpMenu(NSPopUpButton *popupButton)
 {

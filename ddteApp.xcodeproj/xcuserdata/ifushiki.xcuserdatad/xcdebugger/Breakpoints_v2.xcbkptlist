@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ddteApp/AppDelegate.mm"
-            timestampString = "459256930.329456"
+            timestampString = "459296211.992911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "-doSqLiteTest"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ddteApp/AppDelegate.mm"
-            timestampString = "459256930.329456"
+            timestampString = "459296211.992911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-doSqLiteTest"
             landmarkType = "5">
          </BreakpointContent>
