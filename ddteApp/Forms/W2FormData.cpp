@@ -58,41 +58,88 @@ bool W2FormData::getInteger(const std::string& str, int&i)
 
 W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString)
 {
+    bool hasRange = false;
+    double xmin = 1000000, xmax = 0;
+    double d;
     if (geoString != "") {
-        std::vector<std::string> rowList;
-        getRangeFromGeo(rowList, geoString, w2FieldString);
+        std::vector<std::string> rowList1;
+        getRangeFromGeo(rowList1, geoString, w2FieldString);
         std::cout << w2FieldString << " with Geo." << std::endl;
-        std::cout << "column count = " << rowList.size() << std::endl;
-        for(int i = 0; i < rowList.size(); i++)
-        {
-            std::cout << rowList[i] << ", ";
+        if (rowList1.size() >= 2) {
+            hasRange = true;
+            std::cout << "column count = " << rowList1.size() << std::endl;
+            for(int i = 0; i < rowList1.size(); i++)
+            {
+                std::cout << rowList1[i] << ", ";
+            }
+            std::cout << std::endl;
+            
+            if (getDouble(rowList1[0], d)) {
+                xmin = xmin < d ? xmin: d;
+            }
+            if (getDouble(rowList1[1], d)) {
+                xmax = xmax > d ? xmax: d;
+            }
         }
-        std::cout << std::endl;
     }
     if (occupationString != "") {
         std::vector<std::string> rowList2;
         getRangeFromOccupation(rowList2, occupationString, w2FieldString);
         std::cout << w2FieldString << " with Occupation." << std::endl;
         std::cout << "column count = " << rowList2.size() << std::endl;
-        for(int i = 0; i < rowList2.size(); i++)
-        {
-            std::cout << rowList2[i] << ", ";
+        if (rowList2.size() >= 2) {
+            hasRange = true;
+            for(int i = 0; i < rowList2.size(); i++)
+            {
+                std::cout << rowList2[i] << ", ";
+            }
+            std::cout << std::endl;
+            
+            if (getDouble(rowList2[0], d)) {
+                xmin = xmin < d ? xmin: d;
+            }
+            if (getDouble(rowList2[1], d)) {
+                xmax = xmax > d ? xmax: d;
+            }
         }
-        std::cout << std::endl;
     }
     if (ageString != "") {
         std::vector<std::string> rowList3;
         getRangeFromAge(rowList3, ageString, w2FieldString);
         std::cout << w2FieldString << " with Age." << std::endl;
         std::cout << "column count = " << rowList3.size() << std::endl;
-        for(int i = 0; i < rowList3.size(); i++)
-        {
-            std::cout << rowList3[i] << ", ";
+        if (rowList3.size() >= 2) {
+            hasRange = true;
+            for(int i = 0; i < rowList3.size(); i++)
+            {
+                std::cout << rowList3[i] << ", ";
+            }
+            std::cout << std::endl;
+            if (getDouble(rowList3[0], d)) {
+                xmin = xmin < d ? xmin: d;
+            }
+            if (getDouble(rowList3[1], d)) {
+                xmax = xmax > d ? xmax: d;
+            }
         }
-        std::cout << std::endl;
     }
     
-    return kW2Error_Warning;
+    W2Error success = kW2Error_OK;
+    if (hasRange && xmax > xmin) {
+        std::string message = "You have entered $" + std::to_string(amount) + ".  However, your value seems to be too ";
+        if (amount > xmax ) {
+            // This is an outlier.
+            success = kW2Error_Warning;
+            errorMessage = message + "high.";
+        }
+        else if (amount < xmin) {
+            // This is an outlier.
+            success = kW2Error_Warning;
+            errorMessage = message + "high.";
+        }
+    }
+    
+    return success;
 }
 
 W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
