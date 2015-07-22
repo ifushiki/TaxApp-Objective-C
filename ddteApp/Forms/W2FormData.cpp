@@ -58,6 +58,8 @@ bool W2FormData::getInteger(const std::string& str, int&i)
 
 W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString)
 {
+    const clock_t begin_time = std::clock();
+    
     bool hasRange = false;
     double xmin = 0, xmax = 10000000;
     double d;
@@ -139,6 +141,10 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
         }
     }
     
+    const clock_t end_time = std::clock();
+    
+    std::cout << float (end_time - begin_time)/ CLOCKS_PER_SEC;
+
     return success;
 }
 
