@@ -233,9 +233,6 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 
 - (void) doSqLiteTest
 {
-    // Initialize the dbManager object.
-    //    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
-    //    NSString *query = [NSString stringWithFormat:@"select * from poepeleInfo where peopleInfoID=%d", self.recordIDToEdit];
     std::string zipCode = "94087";
     std::string dmaCode = getDMACode(zipCode);
     std::cout << "dmaCode = " << dmaCode << std::endl;
@@ -264,33 +261,11 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     }
     std::cout << std::endl;
 
-/*
-    // Do other query.
-    std::vector<std::string> rowList3;
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-//    query = [NSString stringWithFormat:@"select * from zip_dma"];
-    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_geo where geo = 807 AND w2_field = 'wages'"];
-    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
-    [self.dbManager loadDataFromDB:query withList:rowList3];
-    std::cout << "column count = " << rowList2.size() << std::endl;
-    for(int i = 0; i < rowList3.size(); i++)
-    {
-        std::cout << rowList3[i] << ", ";
-    }
- */
-
     // Do other query.
     std::vector<std::string> rowList4;
     std::string ageBracket = "20-29";
     std::string w2Field2 = "wages";
     getRangeFromAge(rowList4, ageBracket, w2Field2);
-/*
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    //    query = [NSString stringWithFormat:@"select * from zip_dma"];
-    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_age where age_bracket = '20-29' AND w2_field = 'wages'"];
-    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
-    [self.dbManager loadDataFromDB:query withList:rowList4];
- */
     std::cout << "-------- Geo Result ------------" << std::endl;
     std::cout << "column count = " << rowList4.size() << std::endl;
     for(int i = 0; i < rowList4.size(); i++)
@@ -304,13 +279,6 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     std::string w2Field3 = "wages";
 
     getRangeFromOccupation(rowList5, occupation, w2Field2);
-/*
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"ddte-client.sqlite3"];
-    //    query = [NSString stringWithFormat:@"select * from zip_dma"];
-    query = [NSString stringWithFormat:@"select pct2,pct98 from ddte_1d_occ where occupation = 'professor' AND w2_field = 'wages'"];
-    //    NSString *query = [NSString stringWithFormat:@"select w2_field, pct2,pct98 from ddte_1d_fs"];
-    [self.dbManager loadDataFromDB:query withList:rowList5];
- */
     std::cout << "-------- Occupation Result ------------" << std::endl;
     std::cout << "column count = " << rowList5.size() << std::endl;
     for(int i = 0; i < rowList5.size(); i++)
@@ -469,9 +437,7 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     float dy = parentFrame.size.height- currentRect.size.height - 128;
     currentRect.origin.y = dy;
     NSRect rect = currentRect;
-//    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
-//    [self.window.contentView addSubview:self.currentController.view];
     [(NSScrollView *)self.window.contentView setDocumentView:self.currentController.view];
 }
 
@@ -486,16 +452,12 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     float dy = parentFrame.size.height- currentRect.size.height - 128;
     currentRect.origin.y = dy;
     NSRect rect = currentRect;
-//    NSRect rect = CGRectMake(40, -30, 1200, 720);
     [self.currentController.view setFrame:rect];
     [self.window.contentView addSubview:self.currentController.view];
 }
 
 // Load the table data.
 - (void) loadData {
-    // Form the query.
-//    NSString *query = @"select * from peopleInfo";
-//    NSString *query = @"select * from ddte_3d_occ_age_geo_stats";
     NSString *query = @"select w2_field, pct2,pct98 from ddte_1d_fs";
     std::vector<std::string> rowList;
     
@@ -518,14 +480,6 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
    
     // Load the relevant data.
     [self.dbManager loadDataFromDB:query withList:rowList];
-/*
-    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-    
-    // Set the loaded data to the text fields.
-    self.firstName.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"firstname"]];
-    self.lastName.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"lastname"]];
-    self.age.stringValue = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"age"]];
- */
 }
 
 // Update the buttons and texts in detailed fields.

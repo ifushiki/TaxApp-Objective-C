@@ -11,7 +11,7 @@
 #include <string>
 #include <sstream>
 #include <stdio.h>
-#include <iomanip>
+//#include <iomanip>
 #include "W2FormData.h"
 #import "SQLite.h"
 
@@ -161,9 +161,6 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
         char buffer[50];
         sprintf(buffer, "%.2f", amount);
         std::string amountStr = buffer;
-        amountBuff << amount;
-//        amountBuff << std::setprecision(2) << amount;
-//        std::string message = "You have entered $" + std::to_string(amount) + ".  However, your value seems to be too ";
         std::string message = "You have entered $" + amountStr + ".  However, your value seems to be too ";
         if (amount > xmax ) {
             // This is an outlier.
