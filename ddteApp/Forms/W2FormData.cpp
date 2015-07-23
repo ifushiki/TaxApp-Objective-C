@@ -148,7 +148,7 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             if (getDouble(rowList3[1], d)) {
                 if (xmax > d) {
                     xmax = d;   // Decrease the maximum
-                    maxContribution = "Acc";
+                    maxContribution = "Age";
                 }
                 //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
@@ -173,15 +173,18 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
         else if (amount < xmin) {
             // This is an outlier.
             success = kW2Error_Warning;
-            errorMessage = message + "low.\n\n";
+            message = message + "low.\n\n";
+        }
+        if (success != kW2Error_OK) {
+            message = message + "Minmum contribution: " + minContribution + "\n";
+            message = message + "Maximum contribution: " + maxContribution;
+        }
+        else {
+            message = "";
         }
         
-        message = message + "Minmum contribution:" + minContribution + "\n";
-        message = message + "Maximum contribution:" + maxContribution;
-
         errorMessage = message;
     }
-    
     
     const clock_t end_time = std::clock();
     
