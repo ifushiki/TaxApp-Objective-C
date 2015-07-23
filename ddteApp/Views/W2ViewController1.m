@@ -174,9 +174,128 @@
     self.box6 = createTextField(viewRect, x1, y1, x2, y2);
     self.box6.delegate = self;
     [self.imageView addSubview:self.box6];
-
+    
+    [self loadData];
 }
 
+- (void) setInitialData
+{
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+        return;
+    }
+
+    [w2Form setDataString:@"12-3456789" withFormDataID:W2FormData_boxB];
+    [w2Form setDataString:@"Intuit Corporation" withFormDataID:W2FormData_boxC];
+    [w2Form setDataString:@"2700 Coast Ave" withFormDataID:W2FormData_address];
+    [w2Form setDataString:@"Mountian View" withFormDataID:W2FormData_city];
+    [w2Form setDataSelection:kState_California withFormDataID:W2FormData_state];
+    [w2Form setDataString:@"94043" withFormDataID:W2FormData_zipCode];
+}
+
+- (void) reloadData
+{
+    W2FormManager* w2Form = [W2FormManager sharedMgr];
+    if (w2Form == nil) {
+        NSLog(@"Failed in getting the shared W2 data");
+        return;
+    }
+    NSString *str;
+    str = [w2Form getFormString:W2FormData_boxB];
+    if (str)
+        self.boxB.stringValue = str;
+
+    str = [w2Form getFormString:W2FormData_boxC];
+    if (str)
+        self.boxC.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_employerNameLine2];
+    if (str)
+        self.employerNameLine2.stringValue = str;
+
+    [self.addressType selectItemAtIndex:[w2Form getFormSelection:W2FormData_addressType]]; // Start at US address.
+
+    str = [w2Form getFormString:W2FormData_address];
+    if (str)
+        self.address.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_city];
+    if (str)
+        self.city.stringValue = str;
+    
+    [self.state selectItemAtIndex:[w2Form getFormSelection:W2FormData_state]]; // Start at US address.
+
+    str = [w2Form getFormString:W2FormData_zipCode];
+    if (str)
+        self.zipCode.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box0_Age];
+    if (str)
+        self.box0_Age.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box1];
+    if (str)
+        self.box1.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box2];
+    if (str)
+        self.box2.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box3];
+    if (str)
+        self.box3.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box4];
+    if (str)
+        self.box4.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box5];
+    if (str)
+        self.box5.stringValue = str;
+    
+    str = [w2Form getFormString:W2FormData_box6];
+    if (str)
+        self.box6.stringValue = str;
+    
+    [self.imageView setNeedsDisplay:YES];
+/*
+    //-----------------------------------------------------------------------------------------------------------
+    // Employer's information
+    //-----------------------------------------------------------------------------------------------------------
+    @property (nonatomic, strong) NSTextField *boxB;                // Employer's identification number (EIN)
+    @property (nonatomic, strong) NSTextField *boxC;                // Employer name
+    @property (nonatomic, strong) NSTextField *employerNameLine2;   // Employer name line 2 (optional)
+    @property (nonatomic, strong) NSPopUpButton *addressType;        // Address Type as a popup button.
+    @property (nonatomic, strong) NSTextField *address;             // Address
+    @property (nonatomic, strong) NSTextField *city;                // City
+    @property (nonatomic, strong) NSPopUpButton *state;             // State
+    @property (nonatomic, strong) NSTextField *zipCode;             // ZIP code
+    
+    //-----------------------------------------------------------------------------------------------------------
+    // Extra fields needed for Query (Boxes 0)
+    //-----------------------------------------------------------------------------------------------------------
+    @property (nonatomic, strong) NSTextField *box0_Age;            // Age
+    @property (nonatomic, strong) NSPopUpButton *box0_Occupation;   // Occupation
+    
+    //-----------------------------------------------------------------------------------------------------------
+    // Income & taxes withheld (Boxes 1-6)
+    //-----------------------------------------------------------------------------------------------------------
+    @property (nonatomic, strong) NSTextField *box1;                // Wages, tips, other
+    @property (nonatomic, strong) NSTextField *box2;                // Federal tax withheld
+    @property (nonatomic, strong) NSTextField *box3;                // Social Sec. wages
+    @property (nonatomic, strong) NSTextField *box4;                // Social Sec. tax withheld
+    @property (nonatomic, strong) NSTextField *box5;                // Medicare Wages
+    @property (nonatomic, strong) NSTextField *box6;                // Medicre tax withheld
+    
+*/
+ }
+
+- (void) loadData
+{
+    [self setInitialData];
+    [self reloadData];
+}
 
 - (IBAction) itemDidChange:(id) sender
 {

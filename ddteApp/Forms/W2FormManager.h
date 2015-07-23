@@ -13,12 +13,15 @@
 
 + (id) sharedMgr;
 
+- (W2Error) setDataString:(NSString *) str withFormDataID:(W2FormDataID) dataID;
 - (W2Error) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID at:(CGPoint) topLeftPt;
 - (NSString *) getFormString:(W2FormDataID) dataID;
 
+- (W2Error) setDataSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID;
 - (W2Error) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID at:(CGPoint) topLeftPt;
 - (int) getFormSelection:(W2FormDataID) dataID;
 
+- (W2Error) setDataCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID;
 - (W2Error) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID at:(CGPoint) topLeftPt;
 - (NSInteger) getFormCheckBoxStatus:(W2FormDataID) dataID;
 

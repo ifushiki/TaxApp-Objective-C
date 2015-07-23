@@ -63,6 +63,8 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
     bool hasRange = false;
     double xmin = 0, xmax = 10000000;
     double d;
+    std::string maxContribution;
+    std::string minContribution;
     if (geoString != "") {
         std::vector<std::string> rowList1;
         getRangeFromGeo(rowList1, geoString, w2FieldString);
@@ -77,10 +79,18 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             std::cout << std::endl;
             
             if (getDouble(rowList1[0], d)) {
-                xmin = xmin > d ? xmin: d;  // Increase the minimum
+                if (xmin < d) {
+                    xmin = d;   // Increase the minimum
+                    minContribution = "geo";
+                }
+//                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList1[1], d)) {
-                xmax = xmax < d ? xmax: d;  // decreading the maximum
+                if (xmax > d) {
+                    xmax = d;   // Decrease the maximum
+                    maxContribution = "geo";
+                }
+//                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
         }
     }
@@ -98,10 +108,18 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             std::cout << std::endl;
             
             if (getDouble(rowList2[0], d)) {
-                xmin = xmin > d ? xmin: d;  // Increase the minimum
+                if (xmin < d) {
+                    xmin = d;   // Increase the minimum
+                    minContribution = "occ";
+                }
+                //                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList2[1], d)) {
-                xmax = xmax < d ? xmax: d;  // decreading the maximum
+                if (xmax > d) {
+                    xmax = d;   // Decrease the maximum
+                    maxContribution = "occ";
+                }
+                //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
         }
     }
@@ -118,10 +136,18 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             }
             std::cout << std::endl;
             if (getDouble(rowList3[0], d)) {
-                xmin = xmin > d ? xmin: d;  // Increase the minimum
+                if (xmin < d) {
+                    xmin = d;   // Increase the minimum
+                    minContribution = "age";
+                }
+                //                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList3[1], d)) {
-                xmax = xmax < d ? xmax: d;  // decreading the maximum
+                if (xmax > d) {
+                    xmax = d;   // Decrease the maximum
+                    maxContribution = "occ";
+                }
+                //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
         }
     }
@@ -132,14 +158,20 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
         if (amount > xmax ) {
             // This is an outlier.
             success = kW2Error_Warning;
-            errorMessage = message + "high.";
+            message = message + "high.\n";
         }
         else if (amount < xmin) {
             // This is an outlier.
             success = kW2Error_Warning;
-            errorMessage = message + "low.";
+            errorMessage = message + "low.\n";
         }
+        
+        message = message + "min contribution:" + minContribution + "\n";
+        message = message + "max contribution:" + maxContribution;
+
+        errorMessage = message;
     }
+    
     
     const clock_t end_time = std::clock();
     
@@ -150,6 +182,11 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
 
 W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 {
+    if (str == "") {
+        // Don't bother checking.
+        return kW2Error_OK;
+    }
+    
     // Retuns OK unless there are some issues.
     W2Error success = kW2Error_OK;
     this->errorMessage = "";    // Initialized to an empty string.
@@ -184,18 +221,18 @@ W2Error W2FormData::checkField(std::string& str, W2FormDataID dataID)
 //            break;
             
         case W2FormData_zipCode:
-        {
-            // First check the given input is a number.  get
-            int i;
-            if (getInteger(str, i)) {
-                std::cout << "The number = " << i << std::endl;
-                geoString = getDMACode(str);
+            {
+                // First check the given input is a number.  get
+                int i;
+                if (getInteger(str, i)) {
+                    std::cout << "The number = " << i << std::endl;
+                    geoString = getDMACode(str);
+                }
+                else {
+                    std::cout << "Failed the double conversion." << std::endl;
+                    success = kW2Error_Invalid;
+                }
             }
-            else {
-                std::cout << "Failed the double conversion." << std::endl;
-                success = kW2Error_Invalid;
-            }
-        }
             break;
             
         case W2FormData_box0_Age:

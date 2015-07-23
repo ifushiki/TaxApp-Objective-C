@@ -39,6 +39,12 @@
     return errorMessage;
 }
 
+- (W2Error) setDataString:(NSString *)str withFormDataID:(W2FormDataID)dataID
+{
+    std::string str1([str UTF8String]);
+    return data.setField(str1, dataID);
+}
+
 - (W2Error) setFormString:(NSString *) str withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
 {
     std::string str1([str UTF8String]);
@@ -54,9 +60,17 @@
 - (NSString *) getFormString:(W2FormDataID) dataID
 {
     std::string str = data.getField(dataID);
-    NSString *nsStr = [NSString stringWithUTF8String:str.c_str()];
+    NSString *nsStr = nil;
+    if (str != "") {
+        nsStr = [NSString stringWithUTF8String:str.c_str()];
 
+    }
     return nsStr;
+}
+
+- (W2Error) setDataSelection:(int)selectedID withFormDataID:(W2FormDataID) dataID
+{
+    return data.setSelection(selectedID, dataID);
 }
 
 - (W2Error) setFormSelection:(int) selectedID withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
@@ -73,6 +87,11 @@
 - (int) getFormSelection:(W2FormDataID) dataID
 {
     return data.getSelection(dataID);
+}
+
+- (W2Error) setDataCheckBoxStatus:(NSInteger)status withFormDataID:(W2FormDataID)dataID
+{
+    return data.setCheckBoxStatus((CheckBoxStatus) status, dataID);
 }
 
 - (W2Error) setFormCheckBoxStatus:(NSInteger) status withFormDataID:(W2FormDataID) dataID at:(CGPoint)topLeftPt
