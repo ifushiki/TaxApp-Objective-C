@@ -9,6 +9,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <stdio.h>
+#include <iomanip>
 #include "W2FormData.h"
 #import "SQLite.h"
 
@@ -81,14 +84,14 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             if (getDouble(rowList1[0], d)) {
                 if (xmin < d) {
                     xmin = d;   // Increase the minimum
-                    minContribution = "geo";
+                    minContribution = "Geography";
                 }
 //                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList1[1], d)) {
                 if (xmax > d) {
                     xmax = d;   // Decrease the maximum
-                    maxContribution = "geo";
+                    maxContribution = "Geography";
                 }
 //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
@@ -110,14 +113,14 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             if (getDouble(rowList2[0], d)) {
                 if (xmin < d) {
                     xmin = d;   // Increase the minimum
-                    minContribution = "occ";
+                    minContribution = "Occupation";
                 }
                 //                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList2[1], d)) {
                 if (xmax > d) {
                     xmax = d;   // Decrease the maximum
-                    maxContribution = "occ";
+                    maxContribution = "Occupation";
                 }
                 //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
@@ -138,14 +141,14 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
             if (getDouble(rowList3[0], d)) {
                 if (xmin < d) {
                     xmin = d;   // Increase the minimum
-                    minContribution = "age";
+                    minContribution = "Age";
                 }
                 //                xmin = xmin > d ? xmin: d;  // Increase the minimum
             }
             if (getDouble(rowList3[1], d)) {
                 if (xmax > d) {
                     xmax = d;   // Decrease the maximum
-                    maxContribution = "occ";
+                    maxContribution = "Acc";
                 }
                 //                xmax = xmax < d ? xmax: d;  // Decrease the maximum
             }
@@ -154,20 +157,27 @@ W2Error W2FormData::checkOutlier(double amount, const std::string& w2FieldString
     
     W2Error success = kW2Error_OK;
     if (hasRange && xmax > xmin) {
-        std::string message = "You have entered $" + std::to_string(amount) + ".  However, your value seems to be too ";
+        std::stringstream amountBuff;
+        char buffer[50];
+        sprintf(buffer, "%.2f", amount);
+        std::string amountStr = buffer;
+        amountBuff << amount;
+//        amountBuff << std::setprecision(2) << amount;
+//        std::string message = "You have entered $" + std::to_string(amount) + ".  However, your value seems to be too ";
+        std::string message = "You have entered $" + amountStr + ".  However, your value seems to be too ";
         if (amount > xmax ) {
             // This is an outlier.
             success = kW2Error_Warning;
-            message = message + "high.\n";
+            message = message + "high.\n\n";
         }
         else if (amount < xmin) {
             // This is an outlier.
             success = kW2Error_Warning;
-            errorMessage = message + "low.\n";
+            errorMessage = message + "low.\n\n";
         }
         
-        message = message + "min contribution:" + minContribution + "\n";
-        message = message + "max contribution:" + maxContribution;
+        message = message + "Minmum contribution:" + minContribution + "\n";
+        message = message + "Maximum contribution:" + maxContribution;
 
         errorMessage = message;
     }
