@@ -432,11 +432,14 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
     [self setNextViewController:goToNext];
 
     // Adjust the origin.
+/*
     NSRect parentFrame = self.window.frame;
     NSRect currentRect = self.currentController.view.bounds;
     float dy = parentFrame.size.height- currentRect.size.height - 128;
     currentRect.origin.y = dy;
     NSRect rect = currentRect;
+ */
+    CGRect rect = CGRectMake(0, 0, 947, 1000);
     [self.currentController.view setFrame:rect];
     [(NSScrollView *)self.window.contentView setDocumentView:self.currentController.view];
 }
@@ -448,10 +451,11 @@ bool configureHTTPRequestURLAndData(int caseIndex, std::string& url, std::string
 
     // Adjust the origin.
     NSRect parentFrame = self.window.frame;
-    NSRect currentRect = self.currentController.view.bounds;
-    float dy = parentFrame.size.height- currentRect.size.height - 128;
-    currentRect.origin.y = dy;
-    NSRect rect = currentRect;
+//    NSRect currentRect = self.currentController.view.bounds;
+//    float dy = parentFrame.size.height- currentRect.size.height - 128;
+//    currentRect.origin.y = dy;
+//    NSRect rect = currentRect;
+    CGRect rect = CGRectMake(0, 0, 947, 1000);
     [self.currentController.view setFrame:rect];
     [self.window.contentView addSubview:self.currentController.view];
 }

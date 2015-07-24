@@ -13,6 +13,8 @@
 - (IBAction) itemDidChange: (id) sender;
 
 @property (weak) IBOutlet NSImageView *imageView;
+@property (weak) IBOutlet NSImageView *headerView;
+@property (weak) IBOutlet NSImageView *w2LogoView;
 
 //-----------------------------------------------------------------------------------------------------------
 // Employer's information

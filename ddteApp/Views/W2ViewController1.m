@@ -27,16 +27,18 @@
     NSImage *w2LogoImage = [ResourceUtil getImage:@"TurboTax W-2 Logo" withType:@"png"];
     NSImage *leftArrowImage = [ResourceUtil getImage:@"left-arrow" withType:@"png"];
     NSImage *rightArrowImage = [ResourceUtil getImage:@"right-arrow" withType:@"png"];
-    NSImageView* headerImageView = createImageView(viewRect, 0, 0, 1045, 48);
-    NSImageView* w2LogoImageView = createImageView(viewRect, 849, 0, 987, 138);
+//    NSImageView* headerImageView = createImageView(viewRect, 0, 0, 1045, 48);
+//    NSImageView* w2LogoImageView = createImageView(viewRect, 849, 0, 987, 138);
     NSImageView* leftArrowImageView = createImageView(viewRect, 600, 0, 680, 80);
     NSImageView* rightArrowImageView = createImageView(viewRect, 700, 0, 780, 80);
-    [headerImageView setImage:headerImage];
-    [w2LogoImageView setImage:w2LogoImage];
+//    [headerImageView setImage:headerImage];
+    [self.headerView setImage:headerImage];
+    [self.w2LogoView setImage:w2LogoImage];
+//    [w2LogoImageView setImage:w2LogoImage];
     [leftArrowImageView setImage:leftArrowImage];
     [rightArrowImageView setImage:rightArrowImage];
-    [self.imageView addSubview:headerImageView];
-    [self.imageView addSubview:w2LogoImageView];
+//    [self.imageView addSubview:headerImageView];
+//    [self.imageView addSubview:w2LogoImageView];
     
     //-----------------------------------------------------------------------------------------------------------
     // Employer's information
